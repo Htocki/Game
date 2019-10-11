@@ -23,5 +23,3 @@ add_executable(space
 	)
 
 target_link_libraries(space sfml-graphics sfml-window sfml-system sfml-audio sfml-network)
-
- #set_property(TARGET space PROPERTY WIN32_EXECUTABLE true)

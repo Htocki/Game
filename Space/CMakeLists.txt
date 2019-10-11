@@ -1,9 +1,27 @@
-﻿# CMakeList.txt : Top-level CMake project file, do global configuration
-# and include sub-projects here.
-#
-cmake_minimum_required (VERSION 3.8)
+﻿#sets up the minimum version of cmake
+cmake_minimum_required(VERSION 3.9) # personally I'd set this version as low as required; you don't have to require the cutting edge version
 
-project ("Space")
+#how the project will be called
+project (space)
 
-# Include sub-projects.
-add_subdirectory ("Space")
+## If you want to link SFML statically
+# set(SFML_STATIC_LIBRARIES TRUE)
+
+## In most cases better set in the CMake cache
+set(SFML_DIR "SFML-2.5.1/lib/cmake/SFML")
+
+find_package(SFML 2.5 COMPONENTS graphics window system audio network REQUIRED)
+
+add_executable(space 
+	Main.cpp
+	Game.hpp Game.cpp
+	Statistic.hpp Statistic.cpp 
+	StringHelpers.hpp
+	Aircraft.hpp Aircraft.cpp
+	ResourceHolder.hpp
+	Enums.hpp
+	)
+
+target_link_libraries(space sfml-graphics sfml-window sfml-system sfml-audio sfml-network)
+
+ #set_property(TARGET space PROPERTY WIN32_EXECUTABLE true)

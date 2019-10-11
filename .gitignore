@@ -2,6 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+/Space/SFML-2.5.1
 /Space/out/build/x64-Debug
 /Space/.vs/VSWorkspaceState.json
 /Space/.vs/Space/v16/ipch/AutoPCH/e35538731b5b3c65/MAIN.ipch
@@ -23,3 +24,4 @@
 /.vs/Learn/v16/.suo
 /.vs/Learn/v16
 /.vs
+/Space/CMakeSettings.json

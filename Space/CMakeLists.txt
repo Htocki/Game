@@ -16,12 +16,9 @@ find_package(SFML 2.5 COMPONENTS graphics window system audio network REQUIRED)
 
 add_executable(space
 	Main.cpp
-	Game.hpp Game.cpp
-	Statistic.hpp Statistic.cpp 
-	StringHelpers.hpp
-	Aircraft.hpp Aircraft.cpp
-	ResourceHolder.hpp
-	Enums.hpp
+	Game.cpp
+	Statistic.cpp 
+	Aircraft.cpp
 	)
 
 target_link_libraries(space sfml-graphics sfml-window sfml-system sfml-audio sfml-network)

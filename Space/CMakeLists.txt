@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 
 add_executable(space
-	source/Main.cpp
+	Main.cpp
 	source/Game.cpp
 	source/Statistic.cpp 
 	source/Aircraft.cpp

@@ -1,5 +1,5 @@
 #include <exception>
-#include <conio.h>
+#include <iostream>
 #include "Game.hpp"
 
 
@@ -15,8 +15,6 @@ int main()
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-
-	_getch();
 }
 
 

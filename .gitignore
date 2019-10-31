@@ -26,3 +26,5 @@
 /.vs
 /Space/CMakeSettings.json
 /Space/out/build/x64-Release
+/Debug
+/Space/CMakeLists.txt.user

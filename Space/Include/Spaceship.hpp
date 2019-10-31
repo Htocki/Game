@@ -1,4 +1,5 @@
 #pragma once
+
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
@@ -14,21 +15,21 @@ class Spaceship
         : public sf::Drawable
 {
 public:
-                    Spaceship(sf::Vector2f);
-	void			processEvents(sf::Event event);
-    void            update(sf::Time dt);
-    virtual void    draw(sf::RenderTarget& target, sf::RenderStates states) const final;
-	void			setTexture(sf::Texture& texture);
+    Spaceship (sf::Vector2f);
+	void processEvents (sf::Event);
+    void update (sf::Time);
+    virtual void draw (sf::RenderTarget&, sf::RenderStates) const final;
+	void setTexture (sf::Texture&);
 
 
 private:
-	enum State
+	enum class State
 	{
-		STATE_STANDING,
-		STATE_MOVING_UP,
-		STATE_MOVING_DOWN,
-		STATE_MOVING_LEFT,
-		STATE_MOVING_RIGHT
+		STANDING,
+		MOVING_UP,
+		MOVING_DOWN,
+		MOVING_LEFT,
+		MOVING_RIGHT
 	};
 
 	State			state_;

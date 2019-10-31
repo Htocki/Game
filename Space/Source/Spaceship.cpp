@@ -3,7 +3,7 @@
 
 
 Spaceship::Spaceship(sf::Vector2f position)
-	: state_(STATE_STANDING)
+    : state_(State::STANDING)
 	, frames_(0)
     , position_(position)
 	, speed_(100.f)
@@ -16,25 +16,25 @@ void Spaceship::processEvents(sf::Event event)
 {
 	switch (state_)
 	{
-	case STATE_STANDING:
+    case State::STANDING:
 		if (event.type == sf::Event::KeyPressed)
 		{
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Up:
-				state_ = STATE_MOVING_UP;
+                state_ = State::MOVING_UP;
 				break;
 
 			case sf::Keyboard::Down:
-				state_ = STATE_MOVING_DOWN;
+                state_ = State::MOVING_DOWN;
 				break;
 
 			case sf::Keyboard::Left:
-				state_ = STATE_MOVING_LEFT;
+                state_ = State::MOVING_LEFT;
 				break;
 
 			case sf::Keyboard::Right:
-				state_ = STATE_MOVING_RIGHT;
+                state_ = State::MOVING_RIGHT;
 				break;
 
             default:   // Добавлена из-за предупреждения комилиятора.
@@ -43,21 +43,21 @@ void Spaceship::processEvents(sf::Event event)
 		}
 		break;
 
-	case STATE_MOVING_UP:
+    case State::MOVING_UP:
 		if (event.type == sf::Event::KeyPressed)
 		{
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Down:
-				state_ = STATE_MOVING_DOWN;
+                state_ = State::MOVING_DOWN;
 				break;
 
 			case sf::Keyboard::Left:
-				state_ = STATE_MOVING_LEFT;
+                state_ = State::MOVING_LEFT;
 				break;
 
 			case sf::Keyboard::Right:
-				state_ = STATE_MOVING_RIGHT;
+                state_ = State::MOVING_RIGHT;
 				break;
 
             default:   // Добавлена из-за предупреждения комилиятора.
@@ -69,7 +69,7 @@ void Spaceship::processEvents(sf::Event event)
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Up:
-				state_ = STATE_STANDING;
+                state_ = State::STANDING;
 				break;
 
             default:   // Добавлена из-за предупреждения комилиятора.
@@ -78,21 +78,21 @@ void Spaceship::processEvents(sf::Event event)
 		}
 		break;
 
-	case STATE_MOVING_DOWN:
+    case State::MOVING_DOWN:
 		if (event.type == sf::Event::KeyPressed)
 		{
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Up:
-				state_ = STATE_MOVING_UP;
+                state_ = State::MOVING_UP;
 				break;
 				
 			case sf::Keyboard::Left:
-				state_ = STATE_MOVING_LEFT;
+                state_ = State::MOVING_LEFT;
 				break;
 
 			case sf::Keyboard::Right:
-				state_ = STATE_MOVING_RIGHT;
+                state_ = State::MOVING_RIGHT;
 				break;
 
             default:   // Добавлена из-за предупреждения комилиятора.
@@ -104,7 +104,7 @@ void Spaceship::processEvents(sf::Event event)
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Down:
-				state_ = STATE_STANDING;
+                state_ = State::STANDING;
 				break;
 
             default:   // Добавлена из-за предупреждения комилиятора.
@@ -113,21 +113,21 @@ void Spaceship::processEvents(sf::Event event)
 		}
 		break;
 
-	case STATE_MOVING_LEFT:
+    case State::MOVING_LEFT:
 		if (event.type == sf::Event::KeyPressed)
 		{
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Up:
-				state_ = STATE_MOVING_UP;
+                state_ = State::MOVING_UP;
 				break;
 
 			case sf::Keyboard::Down:
-				state_ = STATE_MOVING_DOWN;
+                state_ = State::MOVING_DOWN;
 				break;
 
 			case sf::Keyboard::Right:
-				state_ = STATE_MOVING_RIGHT;
+                state_ = State::MOVING_RIGHT;
 				break;
 
             default:   // Добавлена из-за предупреждения комилиятора.
@@ -139,7 +139,7 @@ void Spaceship::processEvents(sf::Event event)
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Left:
-				state_ = STATE_STANDING;
+                state_ = State::STANDING;
 				break;
 
             default:   // Добавлена из-за предупреждения комилиятора.
@@ -148,21 +148,21 @@ void Spaceship::processEvents(sf::Event event)
 		}
 		break;
 
-	case STATE_MOVING_RIGHT:
+    case State::MOVING_RIGHT:
 		if (event.type == sf::Event::KeyPressed)
 		{
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Up:
-				state_ = STATE_MOVING_UP;
+                state_ = State::MOVING_UP;
 				break;
 
 			case sf::Keyboard::Down:
-				state_ = STATE_MOVING_DOWN;
+                state_ = State::MOVING_DOWN;
 				break;
 
 			case sf::Keyboard::Left:
-				state_ = STATE_MOVING_LEFT;
+                state_ = State::MOVING_LEFT;
 				break;
 
             default:   // Добавлена из-за предупреждения комилиятора.
@@ -174,7 +174,7 @@ void Spaceship::processEvents(sf::Event event)
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Right:
-				state_ = STATE_STANDING;
+                state_ = State::STANDING;
 				break;
 
             default:   // Добавлена из-за предупреждения комилиятора.
@@ -191,19 +191,19 @@ void Spaceship::update(sf::Time dt)
 
 	switch (state_)
 	{
-	case STATE_MOVING_UP:
+    case State::STANDING :
 		movement.y -= speed_;
 		break;
 
-	case STATE_MOVING_DOWN:
+    case State::MOVING_DOWN:
 		movement.y += speed_;
 		break;
 
-	case STATE_MOVING_LEFT:
+    case State::MOVING_LEFT:
 		movement.x -= speed_;
 		break;
 
-	case STATE_MOVING_RIGHT:
+    case State::MOVING_RIGHT:
 		movement.x += speed_;
 		break;
 

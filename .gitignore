@@ -28,3 +28,8 @@
 /Space/out/build/x64-Release
 /Debug
 /Space/CMakeLists.txt.user
+Space/cmake_install.cmake
+Space/CMakeFiles
+Space/CMakeCache.txt
+Space/Makefile
+Space/Space

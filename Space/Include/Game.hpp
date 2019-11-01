@@ -17,10 +17,10 @@ class Game
 {
 public:
 	Game();
-	void gameLoop();
+	void run();
 
 private:
-	void processEvents();
+	void input();
 	void update();
 	void render();
 

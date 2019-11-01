@@ -9,7 +9,7 @@ int main()
 	try
 	{
 		Game game;
-		game.gameLoop();
+		game.run();
 	}
 	catch (std::runtime_error &e)
 	{

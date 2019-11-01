@@ -12,7 +12,7 @@ Game::Game()
 {
 }
 
-void Game::gameLoop()
+void Game::run()
 {
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
@@ -22,7 +22,7 @@ void Game::gameLoop()
 		sf::Time elapsedTime = clock.restart();
 		timeSinceLastUpdate += elapsedTime;
 
-		processEvents();
+		input();
 
 		while (timeSinceLastUpdate > delay_)
 		{
@@ -35,7 +35,7 @@ void Game::gameLoop()
 	}
 }
 
-void Game::processEvents()
+void Game::input()
 {
 	sf::Event event;
 	while (window_.pollEvent(event))
@@ -63,8 +63,10 @@ void Game::update()
 void Game::render()
 {
     window_.clear(sf::Color::Black);
+	
     player_.draw(window_, sf::RenderStates::Default);
     statistic_.draw(window_, sf::RenderStates::Default);
     score_.draw(window_, sf::RenderStates::Default);
+	
 	window_.display();
 }

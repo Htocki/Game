@@ -50,7 +50,7 @@ void Game::input()
             ;
 		}
 
-        player_.processEvents(event);
+        player_.input(event);
 	}
 }
 

@@ -16,11 +16,13 @@
 class Player
 {
 public:
-    Player(ResourceHolder <sf::Texture, Textures::ID>&);
-    void processEvents(sf::Event&);
-    void update(sf::Time);
-    void draw(sf::RenderTarget&, sf::RenderStates) const;
-    sf::Int64 getScore();
+    Player (ResourceHolder <sf::Texture, Textures::ID>&);
+
+    void input (sf::Event);
+    void update (sf::Time);
+    void draw (sf::RenderTarget&, sf::RenderStates) const;
+    
+    sf::Int64   getScore();
     std::string getName() const;
 
 private:

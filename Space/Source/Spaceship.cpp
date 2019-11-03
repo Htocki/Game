@@ -2,18 +2,16 @@
 
 
 
-Spaceship::Spaceship(sf::Vector2f position)
-    : state_(State::STANDING)
-	, frames_(0)
-    , position_(position)
+Spaceship::Spaceship (sf::Vector2f position) 
+	: GameObject(position)
+    , state_(State::STANDING)
 	, speed_(100.f)
 {
-    sprite_.setPosition(position_);
+    sprite_.setPosition(position);
 }
 
 
-void Spaceship::processEvents(sf::Event event)
-{
+void Spaceship::input (sf::Event event) {
 	switch (state_)
 	{
     case State::STANDING:
@@ -185,8 +183,7 @@ void Spaceship::processEvents(sf::Event event)
 	}
 }
 
-void Spaceship::update(sf::Time dt)
-{
+void Spaceship::update (sf::Time dt) {
 	sf::Vector2f movement(0.f, 0.f);
 
 	switch (state_)
@@ -214,11 +211,10 @@ void Spaceship::update(sf::Time dt)
     sprite_.move(movement * dt.asSeconds());
 }
 
-void Spaceship::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+void Spaceship::draw (sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(sprite_, states);
 }
 
-void Spaceship::setTexture(sf::Texture& texture)
-{
+void Spaceship::setTexture (sf::Texture& texture) {
 	sprite_.setTexture(texture);
 }

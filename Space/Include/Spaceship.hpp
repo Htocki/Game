@@ -1,24 +1,21 @@
 #pragma once
 
-#include <SFML/System/Time.hpp>
-#include <SFML/Window/Event.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/RenderStates.hpp>
-#include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
 #include "ResourceHolder.hpp"
+#include "GameObject.hpp"
 
 
 
-class Spaceship
-        : public sf::Drawable
+class Spaceship : public GameObject
 {
 public:
     Spaceship (sf::Vector2f);
-	void processEvents (sf::Event);
-    void update (sf::Time);
+
+	virtual void input (sf::Event) final;
+    virtual void update (sf::Time) final;
     virtual void draw (sf::RenderTarget&, sf::RenderStates) const final;
+
 	void setTexture (sf::Texture&);
 
 
@@ -34,7 +31,6 @@ private:
 
 	State			state_;
 	int				frames_;
-    sf::Vector2f    position_;
 	const float		speed_;
     sf::Sprite		sprite_;
 };

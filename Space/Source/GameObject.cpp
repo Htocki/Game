@@ -4,12 +4,12 @@ GameObject::GameObject (sf::Vector2f position) {
     position_ = position;
 }
 
-~GameObject::GameObject () {}
+GameObject::~GameObject () {}
 
-void GameObject::setPosition (sf::Vector2f& position) {
+void GameObject::setPosition (sf::Vector2f position) {
     position_ = position;
 }
 
-sf::Vector2f GameObject::getPosition () {
+sf::Vector2f GameObject::getPosition () const {
     return position_;
 }

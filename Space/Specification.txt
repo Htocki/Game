@@ -1,17 +1,41 @@
-// Схема включения объектов
+// Схема включения объектов игры
+Game
+    Player
+        Spaceship
 
-Game {
-    Player {
-        Spaceship {}
-    }
-    Gui {}
-}
+    GameInterface
+        Frame::Loading
+            Label::GameName
+            Label::Version
+            ProgressBar
+
+        Frame::GameProcess
+            Label::FramesPerSecond
+            Label::TimeOfFrame
+            Label::Player::Name
+            Label::Player::Score
+            Label::RecordScore
+
+        Frame::Pause
+            Label::Pause
+            Botton::Continue
+
+        Frame::GameOver
+            Label::GameOver
+            Botton::Replay
+
+
+// Схема наследования классов интерфейса
+GUInterface classes
+    Widget
+        Frame
+            Label
+        Botton
+        ProgressBar
 
 
 
-
-// Описание функциональности и принципа работы классов
- 
+// Описание классов
 Game {
     [ФУНКЦИИ]
         Инициализация

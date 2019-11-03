@@ -21,7 +21,7 @@ public:
     virtual void update (sf::Time) = 0;
 
     void            setPosition (sf::Vector2f);
-    sf::Vector2f    getPosition () const; 
+    sf::Vector2f    getPosition () const;
 
 
 private:

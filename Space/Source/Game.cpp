@@ -8,7 +8,9 @@ Game::Game()
     , textures_()
     , player_(textures_)
     , statistic_()
-    , score_({230.0f, 5.0f})
+    , score_({230.f, 5.f})
+	, framesPerSecond_({5.f, 5.f})
+	, timeOfFrame_({5.f, 18.f})
 {
 }
 
@@ -57,7 +59,10 @@ void Game::input()
 void Game::update()
 {
     player_.update(delay_);
+
     score_.setText(toString(player_.getName()) + ":   " + toString(player_.getScore()));
+	framesPerSecond_.setText("frames per second:   " + toString(statistic_.getFramesPerSecond()));
+	timeOfFrame_.setText("time of frame:   " + toString(statistic_.getTimeOfFrame()));
 }
 
 void Game::render()
@@ -65,8 +70,10 @@ void Game::render()
     window_.clear(sf::Color::Black);
 	
     player_.draw(window_, sf::RenderStates::Default);
-    statistic_.draw(window_, sf::RenderStates::Default);
+
     score_.draw(window_, sf::RenderStates::Default);
+	framesPerSecond_.draw(window_, sf::RenderStates::Default);
+	timeOfFrame_.draw(window_, sf::RenderStates::Default);
 	
 	window_.display();
 }

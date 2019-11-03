@@ -2,8 +2,9 @@
 
 
 
-Label::Label(sf::Vector2f position)
-    : font_()
+Label::Label (sf::Vector2f position) 
+    : Widget(position)
+    , font_()
     , text_()
 {
     font_.loadFromFile("Media/Fonts/Sansation.ttf");
@@ -12,19 +13,15 @@ Label::Label(sf::Vector2f position)
     text_.setCharacterSize(12);
 }
 
-Label::Label(sf::Vector2f position, std::string string)
-    : Label(position)
-{
-    text_.setString(toString(string));
-}
-
-
-void Label::setText(std::string string)
-{
-    text_.setString(toString(string));
-}
-
-void Label::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
+void Label::draw (sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(text_, states);
+}
+
+void Label::setText (std::string string) {
+    text_.setString(toString(string));
+}
+
+void Label::setPosition (sf::Vector2f position) {
+    position_ = position;
+    text_.setPosition(position);
 }

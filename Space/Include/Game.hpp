@@ -27,9 +27,11 @@ private:
 	sf::RenderWindow	window_;
 	const sf::Time		delay_;
 
-    ResourceHolder <sf::Texture, Textures::ID> textures_;
-    Player player_;
-    Statistic statistic_;
-    Label score_;
+	ResourceHolder <sf::Texture, Textures::ID> textures_;
+	Player player_;
+	Statistic statistic_;
+	
+	Label score_;
+	Label framesPerSecond_;
+	Label timeOfFrame_;
 };
-

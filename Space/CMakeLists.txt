@@ -13,6 +13,7 @@ set (CMAKE_CXX_STANDARD_REQUIRED on)
 
 add_executable (${PROJECT_NAME}
 	Main.cpp
+	Source/Graphics/Widget.cpp
     Source/Graphics/Label.cpp
 	Source/Game.cpp
 	Source/Player.cpp 

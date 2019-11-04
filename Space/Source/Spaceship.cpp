@@ -23,6 +23,10 @@ void Spaceship::draw (sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(sprite_, states);
 }
 
+float Spaceship::getSpeed() const {
+	return speed_;
+}
+
 void Spaceship::setTexture (sf::Texture& texture) {
 	sprite_.setTexture(texture);
 }

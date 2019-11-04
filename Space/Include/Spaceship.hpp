@@ -17,10 +17,12 @@ public:
 	void moveLeft(sf::Time);
 	void moveRight(sf::Time);
 
+	float getSpeed() const;
+
 	void setTexture (sf::Texture&);
 
 
 private:
-	const float		speed_;
-    sf::Sprite		sprite_;
+	float		speed_;
+    sf::Sprite	sprite_;
 };

@@ -4,7 +4,7 @@
 
 namespace Textures
 {
-	enum ID
+	enum class ID
 	{
 		Landscape,
         Spaceship

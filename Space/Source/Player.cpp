@@ -5,11 +5,11 @@
 
 Player::Player(ResourceHolder <sf::Texture, Textures::ID>& textures)
 	: state_(State::STANDING)
-	, score_()
-    , spaceship_({200, 700})
+    , spaceship_({200, 600})
+	, score_(0)
     , name_("Miha default player")
 {
-    spaceship_.setTexture(textures.get(Textures::Spaceship));
+    spaceship_.setTexture(textures.get(Textures::ID::Spaceship));
 }
 
 void Player::input (sf::Event event) {
@@ -76,6 +76,7 @@ void Player::input (sf::Event event) {
 }
 
 void Player::update (sf::Time time) {
+	// Обновление состояния корабля
 	switch (state_)
 	{
 	case State::MOVING_LEFT:
@@ -86,14 +87,17 @@ void Player::update (sf::Time time) {
 		spaceship_.moveRight(time);
 		break;
 	}
+
+	// Обновление состояния счета
+	score_ += static_cast<int> (spaceship_.getSpeed() * time.asSeconds());
 }
 
 void Player::draw (sf::RenderTarget &target, sf::RenderStates states) const {
     spaceship_.draw(target, states);
 }
 
-sf::Int64 Player::getScore () {
-    return score_.getScore();
+int Player::getScore() const {
+    return score_;
 }
 
 std::string Player::getName () const {

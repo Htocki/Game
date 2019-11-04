@@ -17,7 +17,7 @@ public:
 
 private:
     sf::Time    updateTime_;
-    sf::Int64   numFrames_;
+    sf::Int64   numFrames_ ;
 
     sf::Int64   framesPerSecond_;
     sf::Int64   timeOfFrame_;

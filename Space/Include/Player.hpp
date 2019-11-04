@@ -8,9 +8,7 @@
 
 #include <string>
 
-#include "Graphics/Label.hpp"
 #include "Spaceship.hpp"
-#include "Score.hpp"
 
 
 
@@ -23,7 +21,7 @@ public:
     void update (sf::Time);
     void draw (sf::RenderTarget&, sf::RenderStates) const;
     
-    sf::Int64   getScore();
+	int			getScore() const;
     std::string getName() const;
 	sf::View	getView() const;
 
@@ -38,7 +36,7 @@ private:
 
 	State		state_;
     Spaceship	spaceship_;
-	Score		score_;
+	int	score_;
     std::string name_;
 	sf::View	view_;
 };

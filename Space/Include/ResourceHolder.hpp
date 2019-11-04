@@ -16,8 +16,8 @@ class ResourceHolder
 public:
     ResourceHolder()
     {
-        load(Textures::Landscape, "Media/Textures/Desert.png");
-        load(Textures::Spaceship, "Media/Textures/Eagle.png");
+        load(Textures::ID::Landscape, "Media/Textures/Desert.png");
+        load(Textures::ID::Spaceship, "Media/Textures/Eagle.png");
     }
 
 	void load(Identifier id, const std::string& filename);

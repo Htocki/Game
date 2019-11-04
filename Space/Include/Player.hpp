@@ -4,6 +4,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/View.hpp>
 
 #include <string>
 
@@ -24,11 +25,22 @@ public:
     
     sf::Int64   getScore();
     std::string getName() const;
+	sf::View	getView() const;
 
 private:
-    Score score_;
-    Spaceship spaceship_;
+	enum class State {
+		STANDING,
+		MOVING_UP,
+		MOVING_DOWN,
+		MOVING_LEFT,
+		MOVING_RIGHT
+	};
+
+	State		state_;
+    Spaceship	spaceship_;
+	Score		score_;
     std::string name_;
+	sf::View	view_;
 };
 
 

@@ -32,4 +32,7 @@ target_link_libraries (${PROJECT_NAME}
 	sfml-network
 	)
 
-## set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
+
+## // Костыль для отключения консольного окна в Windows
+## // Добваляется в main.cpp
+## #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")

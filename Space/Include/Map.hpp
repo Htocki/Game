@@ -24,3 +24,5 @@ private:
     sf::VertexArray vertices_;
     sf::Texture     teleset_;
 }
+
+// map.load("tileset.png", sf::Vector2u(32, 32), level, 16, 8)

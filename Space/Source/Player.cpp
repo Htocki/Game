@@ -8,7 +8,6 @@ Player::Player(ResourceHolder <sf::Texture, Textures::ID>& textures)
     , spaceship_({200, 600})
 	, score_(0)
     , name_("Miha default player")
-	, view_()
 {
     spaceship_.setTexture(textures.get(Textures::ID::Spaceship));
 }
@@ -103,8 +102,4 @@ int Player::getScore() const {
 
 std::string Player::getName () const {
     return name_;
-}
-
-sf::View Player::getView() const {
-	return view_;
 }

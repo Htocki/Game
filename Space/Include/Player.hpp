@@ -23,7 +23,7 @@ public:
     
 	int			getScore() const;
     std::string getName() const;
-	sf::View	getView() const;
+
 
 private:
 	enum class State {

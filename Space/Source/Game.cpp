@@ -3,7 +3,7 @@
 
 
 Game::Game()
-	: window_(sf::VideoMode(400, 800), "Space")
+	: window_(sf::VideoMode(width, height), "Space")
 	, delay_(sf::seconds(1.f / 60.f))
     , textures_()
     , player_(textures_)
@@ -11,8 +11,7 @@ Game::Game()
     , score_({230.f, 5.f})
 	, framesPerSecond_({5.f, 5.f})
 	, timeOfFrame_({5.f, 18.f})
-{
-}
+{}
 
 void Game::run()
 {
@@ -47,9 +46,6 @@ void Game::input()
 		case sf::Event::Closed:
 			window_.close();
 			break;
-
-        default:   // Добавлена из-за предупреждения комилиятора.
-            ;
 		}
 
         player_.input(event);

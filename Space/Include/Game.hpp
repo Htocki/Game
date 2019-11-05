@@ -13,6 +13,9 @@
 
 
 
+const int width = 400;
+const int height = 800;
+
 class Game
 {
 public:

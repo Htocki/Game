@@ -8,6 +8,7 @@ Player::Player(ResourceHolder <sf::Texture, Textures::ID>& textures)
     , spaceship_({200, 600})
 	, score_(0)
     , name_("Miha default player")
+	, view_()
 {
     spaceship_.setTexture(textures.get(Textures::ID::Spaceship));
 }
@@ -76,7 +77,7 @@ void Player::input (sf::Event event) {
 }
 
 void Player::update (sf::Time time) {
-	// Обновление состояния корабля
+	// РћР±РЅРѕРІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ РєРѕСЃРјРёС‡РµСЃРєРѕРіРѕ РєРѕСЂР°Р±Р»СЏ
 	switch (state_)
 	{
 	case State::MOVING_LEFT:
@@ -88,7 +89,7 @@ void Player::update (sf::Time time) {
 		break;
 	}
 
-	// Обновление состояния счета
+	// РћР±РЅРѕРІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёСЏ СЃС‡РµС‚Р°
 	score_ += static_cast<int> (spaceship_.getSpeed() * time.asSeconds());
 }
 

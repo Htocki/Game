@@ -16,23 +16,3 @@ int main()
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,7 +2,7 @@
 
 project (Space)
 
-set (SFML_DIR "SFML-2.5.1/lib/cmake/SFML")
+## set (SFML_DIR "SFML-2.5.1/lib/cmake/SFML")
 
 find_package (SFML 2.5 COMPONENTS graphics window system audio network REQUIRED)
 

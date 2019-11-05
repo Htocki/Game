@@ -36,9 +36,6 @@ private:
 
 	State		state_;
     Spaceship	spaceship_;
-	int	score_;
+	int			score_;
     std::string name_;
-	sf::View	view_;
 };
-
-

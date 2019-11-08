@@ -3,10 +3,10 @@
 
 
 template <typename T>
-class ValueGenerator
+class Generator
 {
 public:
-    ValueGenerator (T min, T max)
+    Generator (T min, T max)
         : min_(min)
         , max_(max)
     {}

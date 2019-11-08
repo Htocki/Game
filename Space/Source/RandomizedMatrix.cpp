@@ -3,7 +3,7 @@
 RandomizedMatrix::RandomizedMatrix (
         unsigned int width,
         unsigned int height,
-        ValueGenerator<int> generator
+        Generator<int> generator
     )
     : width_(width)
     , height_(height)

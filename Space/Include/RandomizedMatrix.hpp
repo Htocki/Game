@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 
-#include "Utility\ValueGenerator.hpp"
+#include "Utility\Generator.hpp"
 
 
 
@@ -13,7 +13,7 @@ public:
     RandomizedMatrix (
         unsigned int width,
         unsigned int height,
-        ValueGenerator<int> generator
+        Generator<int> generator
     );
 
     void update();
@@ -29,5 +29,5 @@ private:
     std::vector<int> v;
     unsigned int width_;
     unsigned int height_;
-    ValueGenerator<int> generator_;
+    Generator<int> generator_;
 };

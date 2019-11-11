@@ -3,11 +3,11 @@
 
 
 bool Tilemap::load (
-        const std::string& tileset, 
-        sf::Vector2u tileSize, 
-        const int* tiles, 
-        unsigned int width, 
-        unsigned int height
+        const std::string&	tileset, 
+        sf::Vector2u		tileSize, 
+		RandomizedMatrix	tiles,
+        unsigned int		width, 
+        unsigned int		height
     )
 {
     // Load the tileset texture
@@ -23,14 +23,14 @@ bool Tilemap::load (
         for (unsigned int j = 0; j < height; ++j)
         {
             // Get the current tile number
-            int tileNumber = tiles_.getValue(i, j);
+            int tileNumber = tiles.getValue(i, j);
 
             // Find its position in the tileset texture
             int tu = tileNumber % (tileset_.getSize().x / tileSize.x);
             int tv = tileNumber / (tileset_.getSize().x / tileSize.x);
 
             // Get a pointer to the current tile's quad
-            sf::vertex* quad = &vertices_[(i + j * width) * 4];
+            sf::Vertex* quad = &vertices_[(i + j * width) * 4];
 
             // Define its 4 corners
             quad[0].position = sf::Vector2f(i * tileSize.x, j * tileSize.y);

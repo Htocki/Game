@@ -7,15 +7,18 @@ Game::Game()
 	, delay_(sf::seconds(1.f / 60.f))
     , textures_()
     , player_(textures_)
+	, view_(sf::FloatRect(0, 0, width, height))
     , statistic_()
     , score_({230.f, 5.f})
 	, framesPerSecond_({5.f, 5.f})
 	, timeOfFrame_({5.f, 18.f})
 {
-    Generator<int> generator{0, 3};
+    Generator<int> generator{0, 13};
     RandomizedMatrix matrix_{16, 40, generator};
 
-	map_.load("Media/Textures/Tileset.png", sf::Vector2u(32, 32), matrix_, 16, 40);
+	map_.load("Media/Textures/Space.png", sf::Vector2u(30, 30), matrix_, 16, 40);
+
+	window_.setView(view_);
 }
 
 void Game::run()
@@ -75,6 +78,6 @@ void Game::render()
     score_.draw(window_, sf::RenderStates::Default);
 	framesPerSecond_.draw(window_, sf::RenderStates::Default);
 	timeOfFrame_.draw(window_, sf::RenderStates::Default);
-	
+
 	window_.display();
 }

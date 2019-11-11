@@ -20,6 +20,8 @@ add_executable (${PROJECT_NAME}
 	Source/Spaceship.cpp
 	Source/Statistic.cpp
 	Source/GameObject.cpp
+	Source/RandomizedMatrix.cpp
+	##Source/Tilemap.cpp
 	)
 
 

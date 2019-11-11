@@ -1,13 +1,13 @@
-#include "Map.hpp"
+#include "Tilemap.hpp"
 
 
 
-bool Map::load (
-        const std::string&  tileset,
-        sf::Vector2u        tileSize,
-        const int*          tiles,
-        unsigned int        width,
-        unsigned int        height
+bool Tilemap::load (
+        const std::string& tileset, 
+        sf::Vector2u tileSize, 
+        const int* tiles, 
+        unsigned int width, 
+        unsigned int height
     )
 {
     // Load the tileset texture
@@ -23,7 +23,7 @@ bool Map::load (
         for (unsigned int j = 0; j < height; ++j)
         {
             // Get the current tile number
-            int tileNumber = tiles[i + j * width];
+            int tileNumber = tiles_.getValue(i, j);
 
             // Find its position in the tileset texture
             int tu = tileNumber % (tileset_.getSize().x / tileSize.x);
@@ -48,7 +48,7 @@ bool Map::load (
     return true;
 }
 
-void Map::draw (sf::RenderTarget& target, sf::RenderStates states) const {
+void Tilemap::draw (sf::RenderTarget& target, sf::RenderStates states) const {
     // Apply the transform
     states.transform *= getTransform();
 

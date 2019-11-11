@@ -6,10 +6,14 @@
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include "ResourceHolder.hpp"
 #include "Utility/ToString.hpp"
+#include "ResourceHolder.hpp"
 #include "Statistic.hpp"
 #include "Player.hpp"
+#include "Tilemap.hpp"
+
+#include "Utility/Generator.hpp"
+#include "RandomizedMatrix.hpp"
 
 
 
@@ -33,6 +37,8 @@ private:
 	ResourceHolder <sf::Texture, Textures::ID> textures_;
 	Player player_;
 	Statistic statistic_;
+
+	Tilemap map_;
 	
 	Label score_;
 	Label framesPerSecond_;

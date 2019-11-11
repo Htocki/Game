@@ -11,7 +11,12 @@ Game::Game()
     , score_({230.f, 5.f})
 	, framesPerSecond_({5.f, 5.f})
 	, timeOfFrame_({5.f, 18.f})
-{}
+{
+    Generator<int> generator{0, 3};
+    RandomizedMatrix matrix_{16, 40, generator};
+
+	map_.load("Media/Textures/Tileset.png", sf::Vector2u(32, 32), matrix_, 16, 40);
+}
 
 void Game::run()
 {
@@ -64,7 +69,7 @@ void Game::update()
 void Game::render()
 {
     window_.clear(sf::Color::Black);
-	
+	window_.draw(map_);
     player_.draw(window_, sf::RenderStates::Default);
 
     score_.draw(window_, sf::RenderStates::Default);

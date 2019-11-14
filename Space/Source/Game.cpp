@@ -7,7 +7,6 @@ Game::Game()
 	, delay_(sf::seconds(1.f / 60.f))
     , textures_()
     , player_(textures_)
-	, view_(sf::FloatRect(0, 0, width, height))
     , statistic_()
     , score_({230.f, 5.f})
 	, framesPerSecond_({5.f, 5.f})
@@ -17,8 +16,6 @@ Game::Game()
     RandomizedMatrix matrix_{16, 40, generator};
 
 	map_.load("Media/Textures/Space.png", sf::Vector2u(30, 30), matrix_, 16, 40);
-
-	window_.setView(view_);
 }
 
 void Game::run()

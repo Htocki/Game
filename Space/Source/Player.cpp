@@ -76,7 +76,7 @@ void Player::input (sf::Event event) {
 }
 
 void Player::update (sf::Time time) {
-	// Обновление состояния космического корабля
+	// Spaceship update
 	switch (state_)
 	{
 	case State::MOVING_LEFT:
@@ -88,7 +88,7 @@ void Player::update (sf::Time time) {
 		break;
 	}
 
-	// Обновление состояния счета
+	// Score update
 	score_ += static_cast<int> (spaceship_.getSpeed() * time.asSeconds());
 }
 

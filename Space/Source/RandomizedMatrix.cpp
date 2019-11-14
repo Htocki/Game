@@ -16,11 +16,11 @@ RandomizedMatrix::RandomizedMatrix (
 
 
 void RandomizedMatrix::update() {
-    // Смещение значений матрицы на один ряд вниз
+    // Shift matrix values down one row
     for (auto i{v.size() - 1}; i >= width_; --i)
         v[i] = v[i-width_];
 
-    // Генерация новых значений для первого ряда
+    // Generation of new values for the first row
     for (auto i{0u}; i < width_; ++i)
         v[i] = generator_.getValue();
 }

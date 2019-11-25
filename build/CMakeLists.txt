@@ -39,7 +39,7 @@ set (SOURCES
 project (${PROJECT})
 
 // Solve the problem of connecting the parent directory.
-include_directories (.. /)
+include_directories (../)
 
 if (MSVC) 
 	// Solve the problem of connecting the parent directory. 

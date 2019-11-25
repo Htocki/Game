@@ -1,8 +1,13 @@
 ﻿cmake_minimum_required (VERSION 3.15)
 
+set (CMAKE_CXX_STANDARD 17)
+set (CMAKE_CXX_STANDARD_REQUIRED ON)
+
 project (Space)
 
-set (SFML_DIR "SFML-2.5.1/lib/cmake/SFML")
+if (MSVC) 
+	set (SFML_DIR "SFML-2.5.1/lib/cmake/SFML")
+endif ()
 
 find_package (SFML 2.5 COMPONENTS graphics window system audio network REQUIRED)
 
@@ -33,7 +38,8 @@ target_link_libraries (${PROJECT_NAME}
 	sfml-network
 	)
 
-
-## // Костыль для отключения консольного окна в Windows
-## // Добваляется в main.cpp
-## #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+if (MSVC)
+	set_property(TARGET ${PROJECT_NAME} APPEND_STRING
+		PROPERTY LINK_FLAGS "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
+	)
+endif ()

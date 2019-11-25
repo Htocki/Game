@@ -1,0 +1,91 @@
+// Текущие цели 
+    1. Релизовать графический пользовательский интерфейс
+    2. Разобраться с игровым циклом и доработать класс Statistic
+    3. Настроить масштабирование окна
+	4. Убрать фон на spaceship.png
+
+
+
+// Схема включения объектов игры (для реализации)
+Game
+    Player
+        Spaceship
+
+    GameInterface
+        Frame::Loading
+            Label::GameName
+            Label::Version
+            ProgressBar
+
+        Frame::GameProcess
+            Label::FramesPerSecond
+            Label::TimeOfFrame
+            Label::Player::Name
+            Label::Player::Score
+            Label::RecordScore
+
+        Frame::Pause
+            Label::Pause
+            Botton::Continue
+
+        Frame::GameOver
+            Label::GameOver
+            Botton::Replay
+
+
+
+// Иерархии классов
+Widget
+    GameInterface
+    Frame
+    Label
+    Botton
+    ProgressBar
+
+GameObject
+    Spaceship
+
+
+
+// Описание классов
+Game {
+    [ФУНКЦИИ]
+        Инициализация
+        Запуск
+        Остановка
+    
+    [ДАННЫЕ]
+        Часы
+}
+
+GameObject {
+    [ФУНКЦИИ]
+        Обработка событий
+        Обновление состояния
+        Отображение на экране 
+        Позиционирование
+
+    [Данные]
+        Позиция   
+}
+
+Player {
+    [ФУНКЦИИ]
+        Управление кораблем
+
+    [ДАННЫЕ]
+        Счет
+        Имя
+}        
+        
+Spaceship {  
+    [ФУНКЦИИ]
+
+    [ДАННЫЕ]
+        Спрайт
+        Характеристики
+            Скорость
+            Урон
+            Броня
+        Набор улучшений
+}

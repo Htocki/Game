@@ -1,5 +1,4 @@
 ﻿## Windows
-
 .vs
 build/out/build/x64-Debug/.cmake
 build/out/build/x64-Debug/CMakeFiles
@@ -17,3 +16,8 @@ build/out/build/x64-Debug/VSInheritEnvironments.txt
 
 
 ## Linux
+build/CMakeFiles
+build/cmake_install.cmake
+build/CMakeCache.txt
+build/Game
+build/Makefile

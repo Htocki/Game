@@ -38,10 +38,12 @@ set (SOURCES
 
 project (${PROJECT})
 
-include_directories (.. /)   // Solve the problem of connecting the parent directory.
+// Solve the problem of connecting the parent directory.
+include_directories (.. /)
 
 if (MSVC) 
-	set (SFML_DIR "../libraries/windows/SFML-2.5.1/lib/cmake/SFML")   // Solve the problem of connecting the parent directory. 
+	// Solve the problem of connecting the parent directory. 
+	set (SFML_DIR "../libraries/windows/SFML-2.5.1/lib/cmake/SFML")
 endif ()
 
 find_package (SFML 2.5.1 COMPONENTS graphics window system audio network REQUIRED)

@@ -38,8 +38,6 @@ set (SOURCES
 
 project (${PROJECT})
 
-include_directories(../)
-
 if (MSVC) 
 	set (SFML_DIR "../libraries/windows/SFML-2.5.1/lib/cmake/SFML")
 endif ()
@@ -58,6 +56,8 @@ source_group ("Header Files" FILES ${HEADERS})
 source_group ("Source Files" FILES ${SOURCES})
 
 add_executable (${PROJECT} ${HEADERS} ${SOURCES})
+
+target_include_directories(${PROJECT} PRIVATE ../)
 
 target_link_libraries (${PROJECT} 
 	sfml-graphics 

@@ -38,7 +38,7 @@ set (SOURCES
 
 project (${PROJECT})
 
-if (MSVC) 
+if (MSVC)  
 	set (SFML_DIR "../libraries/windows/SFML-2.5.1/lib/cmake/SFML")
 endif ()
 

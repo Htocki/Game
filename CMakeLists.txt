@@ -92,4 +92,4 @@ target_link_libraries(${PROJECT_NAME}
 
 install(TARGETS ${PROJECT_NAME})
 install(DIRECTORY "lib/SFML-2.5.1/bin/" DESTINATION "bin")
-install(DIRECTORY "media/" DESTINATION "bin")
+install(DIRECTORY "media" DESTINATION "bin")

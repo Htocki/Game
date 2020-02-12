@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required (VERSION 3.15)
 
-set (HEADERS
+set(HEADERS
 	"include/Graphics/Label.hpp"
 	"include/Graphics/Widget.hpp"
 	"include/Utility/Generator.hpp"
@@ -16,7 +16,7 @@ set (HEADERS
 	"include/Tilemap.hpp"
 	)
 
-set (SOURCES 
+set(SOURCES 
 	"src/Graphics/Label.cpp"
 	"src/Graphics/Widget.cpp"
 	"src/Game.cpp"
@@ -29,11 +29,11 @@ set (SOURCES
 	"src/Tilemap.cpp"
 	)
 
-project ("game")
+project("game")
 
-add_executable (${PROJECT_NAME} ${HEADERS} ${SOURCES})
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 
-set_target_properties (${PROJECT_NAME}
+set_target_properties(${PROJECT_NAME}
 	PROPERTIES
 		set (CMAKE_CXX_STANDARD 17)
 		set (CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -41,50 +41,78 @@ set_target_properties (${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC 
-        $<INSTALL_INTERFACE:include>  
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-		${CMAKE_CURRENT_SOURCE_DIR}/lib/SFML-2.5.1/include
 	)
 
-if (MSVC)
-	add_definitions (/W4)
+if(MSVC)
+	add_definitions(/W4)
 elseif (CMAKE_COMPILER_IS_GNUCXX)
-	add_definitions (-Wall -pedantic)
-else ()
+	add_definitions(-Wall -pedantic)
+else()
 	message ("Unknown compiler")
-endif ()
+endif()
 
 if (MSVC)
 	set_property(TARGET ${PROJECT_NAME} APPEND_STRING
 		PROPERTY LINK_FLAGS 
 			"/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
 	)
-endif ()
+endif()
 
-if (MSVC)  
-	set (SFML_DIR "lib/SFML-2.5.1/lib/cmake/SFML")
-endif ()
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    include(CTest)
+endif()
 
-find_package (SFML 2.5.1 
-	COMPONENTS 
-		graphics 
-		window 
-		system 
-		audio 
-		network 
-	REQUIRED
+#include extern libs
+include(FetchContent)
+
+# googletest
+FetchContent_Declare(
+	googletest
+	GIT_REPOSITORY https://github.com/google/googletest.git
+	GIT_TAG        master
+)
+
+FetchContent_GetProperties(googletest)
+if(NOT googletest_POPULATED)
+	FetchContent_Populate(googletest)
+	add_subdirectory(
+		${googletest_SOURCE_DIR} 
+		${googletest_BINARY_DIR})
+endif()
+
+# sfml
+set(BUILD_SHARED_LIBS false)
+
+FetchContent_Declare(
+    sfml
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG        2.5.1
 	)
 
-target_link_libraries(${PROJECT_NAME} 
-	sfml-graphics 
-	sfml-window 
-	sfml-system 
-	sfml-audio 
-	sfml-network
-	)
+FetchContent_GetProperties(sfml)
+if(NOT sfml_POPULATED)
+	if (LINK_DEPS_STATIC)
+		set(SFML_STATIC_LIBRARIES CACHE BOOL TRUE)
+	endif()
 
+    FetchContent_Populate(sfml)
+    add_subdirectory(
+		${sfml_SOURCE_DIR} 
+		${sfml_BINARY_DIR})
+endif()
+
+target_link_libraries(${PROJECT_NAME}
+    PRIVATE
+        sfml-audio
+        sfml-graphics
+        sfml-system
+        sfml-window
+)
+
+# install
 install(TARGETS ${PROJECT_NAME})
-install(DIRECTORY "lib/SFML-2.5.1/bin/" DESTINATION "bin")
 install(DIRECTORY "media" DESTINATION "bin")

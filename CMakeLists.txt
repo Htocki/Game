@@ -63,9 +63,6 @@ if (MSVC)
 	)
 endif ()
 
-source_group ("Header Files" FILES ${HEADERS})
-source_group ("Source Files" FILES ${SOURCES})
-
 if (MSVC)  
 	set (SFML_DIR "lib/SFML-2.5.1/lib/cmake/SFML")
 endif ()

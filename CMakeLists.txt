@@ -1,9 +1,41 @@
 ﻿cmake_minimum_required (VERSION 3.15)
 
-project("root")
+set (HEADERS
+	"game/model/include/Enums.h"
+	"game/model/include/Game.h"
+	"game/model/include/GameObject.h"
+	"game/model/include/Player.h"
+	"game/model/include/ResourceHolder.h"
+	"game/model/include/Spaceship.h"
+	"game/model/include/Statistic.h"
+	"game/utility/include/Generator.h"
+	"game/utility/include/RandomizedMatrix.h"
+	"game/utility/include/ToString.h"
+	"game/view/include/Label.h"
+	"game/view/include/Tilemap.h"
+	"game/view/include/Widget.h"
+	)
 
-add_executable(${PROJECT_NAME}
-	"game/Main.cpp")
+set (SOURCES 
+	"game/model/src/Game.cpp"
+	"game/model/src/GameObject.cpp"
+	"game/model/src/Player.cpp"
+	"game/model/src/Spaceship.cpp"
+	"game/model/src/Statistic.cpp"
+	"game/utility/src/RandomizedMatrix.cpp"
+	"game/view/src/Label.cpp"
+	"game/view/src/Tilemap.cpp"
+	"game/view/src/Widget.cpp"
+	"game/Main.cpp"
+	)
+
+include_directories("game/model/include")
+include_directories("game/utility/include")
+include_directories("game/view/include")
+
+project("game")
+
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 
 set_target_properties(${PROJECT_NAME}
 	PROPERTIES
@@ -80,34 +112,3 @@ target_link_libraries(${PROJECT_NAME}
 # install
 install(TARGETS ${PROJECT_NAME})
 install(DIRECTORY "media" DESTINATION "bin")
-
-target_link_libraries (${PROJECT_NAME}
-	INTERFACE
-		generator
-		resourceholder
-		tostring
-	PUBLIC
-		game
-		label
-		matrix
-		object
-		player
-		spaceship
-		statistic
-		tilemap
-		widget
-	)
-
-# subdirectories
-add_subdirectory("game/model/game")
-add_subdirectory("game/model/object")
-add_subdirectory("game/model/player")
-add_subdirectory("game/model/resourceholder")
-add_subdirectory("game/model/spaceship")
-add_subdirectory("game/model/statistic")
-add_subdirectory("game/utility/generator")
-add_subdirectory("game/utility/matrix")
-add_subdirectory("game/utility/tostring")
-add_subdirectory("game/view/label")
-add_subdirectory("game/view/tilemap")
-add_subdirectory("game/view/widget")

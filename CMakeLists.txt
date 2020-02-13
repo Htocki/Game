@@ -1,44 +1,8 @@
 ﻿cmake_minimum_required (VERSION 3.15)
 
-set (HEADERS
-	"game/model/include/Enums.h"
-	"game/model/include/Game.h"
-	"game/model/include/GameObject.h"
-	"game/model/include/Player.h"
-	"game/model/include/ResourceHolder.h"
-	"game/model/include/Spaceship.h"
-	"game/model/include/Statistic.h"
-	"game/utility/include/Generator.h"
-	"game/utility/include/RandomizedMatrix.h"
-	"game/utility/include/ToString.h"
-	"game/view/include/Label.h"
-	"game/view/include/Tilemap.h"
-	"game/view/include/Widget.h"
-	)
-
-set (SOURCES 
-	"game/model/src/Game.cpp"
-	"game/model/src/GameObject.cpp"
-	"game/model/src/Player.cpp"
-	"game/model/src/Spaceship.cpp"
-	"game/model/src/Statistic.cpp"
-	"game/utility/src/RandomizedMatrix.cpp"
-	"game/view/src/Label.cpp"
-	"game/view/src/Tilemap.cpp"
-	"game/view/src/Widget.cpp"
-	"game/Main.cpp"
-	)
-
 project("game")
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
-
-target_include_directories(${PROJECT_NAME}
-	PRIVATE
-		"game/model/include"
-		"game/utility/include"
-		"game/view/include"
-	)
+add_executable(${PROJECT_NAME} "game/Main.cpp")
 
 set_target_properties(${PROJECT_NAME}
 	PROPERTIES
@@ -106,12 +70,16 @@ endif()
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
-        sfml-audio
-        sfml-graphics
-        sfml-system
-        sfml-window
+		model
+		view
+		utility
 )
 
 # install
 install(TARGETS ${PROJECT_NAME})
 install(DIRECTORY "media" DESTINATION "bin")
+
+# subdirictories
+add_subdirectory("game/model")
+add_subdirectory("game/utility")
+add_subdirectory("game/view")

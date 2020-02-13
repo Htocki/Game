@@ -29,13 +29,16 @@ set (SOURCES
 	"game/Main.cpp"
 	)
 
-include_directories("game/model/include")
-include_directories("game/utility/include")
-include_directories("game/view/include")
-
 project("game")
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+
+target_include_directories(${PROJECT_NAME}
+	PRIVATE
+		"game/model/include"
+		"game/utility/include"
+		"game/view/include"
+	)
 
 set_target_properties(${PROJECT_NAME}
 	PROPERTIES

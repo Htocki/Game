@@ -1,50 +1,14 @@
 ﻿cmake_minimum_required (VERSION 3.15)
 
-set(HEADERS
-	"include/Graphics/Label.hpp"
-	"include/Graphics/Widget.hpp"
-	"include/Utility/Generator.hpp"
-	"include/Utility/ToString.hpp"
-	"include/Enums.hpp"
-	"include/Game.hpp"
-	"include/GameObject.hpp"
-	"include/Player.hpp"
-	"include/RandomizedMatrix.hpp"
-	"include/ResourceHolder.hpp"
-	"include/Spaceship.hpp"
-	"include/Statistic.hpp"
-	"include/Tilemap.hpp"
-	)
+project("root")
 
-set(SOURCES 
-	"src/Graphics/Label.cpp"
-	"src/Graphics/Widget.cpp"
-	"src/Game.cpp"
-	"src/GameObject.cpp"
-	"src/Main.cpp"
-	"src/Player.cpp"
-	"src/RandomizedMatrix.cpp"
-	"src/Spaceship.cpp"
-	"src/Statistic.cpp"
-	"src/Tilemap.cpp"
-	)
-
-project("game")
-
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+add_executable(${PROJECT_NAME}
+	"game/Main.cpp")
 
 set_target_properties(${PROJECT_NAME}
 	PROPERTIES
 		set (CMAKE_CXX_STANDARD 17)
 		set (CMAKE_CXX_STANDARD_REQUIRED ON)
-	)
-
-target_include_directories(${PROJECT_NAME}
-    PUBLIC 
-        $<INSTALL_INTERFACE:include>
-		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
 	)
 
 if(MSVC)
@@ -116,3 +80,34 @@ target_link_libraries(${PROJECT_NAME}
 # install
 install(TARGETS ${PROJECT_NAME})
 install(DIRECTORY "media" DESTINATION "bin")
+
+target_link_libraries (${PROJECT_NAME}
+	INTERFACE
+		generator
+		resourceholder
+		tostring
+	PUBLIC
+		game
+		label
+		matrix
+		object
+		player
+		spaceship
+		statistic
+		tilemap
+		widget
+	)
+
+# subdirectories
+add_subdirectory("game/model/game")
+add_subdirectory("game/model/object")
+add_subdirectory("game/model/player")
+add_subdirectory("game/model/resourceholder")
+add_subdirectory("game/model/spaceship")
+add_subdirectory("game/model/statistic")
+add_subdirectory("game/utility/generator")
+add_subdirectory("game/utility/matrix")
+add_subdirectory("game/utility/tostring")
+add_subdirectory("game/view/label")
+add_subdirectory("game/view/tilemap")
+add_subdirectory("game/view/widget")

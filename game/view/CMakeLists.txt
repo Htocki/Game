@@ -44,4 +44,4 @@ target_link_libraries (${PROJECT_NAME}
 		utility
 	)
 
-# add_subdirectory ("test")
+add_subdirectory ("test")

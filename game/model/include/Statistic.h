@@ -1,5 +1,7 @@
 #pragma once
+
 #include <SFML/System/Time.hpp>
+
 #include "Label.h"
 
 class Statistic

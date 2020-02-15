@@ -1,9 +1,11 @@
 #pragma once
+
 #include <cassert>
 #include <map>
 #include <memory>
 #include <string>
 #include <stdexcept>
+
 #include "Enums.h"
 
 template <typename Resource, typename Identifier>

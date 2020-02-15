@@ -9,6 +9,8 @@
 #include "ResourceHolder.h"
 #include "Tilemap.h"
 #include "ToString.h"
+#pragma once
+
 #include "Statistic.h"
 #include "Player.h"
 

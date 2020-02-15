@@ -1,4 +1,3 @@
-#include "Enums.h"
 #include "Player.h"
 
 Player::Player(ResourceHolder <sf::Texture, Textures::ID>& textures)

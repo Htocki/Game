@@ -1,5 +1,6 @@
-#include <iostream>
 #include <exception>
+#include <iostream>
+
 #include "Game.h"
 
 int main()

@@ -1,10 +1,14 @@
 #pragma once
+
+#include <string>
+
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/View.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
-#include <string>
+
+#include "Enums.h"
 #include "Spaceship.h"
 
 class Player

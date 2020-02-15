@@ -1,13 +1,10 @@
-#include <exception>
 #include <iostream>
+#include <exception>
 #include "Game.h"
-
-
 
 int main()
 {
-	try
-	{
+	try {
 		Game game;
 		game.run();
 	}

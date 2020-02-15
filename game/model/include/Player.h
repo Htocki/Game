@@ -1,13 +1,11 @@
 #pragma once
-#include <SFML/System/Time.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
-#include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/View.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
 #include <string>
 #include "Spaceship.h"
-
-
 
 class Player
 {
@@ -20,7 +18,6 @@ public:
     
 	int			getScore() const;
     std::string getName() const;
-
 
 private:
 	enum class State {

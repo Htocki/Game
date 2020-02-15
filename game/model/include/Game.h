@@ -1,18 +1,16 @@
 #pragma once
-#include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Color.hpp>
-#include <SFML/System/Time.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Clock.hpp>
+#include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
-#include "ToString.h"
-#include "ResourceHolder.h"
-#include "Statistic.h"
-#include "Player.h"
-#include "Tilemap.h"
 #include "Generator.h"
 #include "RandomizedMatrix.h"
-
-
+#include "ResourceHolder.h"
+#include "Tilemap.h"
+#include "ToString.h"
+#include "Statistic.h"
+#include "Player.h"
 
 const int width = 400;
 const int height = 800;

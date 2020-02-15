@@ -1,7 +1,5 @@
 #include "GameObject.h"
 
-
-
 GameObject::GameObject (sf::Vector2f position) {
     position_ = position;
 }

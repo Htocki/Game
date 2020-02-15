@@ -1,7 +1,5 @@
 #include "Label.h"
 
-
-
 Label::Label (sf::Vector2f position) 
     : Widget(position)
     , font_()
@@ -13,7 +11,10 @@ Label::Label (sf::Vector2f position)
     text_.setCharacterSize(12);
 }
 
-void Label::draw (sf::RenderTarget& target, sf::RenderStates states) const {
+void Label::draw (
+    sf::RenderTarget& target, 
+    sf::RenderStates states
+) const {
     target.draw(text_, states);
 }
 

@@ -1,8 +1,6 @@
 #pragma once
 #include <random>
 
-
-
 template <typename T>
 class Generator
 {

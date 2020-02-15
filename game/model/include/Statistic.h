@@ -2,8 +2,6 @@
 #include <SFML/System/Time.hpp>
 #include "Label.h"
 
-
-
 class Statistic
 {
 public:
@@ -11,7 +9,6 @@ public:
 
     sf::Int64   getFramesPerSecond () const;
     sf::Int64   getTimeOfFrame () const;
-
 
 private:
     sf::Time    updateTime_;

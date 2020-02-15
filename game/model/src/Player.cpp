@@ -1,7 +1,5 @@
-#include "Player.h"
 #include "Enums.h"
-
-
+#include "Player.h"
 
 Player::Player(ResourceHolder <sf::Texture, Textures::ID>& textures)
 	: state_(State::STANDING)

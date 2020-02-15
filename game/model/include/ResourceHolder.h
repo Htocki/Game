@@ -1,40 +1,41 @@
 #pragma once
-#include <map>
-#include <string>
-#include <memory>
-#include <stdexcept>
 #include <cassert>
+#include <map>
+#include <memory>
+#include <string>
+#include <stdexcept>
 #include "Enums.h"
-
-
 
 template <typename Resource, typename Identifier>
 class ResourceHolder
 {
 public:
-    ResourceHolder()
-    {
-        load(Textures::ID::Spaceship, "media/textures/Spaceship.png");
+    ResourceHolder() {
+        load(Textures::ID::Spaceship, 
+			"media/textures/Spaceship.png");
     }
 
 	void load(Identifier id, const std::string& filename);
 
 	template <typename Parameter>
-	void load(Identifier id, const std::string& filename, const Parameter& secondParam);
+	void load(
+		Identifier id, 
+		const std::string& filename, 
+		const Parameter& secondParam
+	);
 
 	Resource& get(Identifier id);
 	const Resource& get(Identifier id) const;
 
-
 private:
-	void insertResource(Identifier id, std::unique_ptr<Resource> resource);
-
+	void insertResource(
+		Identifier id, 
+		std::unique_ptr<Resource> resource
+	);
 
 private:
 	std::map<Identifier, std::unique_ptr<Resource>> mResourceMap;
 };
-
-
 
 template <typename Resource, typename Identifier>
 void ResourceHolder<Resource, Identifier>::load
@@ -46,12 +47,12 @@ void ResourceHolder<Resource, Identifier>::load
 	// Create and load resource
 	std::unique_ptr<Resource> resource(new Resource());
 	if (!resource->loadFromFile(filename))
-		throw std::runtime_error("ResourceHolder::load - Failed to load " + filename);
+		throw std::runtime_error(
+			"ResourceHolder::load - Failed to load " + filename);
 
 	// If loading successful, insert resource to map
 	insertResource(id, std::move(resource));
 }
-
 
 template <typename Resource, typename Identifier>
 template <typename Parameter>
@@ -65,32 +66,29 @@ void ResourceHolder <Resource, Identifier>::load
 	// Create and load resource
 	std::unique_ptr<Resource> resource(new Resource());
 	if (!resource->loadFromFile(filename, secondParam))
-		throw std::runtime_error("ResourceHolder::load - Failed to load " + filename);
+		throw std::runtime_error(
+			"ResourceHolder::load - Failed to load " + filename);
 
 	// If loading successful, insert resource to map
 	insertResource(id, std::move(resource));
 }
-
 
 template <typename Resource, typename Identifier>
 Resource& ResourceHolder <Resource, Identifier>::get(Identifier id)
 {
 	auto found = mResourceMap.find(id);
 	assert(found != mResourceMap.end());
-
 	return *found->second;
 }
 
-
 template <typename Resource, typename Identifier>
-const Resource& ResourceHolder <Resource, Identifier>::get(Identifier id) const
+const Resource& ResourceHolder 
+<Resource, Identifier>::get(Identifier id) const
 {
 	auto found = mResourceMap.find(id);
 	assert(found != mResourceMap.end());
-
 	return *found->second;
 }
-
 
 template <typename Resource, typename Identifier>
 void ResourceHolder <Resource, Identifier>::insertResource
@@ -100,6 +98,7 @@ void ResourceHolder <Resource, Identifier>::insertResource
 )
 {
 	// Insert and check success
-	auto inserted = mResourceMap.insert(std::make_pair(id, std::move(resource)));
+	auto inserted = mResourceMap.insert(
+		std::make_pair(id, std::move(resource)));
 	assert(inserted.second);
 }

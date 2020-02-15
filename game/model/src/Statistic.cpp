@@ -1,7 +1,5 @@
 #include "Statistic.h"
 
-
-
 void Statistic::update (sf::Time elapsedTime) {
     updateTime_ += elapsedTime;
     numFrames_ += 1;

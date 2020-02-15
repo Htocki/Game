@@ -1,7 +1,5 @@
 #include "Spaceship.h"
 
-
-
 Spaceship::Spaceship (sf::Vector2f position) 
 	: GameObject(position)
 	, speed_(100.f)

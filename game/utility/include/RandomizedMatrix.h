@@ -1,9 +1,7 @@
 #pragma once
-#include <vector>
 #include <iostream>
+#include <vector>
 #include "Generator.h"
-
-
 
 class RandomizedMatrix
 {
@@ -21,7 +19,6 @@ public:
         unsigned int i,
         unsigned int j
     ) const;
-
 
 private:
     std::vector<int> v;

@@ -1,7 +1,5 @@
 #include "RandomizedMatrix.h"
 
-
-
 RandomizedMatrix::RandomizedMatrix (
         unsigned int width,
         unsigned int height,
@@ -15,7 +13,6 @@ RandomizedMatrix::RandomizedMatrix (
     for (auto& e : v)
         e = generator_.getValue();
 }
-
 
 void RandomizedMatrix::update() {
     // Shift matrix values down one row

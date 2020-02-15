@@ -1,7 +1,5 @@
 #include "Tilemap.h"
 
-
-
 bool Tilemap::load (
         const std::string&	tileset, 
         sf::Vector2u		tileSize, 
@@ -51,10 +49,8 @@ bool Tilemap::load (
 void Tilemap::draw (sf::RenderTarget& target, sf::RenderStates states) const {
     // Apply the transform
     states.transform *= getTransform();
-
     // Apply the tileset texture
     states.texture = &tileset_;
-
     // Draw the vertex array
     target.draw(vertices_, states);
 }

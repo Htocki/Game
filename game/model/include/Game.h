@@ -6,11 +6,11 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include "Statistic.h"
 #include "Generator.h"
 #include "Player.h"
 #include "RandomizedMatrix.h"
 #include "ResourceHolder.h"
+#include "Statistic.h"
 #include "Tilemap.h"
 #include "ToString.h"
 

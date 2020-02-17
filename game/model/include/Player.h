@@ -20,9 +20,9 @@ public:
 	void update(sf::Time);
 	void draw(sf::RenderTarget&, sf::RenderStates) const;
 
-	int			getScore() const;
+	int	getScore() const;
 	std::string getName() const;
-
+  
 private:
 	enum class State {
 		STANDING,

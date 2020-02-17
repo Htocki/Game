@@ -6,8 +6,7 @@ bool Tilemap::load(
     RandomizedMatrix	tiles,
     unsigned int		width,
     unsigned int		height
-)
-{
+){
     // Load the tileset texture
     if (!tileset_.loadFromFile(tileset))
         return false;

@@ -11,7 +11,7 @@ public:
 
     sf::Int64   getFramesPerSecond() const;
     sf::Int64   getTimeOfFrame() const;
-
+  
 private:
     sf::Time    updateTime_;
     sf::Int64   numFrames_;

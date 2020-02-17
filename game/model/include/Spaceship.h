@@ -1,26 +1,28 @@
 #pragma once
+
 #include <SFML/Graphics/Sprite.hpp>
-#include "ResourceHolder.h"
+
 #include "GameObject.h"
-
-
+#include "ResourceHolder.h"
 
 class Spaceship : public GameObject
 {
 public:
-    Spaceship (sf::Vector2f);
+	Spaceship(sf::Vector2f);
 
-    virtual void draw (sf::RenderTarget&, sf::RenderStates) const final;
+	virtual void draw(
+		sf::RenderTarget&,
+		sf::RenderStates)
+		const final;
 
 	void moveLeft(sf::Time);
 	void moveRight(sf::Time);
 
 	float getSpeed() const;
 
-	void setTexture (sf::Texture&);
-
+	void setTexture(sf::Texture&);
 
 private:
 	float		speed_;
-    sf::Sprite	sprite_;
+	sf::Sprite	sprite_;
 };

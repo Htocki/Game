@@ -1,14 +1,12 @@
 #include "Tilemap.h"
 
-
-
-bool Tilemap::load (
-        const std::string&	tileset, 
-        sf::Vector2u		tileSize, 
-		RandomizedMatrix	tiles,
-        unsigned int		width, 
-        unsigned int		height
-    )
+bool Tilemap::load(
+    const std::string& tileset,
+    sf::Vector2u		tileSize,
+    RandomizedMatrix	tiles,
+    unsigned int		width,
+    unsigned int		height
+)
 {
     // Load the tileset texture
     if (!tileset_.loadFromFile(tileset))
@@ -44,17 +42,15 @@ bool Tilemap::load (
             quad[2].texCoords = sf::Vector2f((tu + 1) * tileSize.x, (tv + 1) * tileSize.y);
             quad[3].texCoords = sf::Vector2f(tu * tileSize.x, (tv + 1) * tileSize.y);
         }
-    
+
     return true;
 }
 
-void Tilemap::draw (sf::RenderTarget& target, sf::RenderStates states) const {
+void Tilemap::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     // Apply the transform
     states.transform *= getTransform();
-
     // Apply the tileset texture
     states.texture = &tileset_;
-
     // Draw the vertex array
     target.draw(vertices_, states);
 }

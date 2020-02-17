@@ -1,8 +1,6 @@
 #include "Statistic.h"
 
-
-
-void Statistic::update (sf::Time elapsedTime) {
+void Statistic::update(sf::Time elapsedTime) {
     updateTime_ += elapsedTime;
     numFrames_ += 1;
 
@@ -17,10 +15,10 @@ void Statistic::update (sf::Time elapsedTime) {
     }
 }
 
-sf::Int64 Statistic::getFramesPerSecond () const {
+sf::Int64 Statistic::getFramesPerSecond() const {
     return framesPerSecond_;
 }
 
-sf::Int64 Statistic::getTimeOfFrame () const {
+sf::Int64 Statistic::getTimeOfFrame() const {
     return timeOfFrame_;
 }

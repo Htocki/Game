@@ -1,26 +1,27 @@
 #pragma once
-#include <SFML/System/Time.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/RenderStates.hpp>
-#include <SFML/Window/Event.hpp>
-#include <SFML/Graphics/View.hpp>
+
 #include <string>
+
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/View.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
+
+#include "Enums.h"
 #include "Spaceship.h"
-
-
 
 class Player
 {
 public:
-    Player (ResourceHolder <sf::Texture, Textures::ID>&);
+	Player(ResourceHolder <sf::Texture, Textures::ID>&);
 
-    void input (sf::Event);
-    void update (sf::Time);
-    void draw (sf::RenderTarget&, sf::RenderStates) const;
-    
+	void input(sf::Event);
+	void update(sf::Time);
+	void draw(sf::RenderTarget&, sf::RenderStates) const;
+
 	int			getScore() const;
-    std::string getName() const;
-
+	std::string getName() const;
 
 private:
 	enum class State {
@@ -32,7 +33,7 @@ private:
 	};
 
 	State		state_;
-    Spaceship	spaceship_;
+	Spaceship	spaceship_;
 	int			score_;
-    std::string name_;
+	std::string name_;
 };

@@ -1,14 +1,14 @@
 #pragma once
-#include <vector>
+
 #include <iostream>
+#include <vector>
+
 #include "Generator.h"
-
-
 
 class RandomizedMatrix
 {
 public:
-    RandomizedMatrix (
+    RandomizedMatrix(
         unsigned int width,
         unsigned int height,
         Generator<int> generator
@@ -17,11 +17,10 @@ public:
     void update();
     void print();
 
-    int getValue (
+    int getValue(
         unsigned int i,
         unsigned int j
     ) const;
-
 
 private:
     std::vector<int> v;

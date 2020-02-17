@@ -1,17 +1,15 @@
 #include <exception>
 #include <iostream>
+
 #include "Game.h"
 
-
-
-int main()
+int main() 
 {
-	try
-	{
+	try {
 		Game game;
 		game.run();
 	}
-	catch (std::runtime_error &e)
+	catch (std::runtime_error & e)
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}

@@ -1,18 +1,15 @@
 #include "Player.h"
-#include "Enums.h"
-
-
 
 Player::Player(ResourceHolder <sf::Texture, Textures::ID>& textures)
 	: state_(State::STANDING)
-    , spaceship_({200, 600})
+	, spaceship_({ 200, 600 })
 	, score_(0)
-    , name_("Miha default player")
+	, name_("Miha default player")
 {
-    spaceship_.setTexture(textures.get(Textures::ID::Spaceship));
+	spaceship_.setTexture(textures.get(Textures::ID::Spaceship));
 }
 
-void Player::input (sf::Event event) {
+void Player::input(sf::Event event) {
 	switch (state_)
 	{
 	case State::STANDING:
@@ -75,7 +72,7 @@ void Player::input (sf::Event event) {
 	}
 }
 
-void Player::update (sf::Time time) {
+void Player::update(sf::Time time) {
 	// Spaceship update
 	switch (state_)
 	{
@@ -92,14 +89,14 @@ void Player::update (sf::Time time) {
 	score_ += static_cast<int> (spaceship_.getSpeed() * time.asSeconds());
 }
 
-void Player::draw (sf::RenderTarget &target, sf::RenderStates states) const {
-    spaceship_.draw(target, states);
+void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+	spaceship_.draw(target, states);
 }
 
 int Player::getScore() const {
-    return score_;
+	return score_;
 }
 
-std::string Player::getName () const {
-    return name_;
+std::string Player::getName() const {
+	return name_;
 }

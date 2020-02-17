@@ -1,21 +1,20 @@
 #include "Game.h"
 
-
-
 Game::Game()
 	: window_(sf::VideoMode(width, height), "Game")
 	, delay_(sf::seconds(1.f / 60.f))
-    , textures_()
-    , player_(textures_)
-    , statistic_()
-    , score_({230.f, 5.f})
-	, framesPerSecond_({5.f, 5.f})
-	, timeOfFrame_({5.f, 18.f})
+	, textures_()
+	, player_(textures_)
+	, statistic_()
+	, score_({ 230.f, 5.f })
+	, framesPerSecond_({ 5.f, 5.f })
+	, timeOfFrame_({ 5.f, 18.f })
 {
-    Generator<int> generator{0, 13};
-    RandomizedMatrix matrix_{16, 40, generator};
+	Generator<int> generator{ 0, 13 };
+	RandomizedMatrix matrix_{ 16, 40, generator };
 
-	map_.load("media/textures/Space.png", sf::Vector2u(30, 30), matrix_, 16, 40);
+	map_.load("media/textures/Space.png",
+		sf::Vector2u(30, 30), matrix_, 16, 40);
 }
 
 void Game::run()
@@ -53,28 +52,25 @@ void Game::input()
 			break;
 		}
 
-        player_.input(event);
+		player_.input(event);
 	}
 }
 
 void Game::update()
 {
-    player_.update(delay_);
-
-    score_.setText(toString(player_.getName()) + ":   " + toString(player_.getScore()));
+	player_.update(delay_);
+	score_.setText(toString(player_.getName()) + ":   " + toString(player_.getScore()));
 	framesPerSecond_.setText("frames per second:   " + toString(statistic_.getFramesPerSecond()));
 	timeOfFrame_.setText("time of frame:   " + toString(statistic_.getTimeOfFrame()));
 }
 
 void Game::render()
 {
-    window_.clear(sf::Color::Black);
+	window_.clear(sf::Color::Black);
 	window_.draw(map_);
-    player_.draw(window_, sf::RenderStates::Default);
-
-    score_.draw(window_, sf::RenderStates::Default);
+	player_.draw(window_, sf::RenderStates::Default);
+	score_.draw(window_, sf::RenderStates::Default);
 	framesPerSecond_.draw(window_, sf::RenderStates::Default);
 	timeOfFrame_.draw(window_, sf::RenderStates::Default);
-
 	window_.display();
 }

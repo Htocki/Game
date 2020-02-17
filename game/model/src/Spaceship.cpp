@@ -1,12 +1,10 @@
 #include "Spaceship.h"
 
-
-
-Spaceship::Spaceship (sf::Vector2f position) 
+Spaceship::Spaceship(sf::Vector2f position)
 	: GameObject(position)
 	, speed_(100.f)
 {
-    sprite_.setPosition(position);
+	sprite_.setPosition(position);
 }
 
 void Spaceship::moveLeft(sf::Time time) {
@@ -19,14 +17,14 @@ void Spaceship::moveRight(sf::Time time) {
 	sprite_.setPosition(position_);
 }
 
-void Spaceship::draw (sf::RenderTarget& target, sf::RenderStates states) const {
-    target.draw(sprite_, states);
+void Spaceship::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+	target.draw(sprite_, states);
 }
 
 float Spaceship::getSpeed() const {
 	return speed_;
 }
 
-void Spaceship::setTexture (sf::Texture& texture) {
+void Spaceship::setTexture(sf::Texture& texture) {
 	sprite_.setTexture(texture);
 }

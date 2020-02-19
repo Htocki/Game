@@ -1,14 +1,17 @@
 #pragma once
 
 #include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Drawable.hpp>
 
-#include "GameObject.h"
+#include "Object.h"
 #include "ResourceHolder.h"
 
-class Spaceship : public GameObject
+class Spaceship
+	: public Object
+	, sf::Drawable
 {
 public:
-	Spaceship(sf::Vector2f);
+	explicit Spaceship(sf::Vector2f);
 
 	virtual void draw(
 		sf::RenderTarget&,
@@ -23,6 +26,6 @@ public:
 	void setTexture(sf::Texture&);
 
 private:
-	float		speed_;
-	sf::Sprite	sprite_;
+	float speed;
+	sf::Sprite sprite;
 };

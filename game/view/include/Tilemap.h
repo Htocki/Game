@@ -9,17 +9,19 @@
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/VertexArray.hpp>
 
-#include "RandomizedMatrix.h"
+#include "Matrix.h"
 
-class Tilemap : public sf::Drawable, public sf::Transformable
+class Tilemap 
+	: public sf::Drawable
+	, public sf::Transformable
 {
 public:
 	bool load(
 		const std::string& tileset,
-		sf::Vector2u		tileSize,
-		RandomizedMatrix	tiles,
-		unsigned int		width,
-		unsigned int		height
+		sf::Vector2u tileSize,
+		Matrix tiles,
+		sf::Uint64 width,
+		sf::Uint64 height
 	);
 
 private:
@@ -28,6 +30,6 @@ private:
 		sf::RenderStates states
 	) const;
 
-	sf::VertexArray vertices_;
-	sf::Texture tileset_;
+	sf::VertexArray vertices;
+	sf::Texture tileset;
 };

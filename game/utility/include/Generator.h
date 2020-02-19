@@ -7,23 +7,22 @@ class Generator
 {
 public:
     Generator(T min, T max)
-        : min_(min)
-        , max_(max)
+        : min(min)
+        , max(max)
     {}
 
     T getValue() {
         std::random_device random_device;
         std::mt19937 generator(random_device());
-        std::uniform_int_distribution<T> distribution(min_, max_);
+        std::uniform_int_distribution<T> distribution(min, max);
         return distribution(generator);
     }
 
     void setRange(T min, T max) {
-        min_ = min;
-        max_ = max;
+        this->min = min;
+        this->max = max;
     }
 
 private:
-    T   min_,
-        max_;
+    T min, max;
 };

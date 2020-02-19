@@ -2,12 +2,12 @@ cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
 	"include/Generator.h"
-	"include/RandomizedMatrix.h"
+	"include/Matrix.h"
 	"include/ToString.h"
 	)
 
 set (SOURCES
-	"src/RandomizedMatrix.cpp"
+	"src/Matrix.cpp"
 )
 
 project ("utility")
@@ -30,6 +30,11 @@ target_include_directories (${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+	)
+
+target_link_libraries (${PROJECT_NAME} 
+	PUBLIC
+        sfml-system
 	)
 
 add_subdirectory ("test")

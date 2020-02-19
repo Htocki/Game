@@ -1,20 +1,20 @@
 #include "Game.h"
 
 Game::Game()
-	: window_(sf::VideoMode(width, height), "Game")
-	, delay_(sf::seconds(1.f / 60.f))
-	, textures_()
-	, player_(textures_)
-	, statistic_()
-	, score_({ 230.f, 5.f })
-	, framesPerSecond_({ 5.f, 5.f })
-	, timeOfFrame_({ 5.f, 18.f })
+	: window(sf::VideoMode(width, height), "Game")
+	, delay(sf::seconds(1.f / 60.f))
+	, textures()
+	, player(textures)
+	, statistic()
+	, score({ 230.f, 5.f })
+	, framesPerSecond({ 5.f, 5.f })
+	, timeOfFrame({ 5.f, 18.f })
 {
-	Generator<int> generator{ 0, 13 };
-	RandomizedMatrix matrix_{ 16, 40, generator };
+	Generator<sf::Int64> generator{ 0, 13 };
+	Matrix matrix{ 16, 40, generator };
 
-	map_.load("media/textures/Space.png",
-		sf::Vector2u(30, 30), matrix_, 16, 40);
+	map.load("media/textures/Space.png",
+		sf::Vector2u(30, 30), matrix, 16, 40);
 }
 
 void Game::run()
@@ -22,20 +22,20 @@ void Game::run()
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
-	while (window_.isOpen())
+	while (window.isOpen())
 	{
 		sf::Time elapsedTime = clock.restart();
 		timeSinceLastUpdate += elapsedTime;
 
 		input();
 
-		while (timeSinceLastUpdate > delay_)
+		while (timeSinceLastUpdate > delay)
 		{
-			timeSinceLastUpdate -= delay_;
+			timeSinceLastUpdate -= delay;
 			update();
 		}
 
-		statistic_.update(elapsedTime);
+		statistic.update(elapsedTime);
 		render();
 	}
 }
@@ -43,34 +43,34 @@ void Game::run()
 void Game::input()
 {
 	sf::Event event;
-	while (window_.pollEvent(event))
+	while (window.pollEvent(event))
 	{
 		switch (event.type)
 		{
 		case sf::Event::Closed:
-			window_.close();
+			window.close();
 			break;
 		}
 
-		player_.input(event);
+		player.input(event);
 	}
 }
 
 void Game::update()
 {
-	player_.update(delay_);
-	score_.setText(toString(player_.getName()) + ":   " + toString(player_.getScore()));
-	framesPerSecond_.setText("frames per second:   " + toString(statistic_.getFramesPerSecond()));
-	timeOfFrame_.setText("time of frame:   " + toString(statistic_.getTimeOfFrame()));
+	player.update(delay);
+	score.setText(toString(player.getName()) + ":   " + toString(player.getScore()));
+	framesPerSecond.setText("frames per second:   " + toString(statistic.getFramesPerSecond()));
+	timeOfFrame.setText("time of frame:   " + toString(statistic.getTimeOfFrame()));
 }
 
 void Game::render()
 {
-	window_.clear(sf::Color::Black);
-	window_.draw(map_);
-	player_.draw(window_, sf::RenderStates::Default);
-	score_.draw(window_, sf::RenderStates::Default);
-	framesPerSecond_.draw(window_, sf::RenderStates::Default);
-	timeOfFrame_.draw(window_, sf::RenderStates::Default);
-	window_.display();
+	window.clear(sf::Color::Black);
+	window.draw(map);
+	player.draw(window, sf::RenderStates::Default);
+	score.draw(window, sf::RenderStates::Default);
+	framesPerSecond.draw(window, sf::RenderStates::Default);
+	timeOfFrame.draw(window, sf::RenderStates::Default);
+	window.display();
 }

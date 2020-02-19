@@ -3,7 +3,7 @@ cmake_minimum_required (VERSION 3.15)
 set (HEADERS
 	"include/Enums.h"
 	"include/Game.h"
-	"include/GameObject.h"
+	"include/Object.h"
 	"include/Player.h"
 	"include/ResourceHolder.h"
 	"include/Spaceship.h"
@@ -12,7 +12,7 @@ set (HEADERS
 
 set (SOURCES
 	"src/Game.cpp"
-	"src/GameObject.cpp"
+	"src/Object.cpp"
 	"src/Player.cpp"
 	"src/Spaceship.cpp"
 	"src/Statistic.cpp"

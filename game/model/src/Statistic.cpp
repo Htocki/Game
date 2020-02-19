@@ -1,24 +1,22 @@
 #include "Statistic.h"
 
 void Statistic::update(sf::Time elapsedTime) {
-    updateTime_ += elapsedTime;
-    numFrames_ += 1;
+    updateTime += elapsedTime;
+    numFrames += 1;
 
-    if (updateTime_ >= sf::seconds(1.0f))
+    if (updateTime >= sf::seconds(1.0f))
     {
-        timeOfFrame_ = updateTime_.asMicroseconds() / numFrames_;
-
-        framesPerSecond_ = numFrames_;
-
-        updateTime_ -= sf::seconds(1.0f);
-        numFrames_ = 0;
+        timeOfFrame = updateTime.asMicroseconds() / numFrames;
+        framesPerSecond = numFrames;
+        updateTime -= sf::seconds(1.0f);
+        numFrames = 0;
     }
 }
 
 sf::Int64 Statistic::getFramesPerSecond() const {
-    return framesPerSecond_;
+    return framesPerSecond;
 }
 
 sf::Int64 Statistic::getTimeOfFrame() const {
-    return timeOfFrame_;
+    return timeOfFrame;
 }

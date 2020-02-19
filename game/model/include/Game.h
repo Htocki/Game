@@ -8,14 +8,14 @@
 
 #include "Generator.h"
 #include "Player.h"
-#include "RandomizedMatrix.h"
+#include "Matrix.h"
 #include "ResourceHolder.h"
 #include "Statistic.h"
 #include "Tilemap.h"
 #include "ToString.h"
 
-const int width = 400;
-const int height = 800;
+constexpr sf::Int64 width = { 400 };
+constexpr sf::Int64 height = { 800 };
 
 class Game
 {
@@ -28,16 +28,16 @@ private:
 	void update();
 	void render();
 
-	sf::RenderWindow	window_;
-	const sf::Time		delay_;
+	sf::RenderWindow window;
+	const sf::Time delay;
 
-	ResourceHolder <sf::Texture, Textures::ID> textures_;
-	Player player_;
-	Statistic statistic_;
+	ResourceHolder <sf::Texture, Textures::ID> textures;
+	Player player;
+	Statistic statistic;
 
-	Tilemap map_;
+	Tilemap map;
 
-	Label score_;
-	Label framesPerSecond_;
-	Label timeOfFrame_;
+	Label score;
+	Label framesPerSecond;
+	Label timeOfFrame;
 };

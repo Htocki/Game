@@ -8,12 +8,12 @@ bool Tilemap::load(
     sf::Uint64 height
 ){
     // Load the tileset texture
-    if (!this->tileset.loadFromFile(tileset))
+    if (!tileset_.loadFromFile(tileset))
         return false;
 
     // Resize the vertex array to fit the level size
-    vertices.setPrimitiveType(sf::Quads);
-    vertices.resize(width * height * 4);
+    vertices_.setPrimitiveType(sf::Quads);
+    vertices_.resize(width * height * 4);
 
     // Populate the vertex array, with one quad per tile
     for (sf::Uint64 i{ 0 }; i < width; ++i)
@@ -23,11 +23,11 @@ bool Tilemap::load(
             sf::Int64 tileNumber = tiles.getValue(i, j);
 
             // Find its position in the tileset texture
-            sf::Int64 tu = tileNumber % (this->tileset.getSize().x / tileSize.x);
-            sf::Int64 tv = tileNumber / (this->tileset.getSize().x / tileSize.x);
+            sf::Int64 tu = tileNumber % (tileset_.getSize().x / tileSize.x);
+            sf::Int64 tv = tileNumber / (tileset_.getSize().x / tileSize.x);
 
             // Get a pointer to the current tile's quad
-            sf::Vertex* quad = &vertices[(i + j * width) * 4];
+            sf::Vertex* quad = &vertices_[(i + j * width) * 4];
 
             // Define its 4 corners
             quad[0].position = sf::Vector2f(i * tileSize.x, j * tileSize.y);
@@ -49,7 +49,7 @@ void Tilemap::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     // Apply the transform
     states.transform *= getTransform();
     // Apply the tileset texture
-    states.texture = &this->tileset;
+    states.texture = &tileset_;
     // Draw the vertex array
-    target.draw(vertices, states);
+    target.draw(vertices_, states);
 }

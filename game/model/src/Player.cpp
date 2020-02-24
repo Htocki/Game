@@ -1,16 +1,19 @@
 #include "Player.h"
 
-Player::Player(ResourceHolder <sf::Texture, Textures::ID>& textures)
-	: state(State::STANDING)
-	, spaceship({ 200, 600 })
-	, score(0)
-	, name("Miha default player")
+Player::Player(
+	ResourceHolder <sf::Texture, 
+	Textures::ID>& textures
+)
+	: state_(State::STANDING)
+	, spaceship_({ 200, 600 })
+	, score_(0)
+	, name_("Miha default player")
 {
-	spaceship.setTexture(textures.get(Textures::ID::Spaceship));
+	spaceship_.setTexture(textures.get(Textures::ID::Spaceship));
 }
 
 void Player::input(sf::Event event) {
-	switch (state)
+	switch (state_)
 	{
 	case State::STANDING:
 		if (event.type == sf::Event::KeyPressed)
@@ -18,11 +21,11 @@ void Player::input(sf::Event event) {
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Left:
-				state = State::MOVING_LEFT;
+				state_ = State::MOVING_LEFT;
 				break;
 
 			case sf::Keyboard::Right:
-				state = State::MOVING_RIGHT;
+				state_ = State::MOVING_RIGHT;
 				break;
 			}
 		}
@@ -34,7 +37,7 @@ void Player::input(sf::Event event) {
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Right:
-				state = State::MOVING_RIGHT;
+				state_ = State::MOVING_RIGHT;
 				break;
 			}
 		}
@@ -43,7 +46,7 @@ void Player::input(sf::Event event) {
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Left:
-				state = State::STANDING;
+				state_ = State::STANDING;
 				break;
 			}
 		}
@@ -55,7 +58,7 @@ void Player::input(sf::Event event) {
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Left:
-				state = State::MOVING_LEFT;
+				state_ = State::MOVING_LEFT;
 				break;
 			}
 		}
@@ -64,7 +67,7 @@ void Player::input(sf::Event event) {
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Right:
-				state = State::STANDING;
+				state_ = State::STANDING;
 				break;
 			}
 		}
@@ -74,29 +77,29 @@ void Player::input(sf::Event event) {
 
 void Player::update(sf::Time time) {
 	// Spaceship update
-	switch (state)
+	switch (state_)
 	{
 	case State::MOVING_LEFT:
-		spaceship.moveLeft(time);
+		spaceship_.moveLeft(time);
 		break;
 
 	case State::MOVING_RIGHT:
-		spaceship.moveRight(time);
+		spaceship_.moveRight(time);
 		break;
 	}
 
 	// Score update
-	score += static_cast<int> (spaceship.getSpeed() * time.asSeconds());
+	score_ += spaceship_.getSpeed() * time.asSeconds();
 }
 
 void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-	spaceship.draw(target, states);
+	spaceship_.draw(target, states);
 }
 
 sf::Int64 Player::getScore() const {
-	return score;
+	return score_;
 }
 
 std::string Player::getName() const {
-	return name;
+	return name_;
 }

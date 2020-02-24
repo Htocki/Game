@@ -30,6 +30,6 @@ private:
 		sf::RenderStates states
 	) const;
 
-	sf::VertexArray vertices;
-	sf::Texture tileset;
+	sf::VertexArray vertices_;
+	sf::Texture tileset_;
 };

@@ -26,6 +26,6 @@ public:
 	void setTexture(sf::Texture&);
 
 private:
-	float speed;
-	sf::Sprite sprite;
+	float speed_;
+	sf::Sprite sprite_;
 };

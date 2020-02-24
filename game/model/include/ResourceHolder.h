@@ -13,11 +13,11 @@ class ResourceHolder
 {
 public:
 	ResourceHolder() {
-		load(Textures::ID::Spaceship,
+		Load(Textures::ID::Spaceship,
 			"media/textures/Spaceship.png");
 	}
 
-	void load(Identifier id, const std::string& filename);
+	void Load(Identifier id, const std::string& filename);
 
 	template <typename Parameter>
 	void load(
@@ -36,11 +36,11 @@ private:
 	);
 
 private:
-	std::map<Identifier, std::unique_ptr<Resource>> mResourceMap;
+	std::map<Identifier, std::unique_ptr<Resource>> resourceMap_;
 };
 
 template <typename Resource, typename Identifier>
-void ResourceHolder<Resource, Identifier>::load
+void ResourceHolder<Resource, Identifier>::Load
 (
 	Identifier id,
 	const std::string& filename
@@ -67,7 +67,7 @@ void ResourceHolder <Resource, Identifier>::load
 {
 	// Create and load resource
 	std::unique_ptr<Resource> resource(new Resource());
-	if (!resource->loadFromFile(filename, secondParam))
+	if (!resource->LoadFromFile(filename, secondParam))
 		throw std::runtime_error(
 			"ResourceHolder::load - Failed to load " + filename);
 
@@ -78,8 +78,8 @@ void ResourceHolder <Resource, Identifier>::load
 template <typename Resource, typename Identifier>
 Resource& ResourceHolder <Resource, Identifier>::get(Identifier id)
 {
-	auto found = mResourceMap.find(id);
-	assert(found != mResourceMap.end());
+	auto found = resourceMap_.find(id);
+	assert(found != resourceMap_.end());
 	return *found->second;
 }
 
@@ -87,8 +87,8 @@ template <typename Resource, typename Identifier>
 const Resource& ResourceHolder
 <Resource, Identifier>::get(Identifier id) const
 {
-	auto found = mResourceMap.find(id);
-	assert(found != mResourceMap.end());
+	auto found = resourceMap_.find(id);
+	assert(found != resourceMap_.end());
 	return *found->second;
 }
 
@@ -100,7 +100,7 @@ void ResourceHolder <Resource, Identifier>::insertResource
 )
 {
 	// Insert and check success
-	auto inserted = mResourceMap.insert(
+	auto inserted = resourceMap_.insert(
 		std::make_pair(id, std::move(resource)));
 	assert(inserted.second);
 }

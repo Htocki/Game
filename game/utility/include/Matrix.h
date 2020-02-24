@@ -25,8 +25,8 @@ public:
     ) const;
 
 private:
-    std::vector<sf::Int64> vector;
-    sf::Uint64 width;
-    sf::Uint64 height;
-    Generator<sf::Int64> generator;
+    std::vector<sf::Int64> vector_;
+    sf::Uint64 width_;
+    sf::Uint64 height_;
+    Generator<sf::Int64> generator_;
 };

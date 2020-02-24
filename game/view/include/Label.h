@@ -23,6 +23,6 @@ public:
     virtual void setPosition(sf::Vector2f) final;
 
 private:
-    sf::Font font;
-    sf::Text text;
+    sf::Font font_;
+    sf::Text text_;
 };

@@ -32,8 +32,8 @@ private:
 		MOVING_RIGHT
 	};
 
-	State state;
-	Spaceship spaceship;
-	sf::Int64 score;
-	std::string name;
+	State state_;
+	Spaceship spaceship_;
+	sf::Int64 score_;
+	std::string name_;
 };

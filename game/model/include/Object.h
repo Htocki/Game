@@ -19,5 +19,5 @@ public:
     sf::Vector2f getPosition() const;
 
 protected:
-    sf::Vector2f position;
+    sf::Vector2f position_;
 };

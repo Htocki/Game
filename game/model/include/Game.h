@@ -28,16 +28,13 @@ private:
 	void update();
 	void render();
 
-	sf::RenderWindow window;
-	const sf::Time delay;
-
-	ResourceHolder <sf::Texture, Textures::ID> textures;
-	Player player;
-	Statistic statistic;
-
-	Tilemap map;
-
-	Label score;
-	Label framesPerSecond;
-	Label timeOfFrame;
+	sf::RenderWindow window_;
+	const sf::Time delay_;
+	ResourceHolder <sf::Texture, Textures::ID> textures_;
+	Player player_;
+	Statistic statistic_;
+	Tilemap map_;
+	Label score_;
+	Label framesPerSecond_;
+	Label timeOfFrame_;
 };

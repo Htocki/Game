@@ -13,11 +13,11 @@ class ResourceHolder
 {
 public:
 	ResourceHolder() {
-		Load(Textures::ID::Spaceship,
+		load(Textures::ID::Spaceship,
 			"media/textures/Spaceship.png");
 	}
 
-	void Load(Identifier id, const std::string& filename);
+	void load(Identifier id, const std::string& filename);
 
 	template <typename Parameter>
 	void load(
@@ -40,7 +40,7 @@ private:
 };
 
 template <typename Resource, typename Identifier>
-void ResourceHolder<Resource, Identifier>::Load
+void ResourceHolder<Resource, Identifier>::load
 (
 	Identifier id,
 	const std::string& filename
@@ -67,7 +67,7 @@ void ResourceHolder <Resource, Identifier>::load
 {
 	// Create and load resource
 	std::unique_ptr<Resource> resource(new Resource());
-	if (!resource->LoadFromFile(filename, secondParam))
+	if (!resource->loadFromFile(filename, secondParam))
 		throw std::runtime_error(
 			"ResourceHolder::load - Failed to load " + filename);
 

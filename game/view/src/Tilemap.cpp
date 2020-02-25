@@ -1,13 +1,12 @@
 #include "Tilemap.h"
 
-bool Tilemap::load (
-        const std::string&	tileset, 
-        sf::Vector2u		tileSize, 
-		RandomizedMatrix	tiles,
-        unsigned int		width, 
-        unsigned int		height
-    )
-{
+bool Tilemap::load(
+    const std::string& tileset,
+    sf::Vector2u tileSize,
+    Matrix tiles,
+    sf::Uint64 width,
+    sf::Uint64 height
+){
     // Load the tileset texture
     if (!tileset_.loadFromFile(tileset))
         return false;
@@ -17,15 +16,15 @@ bool Tilemap::load (
     vertices_.resize(width * height * 4);
 
     // Populate the vertex array, with one quad per tile
-    for (unsigned int i = 0; i < width; ++i)
-        for (unsigned int j = 0; j < height; ++j)
+    for (sf::Uint64 i{ 0 }; i < width; ++i)
+        for (sf::Uint64 j{ 0 }; j < height; ++j)
         {
             // Get the current tile number
-            int tileNumber = tiles.getValue(i, j);
+            sf::Int64 tileNumber = tiles.getValue(i, j);
 
             // Find its position in the tileset texture
-            int tu = tileNumber % (tileset_.getSize().x / tileSize.x);
-            int tv = tileNumber / (tileset_.getSize().x / tileSize.x);
+            sf::Int64 tu = tileNumber % (tileset_.getSize().x / tileSize.x);
+            sf::Int64 tv = tileNumber / (tileset_.getSize().x / tileSize.x);
 
             // Get a pointer to the current tile's quad
             sf::Vertex* quad = &vertices_[(i + j * width) * 4];
@@ -42,11 +41,11 @@ bool Tilemap::load (
             quad[2].texCoords = sf::Vector2f((tu + 1) * tileSize.x, (tv + 1) * tileSize.y);
             quad[3].texCoords = sf::Vector2f(tu * tileSize.x, (tv + 1) * tileSize.y);
         }
-    
+
     return true;
 }
 
-void Tilemap::draw (sf::RenderTarget& target, sf::RenderStates states) const {
+void Tilemap::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     // Apply the transform
     states.transform *= getTransform();
     // Apply the tileset texture

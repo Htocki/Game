@@ -14,15 +14,15 @@
 class Player
 {
 public:
-    Player (ResourceHolder <sf::Texture, Textures::ID>&);
+	explicit Player(ResourceHolder <sf::Texture, Textures::ID>&);
 
-    void input (sf::Event);
-    void update (sf::Time);
-    void draw (sf::RenderTarget&, sf::RenderStates) const;
-    
-	int			getScore() const;
-    std::string getName() const;
+	void input(sf::Event);
+	void update(sf::Time);
+	void draw(sf::RenderTarget&, sf::RenderStates) const;
 
+	sf::Int64 getScore() const;
+	std::string getName() const;
+  
 private:
 	enum class State {
 		STANDING,
@@ -32,8 +32,8 @@ private:
 		MOVING_RIGHT
 	};
 
-	State		state_;
-    Spaceship	spaceship_;
-	int			score_;
-    std::string name_;
+	State state_;
+	Spaceship spaceship_;
+	sf::Int64 score_;
+	std::string name_;
 };

@@ -7,14 +7,14 @@
 
 class Widget
     : public sf::Drawable
-    , public sf::NonCopyable
+    , private sf::NonCopyable
 {
 public:
-    Widget (sf::Vector2f);
-    virtual ~Widget();
+    explicit Widget(sf::Vector2f);
+    virtual ~Widget() = default;
 
-    virtual void setPosition (sf::Vector2f) = 0;
-    sf::Vector2f getPosition () const;
+    virtual void setPosition(sf::Vector2f) = 0;
+    sf::Vector2f getPosition() const;
 
 protected:
     sf::Vector2f position_;

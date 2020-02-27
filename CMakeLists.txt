@@ -18,14 +18,14 @@ else()
 	message ("Unknown compiler")
 endif()
 
-if (MSVC)
-	set_property(
-		TARGET 
-			${PROJECT_NAME} APPEND_STRING
-			PROPERTY LINK_FLAGS 
-				"/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
-	)
-endif()
+#if (MSVC)
+# 	set_property(
+#		TARGET 
+#			${PROJECT_NAME} APPEND_STRING
+#			PROPERTY LINK_FLAGS 
+#				"/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
+#	)
+#endif()
 
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     include (CTest)
@@ -72,6 +72,7 @@ endif()
 
 target_link_libraries (${PROJECT_NAME}
     PRIVATE
+		controller
 		model
 		view
 		utility
@@ -82,6 +83,7 @@ install (TARGETS ${PROJECT_NAME})
 install (DIRECTORY "media" DESTINATION "bin")
 
 # subdirictories
+add_subdirectory ("game/controller")
 add_subdirectory ("game/model")
 add_subdirectory ("game/utility")
 add_subdirectory ("game/view")

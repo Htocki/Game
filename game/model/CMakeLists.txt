@@ -1,21 +1,11 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-	"include/Enums.h"
-	"include/Game.h"
-	"include/Object.h"
-	"include/Player.h"
-	"include/ResourceHolder.h"
-	"include/Spaceship.h"
-	"include/Statistic.h"
+	"include/Model.h"
 	)
 
 set (SOURCES
-	"src/Game.cpp"
-	"src/Object.cpp"
-	"src/Player.cpp"
-	"src/Spaceship.cpp"
-	"src/Statistic.cpp"
+	"src/Model.cpp"
 )
 
 project ("model")

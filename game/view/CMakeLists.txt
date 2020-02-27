@@ -1,15 +1,11 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-	"include/Label.h"
-	"include/Tilemap.h"
-	"include/Widget.h"
+	"include/View.h"
 	)
 
 set (SOURCES
-	"src/Label.cpp"
-	"src/Tilemap.cpp"
-	"src/Widget.cpp"
+	"src/View.cpp"
 )
 
 project ("view")

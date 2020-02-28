@@ -1,10 +1,12 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
+	"include/Assets.h"
 	"include/Model.h"
 	)
 
 set (SOURCES
+	"src/Assets.cpp"
 	"src/Model.cpp"
 )
 
@@ -36,8 +38,6 @@ target_link_libraries (${PROJECT_NAME}
         sfml-graphics
         sfml-system
         sfml-window
-		view
-		utility
 	)
 
 add_subdirectory ("test")

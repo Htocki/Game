@@ -14,7 +14,7 @@ add_library (${PROJECT_NAME}
 	STATIC
 		${INCLUDE}
 		${SOURCES}
-    )
+	)
 
 set_target_properties (${PROJECT_NAME}
 	PROPERTIES
@@ -23,21 +23,20 @@ set_target_properties (${PROJECT_NAME}
 	)
 
 target_include_directories (${PROJECT_NAME}
-    PUBLIC 
-        $<INSTALL_INTERFACE:include>    
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
+	PUBLIC 
+		$<INSTALL_INTERFACE:include>    
+		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+	PRIVATE
+		${CMAKE_CURRENT_SOURCE_DIR}/src
 	)
 
 target_link_libraries (${PROJECT_NAME} 
 	PUBLIC
 		sfml-audio
-        sfml-graphics
-        sfml-system
-        sfml-window
+		sfml-graphics
+		sfml-system
+		sfml-window
 		model
-		utility
 	)
 
 add_subdirectory ("test")

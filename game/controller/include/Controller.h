@@ -1,13 +1,17 @@
 #pragma once
 
+#include <SFML/Graphics.hpp>
+
 #include "Model.h"
 
-namespace Game {
+namespace Game
+{
     class Controller {
     public:
         Controller(Model* model);
+        void Run();
 
     private:
-        Model* model_;
+        Model* m_model;
     };
 }

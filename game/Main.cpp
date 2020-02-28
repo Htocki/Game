@@ -1,4 +1,3 @@
-#include <exception>
 #include <iostream>
 
 #include "Controller.h"
@@ -7,7 +6,16 @@
 
 int main() 
 {
-    Game::Model model;
-    Game::View view(&model);
-    Game::Controller controller(&model);
+    try {
+        Game::Model model;
+        Game::View view(&model);
+        Game::Controller controller(&model);
+        controller.Run();
+    }
+    catch (Game::Assets::LoadingFail) {
+        std::cerr << "Resource loading failed..." << std::endl;
+    }
+    catch (...) {
+        std::cerr << "Unknown error..." << std::endl;
+    }
 }

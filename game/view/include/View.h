@@ -3,16 +3,18 @@
 #include <SFML/Graphics.hpp>
 
 #include "Model.h"
+#include "Observer.h"
 
 namespace Game
 {
     class View 
         : sf::Drawable
         , sf::Transformable
+        , Observer
     {
     public:
         View(Model* model);
-        void Render();
+        virtual void Update() final;
 
     private:
         virtual void draw(

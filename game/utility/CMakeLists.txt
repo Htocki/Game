@@ -1,14 +1,12 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-	"include/Generator.h"
-	"include/Matrix.h"
-	"include/ToString.h"
+	"include/Observer.h"
 	)
 
 set (SOURCES
-	"src/Matrix.cpp"
-)
+	"src/Observer.cpp"
+	)
 
 project ("utility")
 

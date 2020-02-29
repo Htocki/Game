@@ -2,38 +2,38 @@
 
 #include <string>
 
-#include <SFML/Graphics/RenderStates.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/View.hpp>
-#include <SFML/System/Time.hpp>
-#include <SFML/Window/Event.hpp>
+#include <SFML/System.hpp>
 
-#include "Enums.h"
-#include "Spaceship.h"
+#include "Assets.h"
 
-class Player
+namespace Game
 {
-public:
-	explicit Player(ResourceHolder <sf::Texture, Textures::ID>&);
+    class Player {
+    public:
+        enum class State {
+            Standing,
+            Moving_Up,
+            Moving_Down,
+            Moving_Left,
+            Moving_Right
+        };
 
-	void input(sf::Event);
-	void update(sf::Time);
-	void draw(sf::RenderTarget&, sf::RenderStates) const;
+        Player() = default;
 
-	sf::Int64 getScore() const;
-	std::string getName() const;
-  
-private:
-	enum class State {
-		STANDING,
-		MOVING_UP,
-		MOVING_DOWN,
-		MOVING_LEFT,
-		MOVING_RIGHT
-	};
+        auto GetName() const ->std::string { return m_name; }
+        auto GetPosition() const ->sf::Vector2f { return m_position; }
+        auto GetState() const ->State { return m_state; };
 
-	State state_;
-	Spaceship spaceship_;
-	sf::Int64 score_;
-	std::string name_;
-};
+        void SetName(std::string name) { m_name = name; }
+        void SetPosition(sf::Vector2f position) { m_position = position; }
+        void SetState(State state) { m_state = state; }
+
+        void Update(sf::Time deltaTime);
+
+    private:
+        std::string m_name = { "Unnamed" };
+        sf::Vector2f m_position = { 0.f, 0.f };
+        float m_speed = { 100.f };
+        State m_state = { State::Standing };
+    };
+}

@@ -3,10 +3,11 @@
 #include <SFML/Graphics.hpp>
 
 #include "Assets.h"
+#include "Observer.h"
 
 namespace Game 
 {
-    class Model {
+    class Model : public Observable {
     public:
         enum class State {
             GameOver,
@@ -21,7 +22,10 @@ namespace Game
         Model();
 
         auto GetState() const -> State { return m_state; }
-        auto Window() -> sf::RenderWindow& { return m_window; }
+        auto Window() -> sf::RenderWindow& {
+            Notify();
+            return m_window; 
+        }
 
     private:
         State m_state;

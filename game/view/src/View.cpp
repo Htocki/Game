@@ -8,7 +8,7 @@ Game::View::View(Model* model)
 	m_model->Window().setFramerateLimit(60);
 }
 
-void Game::View::Render() {
+void Game::View::Update() {
 	m_model->Window().clear();
 	m_model->Window().draw(*this);
 	m_model->Window().display();

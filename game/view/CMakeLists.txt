@@ -1,10 +1,12 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
+	"include/GraphicsComponent.h"
 	"include/View.h"
 	)
 
 set (SOURCES
+	"src/GraphicsComponent.cpp"
 	"src/View.cpp"
 )
 
@@ -37,6 +39,7 @@ target_link_libraries (${PROJECT_NAME}
         sfml-system
         sfml-window
 		model
+		utility
 	)
 
 add_subdirectory ("test")

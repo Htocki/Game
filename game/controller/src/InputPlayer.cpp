@@ -1,6 +1,6 @@
-#include "InputComponent.h"
+#include "InputPlayer.h"
 
-void Game::InputComponent::Update(Player& player, sf::Event event) {
+void Game::InputPlayer::HandleInput(Player& player, sf::Event event) {
 	switch (player.GetState())
 	{
 	case Player::State::Standing:

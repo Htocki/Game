@@ -2,7 +2,11 @@
 
 project ("game")
 
-add_executable (${PROJECT_NAME} "game/Main.cpp")
+add_executable (${PROJECT_NAME}
+	"game/Application.h"
+	"game/Application.cpp"
+	"game/Main.cpp"
+	)
 
 set_target_properties (${PROJECT_NAME}
 	PROPERTIES

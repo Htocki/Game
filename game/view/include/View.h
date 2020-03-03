@@ -4,6 +4,7 @@
 
 #include "Model.h"
 #include "Observer.h"
+#include "RenderPlayer.h"
 
 namespace Game
 {
@@ -14,8 +15,8 @@ namespace Game
     {
     public:
         View(Model* model);
-        virtual void Update() final;
-
+        virtual void OnNotify() final;
+        
     private:
         virtual void draw(
             sf::RenderTarget& target, 
@@ -23,5 +24,6 @@ namespace Game
         ) const final;
 
         Model* m_model;
+        RenderPlayer m_player;
     };
 }

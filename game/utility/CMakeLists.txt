@@ -2,10 +2,11 @@ cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
 	"include/Observer.h"
+	"include/Observable.h"
 	)
 
 set (SOURCES
-	"src/Observer.cpp"
+	"src/Observable.cpp"
 	)
 
 project ("utility")
@@ -33,6 +34,7 @@ target_include_directories (${PROJECT_NAME}
 target_link_libraries (${PROJECT_NAME} 
 	PUBLIC
         sfml-system
+		sfml-window
 	)
 
 add_subdirectory ("test")

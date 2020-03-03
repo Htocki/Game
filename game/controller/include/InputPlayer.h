@@ -6,8 +6,8 @@
 
 namespace Game
 {
-    class InputComponent {
+    class InputPlayer {
     public:
-        void Update(Player& player, sf::Event event);
+        void HandleInput(Player& player, sf::Event event);
     };
 }

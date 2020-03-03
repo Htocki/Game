@@ -1,12 +1,12 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-	"include/InputComponent.h"
+	"include/InputPlayer.h"
 	"include/Controller.h"
 	)
 
 set (SOURCES
-	"src/InputComponent.cpp"
+	"src/InputPlayer.cpp"
 	"src/Controller.cpp"
 )
 

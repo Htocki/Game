@@ -8,16 +8,13 @@
 
 namespace Game 
 {
-    class GraphicsComponent
+    class RenderPlayer
         : sf::Drawable
         , sf::Transformable
     {
     public:
-        GraphicsComponent();
+        RenderPlayer();
 
-        void Update(sf::RenderWindow& window);
-
-    private:
         virtual void draw(
             sf::RenderTarget& target,
             sf::RenderStates states

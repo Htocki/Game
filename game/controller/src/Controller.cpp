@@ -1,46 +1,46 @@
 #include "Controller.h"
 
-Game::Controller::Controller(Model* model) 
-	: m_model(model)
+Game::Controller::Controller(Engine* engine) 
+	: m_engine(engine)
 {}
 
 void Game::Controller::HandleInput() {
 	sf::Event event;
 
-	while (m_model->WindowRef().pollEvent(event))
+	while (m_engine->PollEvent(event))
 	{
-		switch (m_model->GetState())
+		switch (m_engine->GetState())
 		{
-		case Model::State::GameOver:
+		case Engine::State::GameOver:
 			break;
 
-		case Model::State::Loading:
+		case Engine::State::Loading:
 			break;
 
-		case Model::State::Menu:
+		case Engine::State::Menu:
 			break;
 
-		case Model::State::Pause:
+		case Engine::State::Pause:
 			break;
 
-		case Model::State::Records:
+		case Engine::State::Records:
 			break;
 
-		case Model::State::Run:
+		case Engine::State::Run:
 			m_player.HandleInput(
-				m_model->PlayerRef(),
+				m_engine->PlayerRef(),
 				event
 			);
 			break;
 
-		case Model::State::Settings:
+		case Engine::State::Settings:
 			break;
 		}
 
 		switch (event.type)
 		{
 		case sf::Event::Closed:
-			m_model->WindowRef().close();
+			m_engine->Stop();
 			break;
 		}
 	}

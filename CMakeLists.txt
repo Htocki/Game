@@ -75,7 +75,7 @@ if (NOT sfml_POPULATED)
 endif()
 
 target_link_libraries (${PROJECT_NAME}
-    PRIVATE
+    PUBLIC
 		controller
 		model
 		view

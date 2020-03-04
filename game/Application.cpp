@@ -3,8 +3,8 @@
 namespace Game 
 {
     Game::Application::Application()
-        : m_view{ &m_model }
-        , m_controller{ &m_model }
+        : m_view{ &m_engine }
+        , m_controller{ &m_engine }
         , m_delay{ sf::seconds(1.f / 60.f) }
     {}
 
@@ -12,7 +12,7 @@ namespace Game
         sf::Clock clock;
         sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
-        while (m_model.WindowRef().isOpen())
+        while (m_engine.IsRuning())
         {
             sf::Time elapsedTime = clock.restart();
             timeSinceLastUpdate += elapsedTime;
@@ -21,7 +21,7 @@ namespace Game
 
             while (timeSinceLastUpdate > m_delay) {
                 timeSinceLastUpdate -= m_delay;
-                m_model.Update(m_delay);
+                m_engine.Update(m_delay);
             }
         }
     }

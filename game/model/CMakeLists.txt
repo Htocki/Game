@@ -2,13 +2,13 @@ cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
 	"include/Assets.h"
-	"include/Model.h"
+	"include/Engine.h"
 	"include/Player.h"
 	)
 
 set (SOURCES
 	"src/Assets.cpp"
-	"src/Model.cpp"
+	"src/Engine.cpp"
 	"src/Player.cpp"
 )
 

@@ -3,18 +3,18 @@
 #include <SFML/Graphics.hpp>
 
 #include "InputPlayer.h"
-#include "Model.h"
+#include "Engine.h"
 #include "Observable.h"
 
 namespace Game
 {
     class Controller {
     public:
-        Controller(Model* model);
+        Controller(Engine* engine);
         void HandleInput();
 
     private:
-        Model* m_model;
+        Engine* m_engine;
 
         InputPlayer m_player;
     };

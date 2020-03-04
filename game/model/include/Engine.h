@@ -10,7 +10,7 @@
 
 namespace Game 
 {
-    class Model 
+    class Engine
         : public Observable
     {
     public:
@@ -24,18 +24,22 @@ namespace Game
             Settings
         };
 
-        Model();
+        Engine();
 
         auto GetState() const -> State { return m_state; }
+        auto GetPlayer() const -> Player { return m_player; }
 
         void SetState(State state) { m_state = state; }
 
-        auto WindowRef()->sf::RenderWindow&;
+
         auto PlayerRef()->Player&;
+        auto WindowRef() -> sf::RenderWindow& { return m_window; }
 
+        bool PollEvent(sf::Event& event);
         void Update(sf::Time deltaTime);
+        void Stop();
 
-
+        bool IsRuning() const;
 
     private:
         Player m_player;

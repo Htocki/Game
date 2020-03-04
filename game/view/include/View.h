@@ -2,28 +2,23 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Model.h"
+#include "Engine.h"
 #include "Observer.h"
 #include "RenderPlayer.h"
 
 namespace Game
 {
     class View 
-        : sf::Drawable
-        , sf::Transformable
-        , Observer
+        : Observer
     {
     public:
-        View(Model* model);
+        View(Engine* engine);
         virtual void OnNotify() final;
         
     private:
-        virtual void draw(
-            sf::RenderTarget& target, 
-            sf::RenderStates states
-        ) const final;
-
-        Model* m_model;
+        Engine* m_engine;
         RenderPlayer m_player;
+
+        sf::RenderWindow& m_window;
     };
 }

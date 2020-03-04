@@ -8,6 +8,6 @@ namespace Game
 {
     class InputPlayer {
     public:
-        void HandleInput(Player& player, sf::Event event);
+        void HandleInput(Player& player, const sf::Event& event);
     };
 }

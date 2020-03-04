@@ -1,24 +1,18 @@
 #include "View.h"
 
-Game::View::View(Model* model)
-	: m_model(model)
+Game::View::View(Engine* engine)
+	: m_engine(engine)
+	, m_window(engine->WindowRef())
 {
-	model->AddObserver(this);
-	setPosition(50.f, 50.f);
-	m_model->WindowRef().create(sf::VideoMode(600, 600), "Name");
-	m_model->WindowRef().setFramerateLimit(60);
+	m_engine->AddObserver(this);
+	m_window.create(sf::VideoMode(600, 600), "Name");
+	m_window.setFramerateLimit(60);
 }
 
 void Game::View::OnNotify() {
-	m_model->WindowRef().clear(sf::Color::Red);
-	m_model->WindowRef().draw(*this);
-	m_model->WindowRef().display();
-}
+	m_window.clear();
 
-void Game::View::draw(
-	sf::RenderTarget& target,
-	sf::RenderStates states
-) const {
-	states.transform *= getTransform();
-	m_player.draw(target, states);
+	m_player.Render(m_engine->GetPlayer(), m_window);
+
+	m_window.display();
 }

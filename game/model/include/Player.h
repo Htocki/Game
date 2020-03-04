@@ -32,8 +32,8 @@ namespace Game
 
     private:
         std::string m_name = { "Unnamed" };
-        sf::Vector2f m_position = { 0.f, 0.f };
-        float m_speed = { 100.f };
+        sf::Vector2f m_position = { 100.f, 100.f };
+        float m_speed = { 400.f };
         State m_state = { State::Standing };
     };
 }

@@ -2,7 +2,7 @@
 
 #include <SFML/System/Time.hpp>
 
-#include "Model.h"
+#include "Engine.h"
 #include "View.h"
 #include "Controller.h"
 
@@ -14,7 +14,7 @@ namespace Game {
         void Run();
 
     private:
-        Model m_model;
+        Engine m_engine;
         View m_view;
         Controller m_controller;
 

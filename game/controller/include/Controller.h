@@ -1,10 +1,7 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-
 #include "InputPlayer.h"
 #include "Engine.h"
-#include "Observable.h"
 
 namespace Game
 {
@@ -15,7 +12,6 @@ namespace Game
 
     private:
         Engine* m_engine;
-
         InputPlayer m_player;
     };
 }

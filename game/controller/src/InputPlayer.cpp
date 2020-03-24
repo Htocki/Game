@@ -1,5 +1,7 @@
 #include "InputPlayer.h"
 
+#include <SFML/Window/Keyboard.hpp>
+
 void Game::InputPlayer::HandleInput(
 	Player& player, 
 	const sf::Event& event
@@ -18,6 +20,9 @@ void Game::InputPlayer::HandleInput(
 			case sf::Keyboard::Right:
 				player.SetState(Player::State::Moving_Right);
 				break;
+
+			default:
+				break;
 			}
 		}
 		break;
@@ -30,6 +35,9 @@ void Game::InputPlayer::HandleInput(
 			case sf::Keyboard::Right:
 				player.SetState(Player::State::Moving_Right);
 				break;
+			
+			default:
+				break;
 			}
 		}
 		else if (event.type == sf::Event::KeyReleased)
@@ -38,6 +46,9 @@ void Game::InputPlayer::HandleInput(
 			{
 			case sf::Keyboard::Left:
 				player.SetState(Player::State::Standing);
+				break;
+
+			default:
 				break;
 			}
 		}
@@ -51,6 +62,9 @@ void Game::InputPlayer::HandleInput(
 			case sf::Keyboard::Left:
 				player.SetState(Player::State::Moving_Left);
 				break;
+
+			default:
+				break;
 			}
 		}
 		else if (event.type == sf::Event::KeyReleased)
@@ -60,8 +74,14 @@ void Game::InputPlayer::HandleInput(
 			case sf::Keyboard::Right:
 				player.SetState(Player::State::Standing);
 				break;
+
+			default:
+				break;
 			}
 		}
+		break;
+
+	default:
 		break;
 	}
 }

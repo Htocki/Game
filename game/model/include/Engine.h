@@ -1,6 +1,8 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Event.hpp>
+#include <SFML/System/Time.hpp>
 
 #include "Assets.h"
 #include "Observable.h"
@@ -32,7 +34,7 @@ namespace Game
         void SetState(State state) { m_state = state; }
 
 
-        auto PlayerRef()->Player&;
+        auto PlayerRef() -> Player&;
         auto WindowRef() -> sf::RenderWindow& { return m_window; }
 
         bool PollEvent(sf::Event& event);

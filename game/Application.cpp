@@ -1,5 +1,7 @@
 #include "Application.h"
 
+#include <SFML/System/Clock.hpp>
+
 namespace Game 
 {
     Game::Application::Application()

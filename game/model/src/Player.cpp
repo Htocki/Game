@@ -10,5 +10,8 @@ void Game::Player::Update(sf::Time deltaTime) {
 	case State::Moving_Right:
 		m_position.x += (m_speed * deltaTime.asSeconds());
 		break;
+
+	default:
+		break;
 	}
 }

@@ -1,5 +1,7 @@
 #include "Controller.h"
 
+#include <SFML/Window/Event.hpp>
+
 Game::Controller::Controller(Engine* engine) 
 	: m_engine(engine)
 {}
@@ -35,12 +37,18 @@ void Game::Controller::HandleInput() {
 
 		case Engine::State::Settings:
 			break;
+		
+		default:
+			break;
 		}
 
 		switch (event.type)
 		{
 		case sf::Event::Closed:
 			m_engine->Stop();
+			break;
+			
+		default:
 			break;
 		}
 	}

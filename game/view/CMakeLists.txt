@@ -34,10 +34,7 @@ target_include_directories (${PROJECT_NAME}
 
 target_link_libraries (${PROJECT_NAME} 
 	PUBLIC
-		sfml-audio
-        sfml-graphics
-        sfml-system
-        sfml-window
+		sfml-graphics
 		model
 		utility
 	)

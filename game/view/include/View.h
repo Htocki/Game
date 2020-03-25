@@ -6,19 +6,16 @@
 #include "Observer.h"
 #include "RenderPlayer.h"
 
-namespace Game
-{
-    class View 
-        : Observer
-    {
-    public:
-        View(Engine* engine);
-        virtual void OnNotify() final;
-        
-    private:
-        Engine* m_engine;
-        RenderPlayer m_player;
+namespace Game {
+class View : public Observer {
+ public:
+  explicit View(Engine* engine);
+  void OnNotify() final;
 
-        sf::RenderWindow& m_window;
-    };
-}
+ private:
+  Engine* m_engine;
+  RenderPlayer m_player;
+
+  sf::RenderWindow& m_window;
+};
+}  // namespace Game

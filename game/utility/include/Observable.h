@@ -4,15 +4,13 @@
 
 #include "Observer.h"
 
-namespace Game
-{
-    class Observable
-    {
-    public:
-        void AddObserver(Observer* observer);
-        void Notify();
+namespace Game {
+class Observable {
+ public:
+  void AddObserver(Observer* observer);
+  void Notify();
 
-    private:
-        std::vector<Observer*> m_observers;
-    };
-}
+ private:
+  std::vector<Observer*> m_observers;
+};
+}  // namespace Game

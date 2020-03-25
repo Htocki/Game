@@ -1,27 +1,27 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-	"include/Observer.h"
-	"include/Obsrvable.h"
-	)
+    "include/Observable.h"
+    "include/Observer.h"
+    )
 
 set (SOURCES
-	"src/Observable.cpp"
-	)
+    "src/Observable.cpp"
+    )
 
 project ("utility")
 
 add_library (${PROJECT_NAME}
-	STATIC
-		${INCLUDE}
-		${SOURCES}
+    STATIC
+        ${INCLUDE}
+        ${SOURCES}
     )
 
 set_target_properties (${PROJECT_NAME}
-	PROPERTIES
-		set (CMAKE_CXX_STANDARD 17)
-		set (CMAKE_CXX_STANDARD_REQUIRED ON)
-	)
+    PROPERTIES
+        set (CMAKE_CXX_STANDARD 17)
+        set (CMAKE_CXX_STANDARD_REQUIRED ON)
+    )
 
 target_include_directories (${PROJECT_NAME}
     PUBLIC 
@@ -29,6 +29,6 @@ target_include_directories (${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-	)
+    )
 
 add_subdirectory ("test")

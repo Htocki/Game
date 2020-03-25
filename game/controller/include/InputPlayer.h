@@ -4,10 +4,9 @@
 
 #include "Player.h"
 
-namespace Game
-{
-    class InputPlayer {
-    public:
-        void HandleInput(Player& player, const sf::Event& event);
-    };
-}
+namespace Game {
+class InputPlayer {
+ public:
+  void HandleInput(Player& player, const sf::Event& event);
+};
+}  // namespace Game

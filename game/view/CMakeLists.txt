@@ -1,28 +1,28 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-	"include/RenderPlayer.h"
-	"include/View.h"
-	)
+    "include/RenderPlayer.h"
+    "include/View.h"
+    )
 
 set (SOURCES
-	"src/RenderPlayer.cpp"
-	"src/View.cpp"
+    "src/RenderPlayer.cpp"
+    "src/View.cpp"
 )
 
 project ("view")
 
 add_library (${PROJECT_NAME}
-	STATIC
-		${INCLUDE}
-		${SOURCES}
+    STATIC
+        ${INCLUDE}
+        ${SOURCES}
     )
 
 set_target_properties (${PROJECT_NAME}
-	PROPERTIES
-		set (CMAKE_CXX_STANDARD 17)
-		set (CMAKE_CXX_STANDARD_REQUIRED ON)
-	)
+    PROPERTIES
+        set (CMAKE_CXX_STANDARD 17)
+        set (CMAKE_CXX_STANDARD_REQUIRED ON)
+    )
 
 target_include_directories (${PROJECT_NAME}
     PUBLIC 
@@ -30,13 +30,13 @@ target_include_directories (${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-	)
+    )
 
 target_link_libraries (${PROJECT_NAME} 
-	PUBLIC
-		sfml-graphics
-		model
-		utility
-	)
+    PUBLIC
+        sfml-graphics
+        model
+        utility
+    )
 
 add_subdirectory ("test")

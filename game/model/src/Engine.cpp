@@ -1,6 +1,9 @@
 #include "Engine.h"
 
-Game::Engine::Engine() : m_state(State::Run) { Assets::Instance().Load(); }
+Game::Engine::Engine()
+    : m_state(State::Run) {
+  Assets::Instance().Load();
+}
 
 Game::Player& Game::Engine::PlayerRef() { return m_player; }
 

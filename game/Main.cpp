@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "Application.h"
+#include "Assets.h"
 
 int main() {
   try {

@@ -5,10 +5,14 @@
 #include "Observer.h"
 
 namespace Game {
-class Observable {
+class Subject {
  public:
-  void AddObserver(Observer* observer);
-  void Notify();
+  virtual void Attach(Observer*);
+  virtual void Detach(Observer*);
+  virtual void Notify();
+
+ protected:
+  Subject() {}
 
  private:
   std::vector<Observer*> m_observers;

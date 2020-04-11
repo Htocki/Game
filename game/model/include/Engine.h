@@ -5,13 +5,21 @@
 #include <SFML/Window/Event.hpp>
 
 #include "Assets.h"
-#include "Observable.h"
+#include "Subject.h"
 #include "Player.h"
 
 namespace Game {
-class Engine : public Observable {
+class Engine : public Subject {
  public:
-  enum class State { GameOver, Loading, Menu, Pause, Records, Run, Settings };
+  enum class State {
+    GameOver,
+    Loading,
+    Menu,
+    Pause,
+    Records,
+    Run,
+    Settings
+  };
 
   Engine();
 

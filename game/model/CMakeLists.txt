@@ -39,7 +39,4 @@ target_link_libraries (${PROJECT_NAME}
         sfml-graphics
         sfml-system
         sfml-window
-        utility
     )
-
-add_subdirectory ("test")

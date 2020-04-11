@@ -36,7 +36,4 @@ target_link_libraries (${PROJECT_NAME}
     PUBLIC
         sfml-graphics
         model
-        utility
     )
-
-add_subdirectory ("test")

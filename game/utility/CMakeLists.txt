@@ -1,12 +1,12 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-    "include/Observable.h"
+    "include/Subject.h"
     "include/Observer.h"
     )
 
 set (SOURCES
-    "src/Observable.cpp"
+    "src/Subject.cpp"
     )
 
 project ("utility")
@@ -30,5 +30,3 @@ target_include_directories (${PROJECT_NAME}
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
     )
-
-add_subdirectory ("test")

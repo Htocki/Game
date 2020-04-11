@@ -10,7 +10,7 @@ namespace Game {
 class View : public Observer {
  public:
   explicit View(Engine* engine);
-  void OnNotify() final;
+  void Update() final;
 
  private:
   Engine* m_engine;

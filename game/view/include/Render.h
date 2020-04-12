@@ -4,17 +4,17 @@
 
 #include "Engine.h"
 #include "Observer.h"
-#include "RenderPlayer.h"
+#include "PRender.h"
 
 namespace Game {
-class View : public Observer {
+class Render : public Observer {
  public:
-  explicit View(Engine* engine);
+  explicit Render(Engine* engine);
   void Update() final;
 
  private:
   Engine* m_engine;
-  RenderPlayer m_player;
+  PRender m_player;
 
   sf::RenderWindow& m_window;
 };

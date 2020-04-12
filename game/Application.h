@@ -4,7 +4,7 @@
 
 #include "Controller.h"
 #include "Engine.h"
-#include "View.h"
+#include "Render.h"
 
 namespace Game {
 class Application {
@@ -14,7 +14,7 @@ class Application {
 
  private:
   Engine m_engine;
-  View m_view;
+  Render m_view;
   Controller m_controller;
 
   const sf::Time m_delay;

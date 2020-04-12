@@ -12,9 +12,9 @@ add_executable (
     "game/utility/src/Subject.cpp"
     
     "game/controller/include/Controller.h"
-    "game/controller/include/InputPlayer.h"
+    "game/controller/include/PController.h"
     "game/controller/src/Controller.cpp"
-    "game/controller/src/InputPlayer.cpp"
+    "game/controller/src/PController.cpp"
 
     "game/model/include/Assets.h"
     "game/model/include/Engine.h"
@@ -23,10 +23,10 @@ add_executable (
     "game/model/src/Engine.cpp"
     "game/model/src/Player.cpp"
 
-    "game/view/include/RenderPlayer.h"
-    "game/view/include/View.h"
-    "game/view/src/RenderPlayer.cpp"
-    "game/view/src/View.cpp"
+    "game/view/include/PRender.h"
+    "game/view/include/Render.h"
+    "game/view/src/PRender.cpp"
+    "game/view/src/Render.cpp"
 
     "game/Main.cpp"
 )

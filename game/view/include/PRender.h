@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include <SFML/Graphics/Drawable.hpp>
@@ -12,9 +11,11 @@
 #include "Player.h"
 
 namespace Game {
-class RenderPlayer : public sf::Drawable, public sf::Transformable {
+class PRender
+    : public sf::Drawable,
+      public sf::Transformable {
  public:
-  RenderPlayer();
+  PRender();
   void Render(const Player& player, sf::RenderWindow& window);
 
  private:

@@ -1,6 +1,6 @@
-#include "View.h"
+#include "Render.h"
 
-Game::View::View(Engine* engine)
+Game::Render::Render(Engine* engine)
     : m_engine(engine),
       m_window(engine->WindowRef()) {
   m_engine->Attach(this);
@@ -8,7 +8,7 @@ Game::View::View(Engine* engine)
   m_window.setFramerateLimit(60);
 }
 
-void Game::View::Update() {
+void Game::Render::Update() {
   m_window.clear();
   m_player.Render(m_engine->GetPlayer(), m_window);
   m_window.display();

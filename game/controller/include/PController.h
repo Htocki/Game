@@ -5,7 +5,7 @@
 #include "Player.h"
 
 namespace Game {
-class InputPlayer {
+class PController {
  public:
   void HandleInput(Player& player, sf::Event& event);
 };

@@ -1,8 +1,8 @@
-#include "InputPlayer.h"
+#include "PController.h"
 
 #include <SFML/Window/Keyboard.hpp>
 
-void Game::InputPlayer::HandleInput(Player& player, sf::Event& event) {
+void Game::PController::HandleInput(Player& player, sf::Event& event) {
   switch (player.GetState()) {
     case Player::State::Standing:
       if (event.type == sf::Event::KeyPressed) {

@@ -1,21 +1,21 @@
-#include "RenderPlayer.h"
+#include "PRender.h"
 
-Game::RenderPlayer::RenderPlayer() {
+Game::PRender::PRender() {
   m_spaceship.setTexture(Assets::Instance().spaceship);
 }
 
-void Game::RenderPlayer::Render(
+void Game::PRender::Render(
     const Player& player,
     sf::RenderWindow& window) {
   Update(player);
   window.draw(m_spaceship);
 }
 
-void Game::RenderPlayer::Update(const Player& player) {
+void Game::PRender::Update(const Player& player) {
   m_spaceship.setPosition(player.GetPosition());
 }
 
-void Game::RenderPlayer::draw(
+void Game::PRender::draw(
     sf::RenderTarget& target,
     sf::RenderStates states) const {
   states.transform *= getTransform();

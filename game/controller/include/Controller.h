@@ -1,6 +1,6 @@
 #pragma once
 
-#include "InputPlayer.h"
+#include "PController.h"
 #include "Engine.h"
 
 namespace Game {
@@ -11,6 +11,6 @@ class Controller {
 
  private:
   Engine* m_engine;
-  InputPlayer m_player;
+  PController m_player;
 };
 }  // namespace Game

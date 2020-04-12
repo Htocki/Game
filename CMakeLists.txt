@@ -2,7 +2,8 @@
 
 project ("game")
 
-add_executable (${PROJECT_NAME}
+add_executable (
+  ${PROJECT_NAME}
     "game/Application.h"
     "game/Application.cpp"
 
@@ -28,55 +29,97 @@ add_executable (${PROJECT_NAME}
     "game/view/src/View.cpp"
 
     "game/Main.cpp"
-    )
+)
 
 include_directories ("game/utility/include")
 include_directories ("game/controller/include")
 include_directories ("game/model/include")
 include_directories ("game/view/include")
 
-set_target_properties (${PROJECT_NAME}
+set_target_properties (
+  ${PROJECT_NAME}
     PROPERTIES
-        set (CMAKE_CXX_STANDARD 17)
-        set (CMAKE_CXX_STANDARD_REQUIRED ON)
-    )
+      set (CMAKE_CXX_STANDARD 17)
+      set (CMAKE_CXX_STANDARD_REQUIRED ON)
+)
 
 if (MSVC)
-    add_definitions (/W4)
-    message ("msvc compiler")
+  message ("Compiler: MSVC")
 elseif (CMAKE_COMPILER_IS_GNUCXX)
-    add_definitions (-Wall -pedantic)
-    message ("gcc compiler")
-else()
-    message ("Unknown compiler")
-endif()
+  message ("Compiler: GCC")
+else ()
+  message ("Compiler: unknown")
+endif ()
+
+if (MSVC)
+  add_definitions (/W4)
+elseif (CMAKE_COMPILER_IS_GNUCXX)
+  add_definitions (-Wall -pedantic)
+endif ()
+
+if (MSVC) 
+  set_property (
+    TARGET 
+      ${PROJECT_NAME} APPEND_STRING
+    PROPERTY LINK_FLAGS 
+      "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
+  )
+endif ()
 
 if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
-    include (CTest)
-endif()
+  include (CTest)
+endif ()
 
+#include extern libs
+include (FetchContent)
 
-find_package(SFML 2.5.1
-    COMPONENTS
-        system
-        graphics
-        window
-        audio
-        network
-    )
+# googletest
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG        master
+)
 
-target_link_libraries (${PROJECT_NAME}
+FetchContent_GetProperties (googletest)
+if (NOT googletest_POPULATED)
+  FetchContent_Populate (googletest)
+  add_subdirectory (
+    ${googletest_SOURCE_DIR} 
+    ${googletest_BINARY_DIR}
+  )
+endif ()
+
+# sfml
+set (BUILD_SHARED_LIBS false)
+
+FetchContent_Declare (
+  sfml
+  GIT_REPOSITORY https://github.com/SFML/SFML.git
+  GIT_TAG        master
+)
+
+FetchContent_GetProperties (sfml)
+if (NOT sfml_POPULATED)
+  if (LINK_DEPS_STATIC)
+    set (SFML_STATIC_LIBRARIES CACHE BOOL TRUE)
+  endif ()
+
+  FetchContent_Populate (sfml)
+  add_subdirectory (
+    ${sfml_SOURCE_DIR} 
+    ${sfml_BINARY_DIR}
+  )
+endif ()
+
+target_link_libraries (
+  ${PROJECT_NAME}
     PUBLIC
-        sfml-graphics
-        sfml-system
-        sfml-window
-    )
+      sfml-graphics
+      sfml-system
+      sfml-window
+)
 
-# install
-# install (TARGETS ${PROJECT_NAME})
-install (
-    DIRECTORY
-        "${CMAKE_SOURCE_DIR}/media"
-    DESTINATION 
-        "{CMAKE_SOURCE_DIR}/build"
-    )
+file (
+  COPY "${PROJECT_SOURCE_DIR}/media" 
+  DESTINATION "${PROJECT_BINARY_DIR}"
+)

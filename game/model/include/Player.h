@@ -31,9 +31,9 @@ class Player {
   void Update(sf::Time deltaTime);
 
  private:
-  std::string m_name = {"Unnamed"};
-  sf::Vector2f m_position = {100.f, 100.f};
-  float m_speed = {400.f};
-  State m_state = {State::Standing};
+  std::string m_name { "Unnamed" };
+  sf::Vector2f m_position { 100.f, 100.f };
+  float m_speed { 300.f };
+  State m_state { State::Standing };
 };
 }  // namespace Game

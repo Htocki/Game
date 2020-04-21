@@ -24,7 +24,7 @@ class Engine : public Subject {
   Engine();
 
   State GetState() const { return m_state; }
-  Player GetPlayer() const { return m_player; }
+  Player GetPlayer() { return m_player; }
 
   void SetState(State state) { m_state = state; }
 

@@ -1,21 +1,19 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-  "include/Controller.h"
-  "include/PController.h"
+  "include/Application.h"
 )
 
 set (SOURCES
-  "src/Controller.cpp"
-  "src/PController.cpp"
+  "src/Application.cpp"
+  "src/Main.cpp"
 )
 
-project ("controller")
+project ("application")
 
-add_library (${PROJECT_NAME}
-  STATIC
-    ${INCLUDE}
-    ${SOURCES}
+add_executable (${PROJECT_NAME}
+  ${INCLUDE}
+  ${SOURCES}
 )
 
 set_target_properties (${PROJECT_NAME}
@@ -34,6 +32,16 @@ target_include_directories (${PROJECT_NAME}
 
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
+    sfml-graphics
+    sfml-system
     sfml-window
+    controller
     model
+    view
+    utility
+)
+
+file (
+  COPY "${CMAKE_SOURCE_DIR}/media" 
+  DESTINATION "${PROJECT_BINARY_DIR}"
 )

@@ -2,47 +2,6 @@
 
 project ("game")
 
-add_executable (
-  ${PROJECT_NAME}
-    "game/Application.h"
-    "game/Application.cpp"
-
-    "game/utility/include/Subject.h"
-    "game/utility/include/Observer.h"
-    "game/utility/src/Subject.cpp"
-    
-    "game/controller/include/Controller.h"
-    "game/controller/include/PController.h"
-    "game/controller/src/Controller.cpp"
-    "game/controller/src/PController.cpp"
-
-    "game/model/include/Assets.h"
-    "game/model/include/Engine.h"
-    "game/model/include/Player.h"
-    "game/model/src/Assets.cpp"
-    "game/model/src/Engine.cpp"
-    "game/model/src/Player.cpp"
-
-    "game/view/include/PRender.h"
-    "game/view/include/Render.h"
-    "game/view/src/PRender.cpp"
-    "game/view/src/Render.cpp"
-
-    "game/Main.cpp"
-)
-
-include_directories ("game/utility/include")
-include_directories ("game/controller/include")
-include_directories ("game/model/include")
-include_directories ("game/view/include")
-
-set_target_properties (
-  ${PROJECT_NAME}
-    PROPERTIES
-      set (CMAKE_CXX_STANDARD 17)
-      set (CMAKE_CXX_STANDARD_REQUIRED ON)
-)
-
 if (MSVC)
   message ("Compiler: MSVC")
 elseif (CMAKE_COMPILER_IS_GNUCXX)
@@ -54,7 +13,7 @@ endif ()
 if (MSVC)
   add_definitions (/W4)
 elseif (CMAKE_COMPILER_IS_GNUCXX)
-  add_definitions (-Wall -pedantic)
+  add_definitions (-Wall -pedantic -std=gnu++2a)
 endif ()
 
 if (MSVC) 
@@ -74,7 +33,7 @@ endif ()
 include (FetchContent)
 
 # googletest
-FetchContent_Declare(
+FetchContent_Declare (
   googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
   GIT_TAG        master
@@ -111,15 +70,9 @@ if (NOT sfml_POPULATED)
   )
 endif ()
 
-target_link_libraries (
-  ${PROJECT_NAME}
-    PUBLIC
-      sfml-graphics
-      sfml-system
-      sfml-window
-)
+add_subdirectory ("game/application")
+add_subdirectory ("game/controller")
+add_subdirectory ("game/model")
+add_subdirectory ("game/utility")
+add_subdirectory ("game/view")
 
-file (
-  COPY "${PROJECT_SOURCE_DIR}/media" 
-  DESTINATION "${PROJECT_BINARY_DIR}"
-)

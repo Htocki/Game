@@ -34,7 +34,6 @@ class Engine : public Subject {
   bool PollEvent(sf::Event& event);
   void Update(sf::Time deltaTime);
   void Stop();
-
   bool IsRuning() const;
 
  private:

@@ -6,8 +6,6 @@
 namespace Game {
 class Assets {
  public:
-  class LoadingFail {};
-
   static Assets &Instance() {
     static Assets assets;
     return assets;

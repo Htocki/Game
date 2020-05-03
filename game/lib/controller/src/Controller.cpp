@@ -2,7 +2,8 @@
 
 #include <SFML/Window/Event.hpp>
 
-Game::Controller::Controller(Engine* engine) : m_engine(engine) {}
+Game::Controller::Controller(Engine* engine)
+    : m_engine(engine) {}
 
 void Game::Controller::HandleInput() {
   sf::Event event;

@@ -1,3 +1,4 @@
+#include <exception>
 #include <iostream>
 
 #include <SFML/System/Time.hpp>
@@ -27,8 +28,8 @@ int main() {
         engine.Update(delay);
       }
     }
-  } catch (Game::Assets::LoadingFail) {
-    std::cerr << "Resource loading failed..." << std::endl;
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << std::endl;
   } catch (...) {
     std::cerr << "Unknown error..." << std::endl;
   }

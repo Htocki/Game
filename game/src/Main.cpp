@@ -31,6 +31,6 @@ int main() {
   } catch (const std::exception& e) {
     std::cerr << e.what() << std::endl;
   } catch (...) {
-    std::cerr << "Unknown error..." << std::endl;
+    std::cerr << "Unknown exception..." << std::endl;
   }
 }

@@ -1,14 +1,6 @@
 ﻿cmake_minimum_required (VERSION 3.15)
 
-project ("game")
-
-if (MSVC)
-  message ("Compiler: MSVC")
-elseif (CMAKE_COMPILER_IS_GNUCXX)
-  message ("Compiler: GCC")
-else ()
-  message ("Compiler: unknown")
-endif ()
+project ("project")
 
 if (MSVC)
   add_definitions (/W4)
@@ -29,7 +21,7 @@ if (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   include (CTest)
 endif ()
 
-#include extern libs
+
 include (FetchContent)
 
 # googletest
@@ -70,9 +62,5 @@ if (NOT sfml_POPULATED)
   )
 endif ()
 
-add_subdirectory ("game/application")
-add_subdirectory ("game/controller")
-add_subdirectory ("game/model")
-add_subdirectory ("game/utility")
-add_subdirectory ("game/view")
+add_subdirectory ("game")
 

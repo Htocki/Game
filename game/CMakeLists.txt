@@ -1,20 +1,8 @@
 cmake_minimum_required (VERSION 3.15)
 
-set (HEADERS
-  "include/Application.h"
-)
+project ("game")
 
-set (SOURCES
-  "src/Application.cpp"
-  "src/Main.cpp"
-)
-
-project ("application")
-
-add_executable (${PROJECT_NAME}
-  ${INCLUDE}
-  ${SOURCES}
-)
+add_executable (${PROJECT_NAME} "src/Main.cpp")
 
 set_target_properties (${PROJECT_NAME}
   PROPERTIES
@@ -32,9 +20,7 @@ target_include_directories (${PROJECT_NAME}
 
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
-    sfml-graphics
     sfml-system
-    sfml-window
     controller
     model
     view
@@ -45,3 +31,5 @@ file (
   COPY "${CMAKE_SOURCE_DIR}/media" 
   DESTINATION "${PROJECT_BINARY_DIR}"
 )
+
+add_subdirectory ("lib")

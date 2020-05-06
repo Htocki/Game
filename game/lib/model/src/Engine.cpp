@@ -12,8 +12,8 @@ bool Game::Engine::PollEvent(sf::Event& event) {
 }
 
 void Game::Engine::Update(sf::Time deltaTime) {
-  Notify();
   m_player.Update(deltaTime);
+  Notify();
 }
 
 void Game::Engine::Stop() { m_window.close(); }

@@ -3,6 +3,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "Engine.h"
+#include "Map.h"
 #include "Observer.h"
 #include "PRender.h"
 
@@ -14,8 +15,9 @@ class Render : public Observer {
 
  private:
   Engine* m_engine;
-  PRender m_player;
 
   sf::RenderWindow& m_window;
+  Map m_map;
+  PRender m_player;
 };
 }  // namespace Game

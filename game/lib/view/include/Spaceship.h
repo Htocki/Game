@@ -11,17 +11,13 @@
 #include "Player.h"
 
 namespace Game {
-class PRender
-    : public sf::Drawable,
-      public sf::Transformable {
+class Spaceship {
  public:
-  PRender();
-  void Render(const Player& player, sf::RenderWindow& window);
+  explicit Spaceship(Player& player);
+  void Draw(sf::RenderWindow& window);
 
  private:
-  void Update(const Player& player);
-  void draw(sf::RenderTarget& target, sf::RenderStates states) const final;
-
+  Player& m_player;
   sf::Sprite m_spaceship;
 };
 }  // namespace Game

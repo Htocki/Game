@@ -16,7 +16,7 @@ namespace Game {
   }
 
   void Subject::Notify() {
-    for (auto& observer : m_observers) {
+    for (auto observer : m_observers) {
       observer->Update();
     }
   }

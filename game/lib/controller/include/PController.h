@@ -7,6 +7,10 @@
 namespace Game {
 class PController {
  public:
-  void HandleInput(Player& player, sf::Event& event);
+  explicit PController(Player& player);
+  void HandleInput(const sf::Event& event);
+
+ public:
+  Player& m_player;
 };
 }  // namespace Game

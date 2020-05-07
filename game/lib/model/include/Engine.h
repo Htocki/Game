@@ -11,34 +11,10 @@
 namespace Game {
 class Engine : public Subject {
  public:
-  enum class State {
-    GameOver,
-    Loading,
-    Menu,
-    Pause,
-    Records,
-    Run,
-    Settings
-  };
-
   Engine();
-
-  State GetState() const { return m_state; }
-  Player GetPlayer() { return m_player; }
-
-  void SetState(State state) { m_state = state; }
-
-  Player& PlayerRef();
-  sf::RenderWindow& WindowRef() { return m_window; }
-
-  bool PollEvent(sf::Event& event);
   void Update(sf::Time deltaTime);
-  void Stop();
-  bool IsRuning() const;
 
- private:
-  Player m_player;
-  State m_state;
-  sf::RenderWindow m_window;
+  Player player;
+  sf::RenderWindow window;
 };
 }  // namespace Game

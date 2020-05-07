@@ -13,13 +13,13 @@ const sf::Time delay { sf::seconds(1.f / 60.f) };
 int main() {
   try {
     Game::Engine engine;
-    Game::Render view { &engine };
-    Game::Controller controller { &engine };
+    // Game::Render view { &engine };
+    Game::Controller controller { engine };
 
     sf::Clock clock;
     sf::Time time_since_last_update = sf::Time::Zero;
 
-    while (engine.IsRuning()) {
+    while (engine.window.isOpen()) {
       sf::Time elapsed_time = clock.restart();
       time_since_last_update += elapsed_time;
       controller.HandleInput();

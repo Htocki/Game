@@ -6,11 +6,11 @@
 namespace Game {
 class Controller {
  public:
-  explicit Controller(Engine* engine);
+  explicit Controller(Engine& engine);
   void HandleInput();
 
  private:
-  Engine* m_engine;
+  Engine& m_engine;
   PController m_player;
 };
 }  // namespace Game

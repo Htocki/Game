@@ -2,13 +2,13 @@ cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
   "include/Map.h"
-  "include/PRender.h"
+  "include/Spaceship.h"
   "include/Render.h"
 )
 
 set (SOURCES
   "src/Map.cpp"
-  "src/PRender.cpp"
+  "src/Spaceship.cpp"
   "src/Render.cpp"
 )
 

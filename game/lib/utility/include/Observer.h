@@ -7,7 +7,6 @@ class Subject;
 namespace Game {
 class Observer {
  public:
-  virtual ~Observer() {}
   virtual void Update();
 
  protected:

@@ -15,6 +15,8 @@ class Render : public Observer {
   void Update() final;
 
  private:
+  friend bool operator==(const Render&, const Render&);
+
   Engine* m_engine;
   Map m_map;
   Spaceship m_spaceship;

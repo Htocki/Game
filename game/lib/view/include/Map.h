@@ -20,12 +20,12 @@ class Map {
     node_positions.resize(3000);
   }
 
-  void Draw(sf::RenderWindow& window) {
+  void Draw(sf::RenderWindow* window) {
     // Фон игрового поля
     sf::RectangleShape rectangle { sf::Vector2f{ m_size } };
     rectangle.setPosition(m_position);
     rectangle.setFillColor(sf::Color::Red);
-    window.draw(rectangle);
+    window->draw(rectangle);
 
     // Сетка
     for (float x { m_position.x }; x <= m_size.x; x += m_cell_size) {
@@ -33,7 +33,7 @@ class Map {
         sf::Vertex(sf::Vector2f(x, m_position.y)),
         sf::Vertex(sf::Vector2f(x, m_position.y + m_size.y))
       };
-      window.draw(line, 2, sf::Lines);
+      window->draw(line, 2, sf::Lines);
     }
 
     for (float y { m_position.y }; y <= m_size.y; y += m_cell_size) {
@@ -41,7 +41,7 @@ class Map {
         sf::Vertex(sf::Vector2f(m_position.x, y)),
         sf::Vertex(sf::Vector2f(m_position.x + m_size.x, y))
       };
-      window.draw(line, 2, sf::Lines);
+      window->draw(line, 2, sf::Lines);
     }
 
     // Узлы
@@ -55,7 +55,7 @@ class Map {
       sf::CircleShape circle(5);
       circle.setFillColor(sf::Color::Blue);
       circle.setPosition(node_position);
-      window.draw(circle);
+      window->draw(circle);
     }
   }
 

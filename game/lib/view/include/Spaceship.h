@@ -13,11 +13,11 @@
 namespace Game {
 class Spaceship {
  public:
-  explicit Spaceship(Player& player);
-  void Draw(sf::RenderWindow& window);
+  explicit Spaceship(Player* player);
+  void Draw(sf::RenderWindow* window);
 
  private:
-  Player& m_player;
+  Player* m_player;
   sf::Sprite m_spaceship;
 };
 }  // namespace Game

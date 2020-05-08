@@ -13,7 +13,7 @@ const sf::Time delay { sf::seconds(1.f / 60.f) };
 int main() {
   try {
     Game::Engine engine;
-    // Game::Render view { &engine };
+    Game::Render view { &engine };
     Game::Controller controller { engine };
 
     sf::Clock clock;

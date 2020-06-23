@@ -1,5 +1,7 @@
 #include "Render.h"
 
+#include <iostream>
+
 Game::Render::Render(Engine* engine)
   : m_engine { engine }
   , m_map { sf::Vector2f{ 20, 20 }, sf::Vector2f{ 500, 410 }, 30 }

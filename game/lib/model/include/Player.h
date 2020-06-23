@@ -28,7 +28,7 @@ class Player {
   void SetPosition(sf::Vector2f position) { m_position = position; }
   void SetState(State state) { m_state = state; }
 
-  void Update(sf::Time deltaTime);
+  void Update(sf::Time delta_time);
 
  private:
   std::string m_name { "Unnamed" };

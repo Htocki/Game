@@ -3,28 +3,27 @@
 
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Clock.hpp>
+#include <SFML/Window/Event.hpp>
 
-#include "Engine.h"
+#include "Assets.h"
 #include "Controller.h"
+#include "Engine.h"
 #include "Render.h"
 
 const sf::Time delay { sf::seconds(1.f / 60.f) };
 
 int main() {
   try {
+    Game::Assets::Instance().Load();
+
     Game::Engine engine;
     Game::Render view { &engine };
-    Game::Controller controller { engine };
-
-    sf::Clock clock;
-    sf::Time time_since_last_update = sf::Time::Zero;
+    Game::Controller controller { &engine };
 
     while (engine.window.isOpen()) {
-      sf::Time elapsed_time = clock.restart();
-      time_since_last_update += elapsed_time;
-      controller.HandleInput();
-      while (time_since_last_update > delay) {
-        time_since_last_update -= delay;
+    sf::Event event;
+      while (engine.window.pollEvent(event)) {
+        controller.HandleInput(event);
         engine.Update(delay);
       }
     }

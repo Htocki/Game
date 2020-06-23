@@ -11,8 +11,8 @@
 namespace Game {
 class Engine : public Subject {
  public:
-  Engine();
-  void Update(sf::Time deltaTime);
+  Engine() = default;
+  void Update(sf::Time delta_time);
 
   Player player;
   sf::RenderWindow window;

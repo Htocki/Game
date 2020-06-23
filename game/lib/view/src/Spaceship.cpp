@@ -1,7 +1,7 @@
 #include "Spaceship.h"
 
 Game::Spaceship::Spaceship(Player* player)
-  : m_player { player } {
+    : m_player { player } {
   m_spaceship.setTexture(Assets::Instance().spaceship);
 }
 

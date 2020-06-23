@@ -8,11 +8,11 @@ void Game::PController::HandleInput(Player& player, sf::Event& event) {
       if (event.type == sf::Event::KeyPressed) {
         switch (event.key.code) {
           case sf::Keyboard::Left:
-            player.SetState(Player::State::Moving_Left);
+            player.SetState(Player::State::MovingLeft);
             break;
 
           case sf::Keyboard::Right:
-            player.SetState(Player::State::Moving_Right);
+            player.SetState(Player::State::MovingRight);
             break;
 
           default:
@@ -21,11 +21,11 @@ void Game::PController::HandleInput(Player& player, sf::Event& event) {
       }
       break;
 
-    case Player::State::Moving_Left:
+    case Player::State::MovingLeft:
       if (event.type == sf::Event::KeyPressed) {
         switch (event.key.code) {
           case sf::Keyboard::Right:
-            player.SetState(Player::State::Moving_Right);
+            player.SetState(Player::State::MovingRight);
             break;
 
           default:
@@ -43,11 +43,11 @@ void Game::PController::HandleInput(Player& player, sf::Event& event) {
       }
       break;
 
-    case Player::State::Moving_Right:
+    case Player::State::MovingRight:
       if (event.type == sf::Event::KeyPressed) {
         switch (event.key.code) {
           case sf::Keyboard::Left:
-            player.SetState(Player::State::Moving_Left);
+            player.SetState(Player::State::MovingLeft);
             break;
 
           default:

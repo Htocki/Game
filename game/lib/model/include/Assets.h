@@ -18,7 +18,7 @@ class Assets {
  private:
   Assets() {}
   ~Assets() {}
-  Assets(Assets const &) = delete;
-  Assets &operator=(Assets const &) = delete;
+  Assets(const Assets &) = delete;
+  Assets &operator=(const Assets &) = delete;
 };
 }  // namespace Game

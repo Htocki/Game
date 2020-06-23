@@ -12,10 +12,10 @@ class Player {
  public:
   enum class State {
     Standing,
-    Moving_Up,
-    Moving_Down,
-    Moving_Left,
-    Moving_Right
+    MovingUp,
+    MovingDown,
+    MovingLeft,
+    MovingRight
   };
 
   Player() = default;
@@ -28,7 +28,7 @@ class Player {
   void SetPosition(sf::Vector2f position) { m_position = position; }
   void SetState(State state) { m_state = state; }
 
-  void Update(sf::Time deltaTime);
+  void Update(sf::Time delta_time);
 
  private:
   std::string m_name { "Unnamed" };

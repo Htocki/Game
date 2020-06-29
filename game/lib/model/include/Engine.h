@@ -11,31 +11,16 @@
 namespace Game {
 class Engine : public Subject {
  public:
-  enum class State {
-    GameOver,
-    Loading,
-    Menu,
-    Pause,
-    Records,
-    Run,
-    Settings
-  };
-
   Engine();
-
   Player& GetPlayer() { return m_player; };
   sf::RenderWindow& WindowRef() { return m_window; }
-
   bool PollEvent(sf::Event& event);
-
   void HandleInput(const sf::Event& event);
   void Update(const sf::Time delta_time);
-
   bool IsRuning() const;
 
  private:
   Player m_player;
-  State m_state;
   sf::RenderWindow m_window;
 };
 }  // namespace Game

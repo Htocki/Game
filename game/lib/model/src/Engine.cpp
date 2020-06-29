@@ -1,7 +1,6 @@
 #include "Engine.h"
 
-Game::Engine::Engine()
-    : m_state(State::Run) {
+Game::Engine::Engine() {
   Assets::Instance().Load();
 }
 
@@ -22,4 +21,6 @@ void Game::Engine::Update(const sf::Time delta_time) {
   Notify();
 }
 
-bool Game::Engine::IsRuning() const { return m_window.isOpen(); }
+bool Game::Engine::IsRuning() const { 
+  return m_window.isOpen(); 
+}

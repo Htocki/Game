@@ -14,7 +14,7 @@ int main() {
   try {
     Game::Engine engine;
     Game::Render view { &engine };
-    Game::Controller controller { &engine };
+    Game::Controller controller;
 
     sf::Clock clock;
     sf::Time time_since_last_update = sf::Time::Zero;
@@ -22,7 +22,7 @@ int main() {
     while (engine.IsRuning()) {
       sf::Time elapsed_time = clock.restart();
       time_since_last_update += elapsed_time;
-      controller.HandleInput();
+      controller.HandleInput(engine);
       while (time_since_last_update > delay) {
         time_since_last_update -= delay;
         engine.Update(delay);

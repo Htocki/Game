@@ -23,17 +23,14 @@ class Engine : public Subject {
 
   Engine();
 
-  State GetState() const { return m_state; }
-  Player GetPlayer() { return m_player; }
-
-  void SetState(State state) { m_state = state; }
-
-  Player& PlayerRef();
+  Player& GetPlayer() { return m_player; };
   sf::RenderWindow& WindowRef() { return m_window; }
 
   bool PollEvent(sf::Event& event);
-  void Update(sf::Time deltaTime);
-  void Stop();
+
+  void HandleInput(const sf::Event& event);
+  void Update(const sf::Time delta_time);
+
   bool IsRuning() const;
 
  private:

@@ -1,39 +1,36 @@
 #pragma once
 
 #include <string>
+#include <utility>
 
 #include <SFML/System/Time.hpp>
 #include <SFML/System/Vector2.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include "Assets.h"
+#include "PlayerState.h"
 
 namespace Game {
 class Player {
  public:
-  enum class State {
-    Standing,
-    MovingUp,
-    MovingDown,
-    MovingLeft,
-    MovingRight
-  };
-
-  Player() = default;
+  Player();
+  Player(sf::Vector2f position, std::string name, float speed);
 
   std::string GetName() const { return m_name; }
   sf::Vector2f GetPosition() const { return m_position; }
-  State GetState() const { return m_state; }
+  float GetSpeed() const { return m_speed; }
 
-  void SetName(std::string name) { m_name = name; }
-  void SetPosition(sf::Vector2f position) { m_position = position; }
-  void SetState(State state) { m_state = state; }
+  void HandleInput(const sf::Event& event);
+  void Update(const sf::Time delta_time);
 
-  void Update(sf::Time delta_time);
+  void MoveLeft(float distance) { m_position.x -= distance; };
+  void MoveRight(float distance) { m_position.x += distance; };
+  void SetState(std::unique_ptr<PlayerState> state) { m_state = std::move(state); };
 
  private:
-  std::string m_name { "Unnamed" };
-  sf::Vector2f m_position { 100.f, 100.f };
-  float m_speed { 300.f };
-  State m_state { State::Standing };
+  std::string m_name;
+  sf::Vector2f m_position;
+  float m_speed;
+  std::unique_ptr<PlayerState> m_state;
 };
 }  // namespace Game

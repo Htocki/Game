@@ -3,13 +3,20 @@ cmake_minimum_required (VERSION 3.15)
 set (HEADERS
   "include/Assets.h"
   "include/Engine.h"
+  "include/MovingLeftPlayerState.h"
+  "include/MovingRightPlayerState.h"
   "include/Player.h"
+  "include/PlayerState.h"
+  "include/StandingPlayerState.h"
 )
 
 set (SOURCES
   "src/Assets.cpp"
   "src/Engine.cpp"
+  "src/MovingLeftPlayerState.cpp"
+  "src/MovingRightPlayerState.cpp"
   "src/Player.cpp"
+  "src/StandingPlayerState.cpp"
 )
 
 project ("model")

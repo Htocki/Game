@@ -2,12 +2,10 @@ cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
   "include/Controller.h"
-  "include/PController.h"
 )
 
 set (SOURCES
   "src/Controller.cpp"
-  "src/PController.cpp"
 )
 
 project ("controller")

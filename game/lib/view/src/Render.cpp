@@ -10,6 +10,6 @@ Game::Render::Render(Engine* engine)
 
 void Game::Render::Update() {
   m_window.clear();
-  m_player.Render(m_engine->GetPlayer(), m_window);
+  m_player_render.Render(m_engine->GetPlayer(), m_window);
   m_window.display();
 }

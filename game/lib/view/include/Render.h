@@ -14,7 +14,7 @@ class Render : public Observer {
 
  private:
   Engine* m_engine;
-  PRender m_player;
+  PRender m_player_render;
 
   sf::RenderWindow& m_window;
 };

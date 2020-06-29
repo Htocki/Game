@@ -4,17 +4,17 @@
 
 #include "Engine.h"
 #include "Observer.h"
-#include "PRender.h"
+#include "Spaceship.h"
 
 namespace Game {
 class Render : public Observer {
  public:
   explicit Render(Engine* engine);
-  void Update() final;
+  void Draw() final;
 
  private:
   Engine* m_engine;
-  PRender m_player_render;
+  Spaceship m_spaceship;
 
   sf::RenderWindow& m_window;
 };

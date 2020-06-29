@@ -1,14 +1,15 @@
 #include "Engine.h"
 
-Game::Engine::Engine() {
+namespace Game {
+Engine::Engine() {
   Assets::Instance().Load();
 }
 
-bool Game::Engine::PollEvent(sf::Event& event) {
+bool Engine::PollEvent(sf::Event& event) {
   return m_window.pollEvent(event);
 }
 
-void Game::Engine::HandleInput(const sf::Event& event) {
+void Engine::HandleInput(const sf::Event& event) {
   m_player.HandleInput(event);
 
   if (event.type == sf::Event::Closed) {
@@ -16,11 +17,12 @@ void Game::Engine::HandleInput(const sf::Event& event) {
   }
 }
 
-void Game::Engine::Update(const sf::Time delta_time) {
+void Engine::Update(const sf::Time delta_time) {
   m_player.Update(delta_time);
   Notify();
 }
 
-bool Game::Engine::IsRuning() const { 
+bool Engine::IsRuning() const { 
   return m_window.isOpen(); 
 }
+}  // namespace Game

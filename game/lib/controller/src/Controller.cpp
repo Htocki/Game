@@ -2,9 +2,12 @@
 
 #include <SFML/Window/Event.hpp>
 
-void Game::Controller::HandleInput(Engine& engine) {
+namespace Game {
+void Controller::HandleInput(Engine& engine) {
   sf::Event event;
   while (engine.PollEvent(event)) {
     engine.HandleInput(event);
   }
 }
+}  // namespace Game
+

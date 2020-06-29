@@ -1,6 +1,7 @@
 #include "Render.h"
 
-Game::Render::Render(Engine* engine)
+namespace Game {
+Render::Render(Engine* engine)
     : m_engine(engine),
       m_window(engine->WindowRef()) {
   m_engine->Attach(this);
@@ -8,8 +9,10 @@ Game::Render::Render(Engine* engine)
   m_window.setFramerateLimit(60);
 }
 
-void Game::Render::Update() {
+void Render::Draw() {
   m_window.clear();
-  m_player_render.Render(m_engine->GetPlayer(), m_window);
+  m_spaceship.Draw(m_engine->GetPlayer(), m_window);
   m_window.display();
 }
+}  // namespace Game
+

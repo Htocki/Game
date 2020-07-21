@@ -25,7 +25,6 @@ class Player {
 
   void MoveLeft(float distance) { m_position.x -= distance; };
   void MoveRight(float distance) { m_position.x += distance; };
-  void SetState(std::unique_ptr<PlayerState> state) { m_state = std::move(state); };
 
  private:
   std::string m_name;

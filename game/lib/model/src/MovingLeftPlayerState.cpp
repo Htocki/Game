@@ -6,11 +6,11 @@
 #include "StandingPlayerState.h"
 
 namespace Game {
-void MovingLeftPlayerState::HandleInput(Player& player, const sf::Event& event) {
+std::unique_ptr<PlayerState> MovingLeftPlayerState::HandleInput(Player& player, const sf::Event& event) {
   if (event.type == sf::Event::KeyPressed) {
     switch (event.key.code) {
       case sf::Keyboard::Right:
-        player.SetState(std::make_unique<StandingPlayerState> ());
+        return std::make_unique<StandingPlayerState> ();
         break;
 
       default:
@@ -19,13 +19,14 @@ void MovingLeftPlayerState::HandleInput(Player& player, const sf::Event& event) 
   } else if (event.type == sf::Event::KeyReleased) {
     switch (event.key.code) {
       case sf::Keyboard::Left:
-        player.SetState(std::make_unique<StandingPlayerState> ());
+        return std::make_unique<StandingPlayerState> ();
         break;
 
       default:
         break;
     }
   }
+  return std::make_unique<MovingLeftPlayerState> ();
 }
 
 void MovingLeftPlayerState::Update(Player& player, const sf::Time delta_time) {

@@ -24,7 +24,7 @@ Player::Player(
 {}
 
 void Player::HandleInput(const sf::Event& event) {
-  m_state->HandleInput(*this, event);
+  m_state = std::move(m_state->HandleInput(*this, event));
 }
 
 void Player::Update(const sf::Time delta_time) {

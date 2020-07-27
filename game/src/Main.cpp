@@ -1,11 +1,9 @@
 #include <exception>
 #include <iostream>
 
-#include <SFML/System/Time.hpp>
-#include <SFML/System/Clock.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include "Engine.h"
-#include "Controller.h"
 #include "Render.h"
 
 const sf::Time delay { sf::seconds(1.f / 60.f) };
@@ -14,17 +12,11 @@ int main() {
   try {
     Game::Engine engine;
     Game::Render view { &engine };
-    Game::Controller controller;
-
-    sf::Clock clock;
-    sf::Time time_since_last_update = sf::Time::Zero;
 
     while (engine.IsRuning()) {
-      sf::Time elapsed_time = clock.restart();
-      time_since_last_update += elapsed_time;
-      controller.HandleInput(engine);
-      while (time_since_last_update > delay) {
-        time_since_last_update -= delay;
+      sf::Event event;
+      while (engine.PollEvent(event)) {
+        engine.HandleInput(event);
         engine.Update(delay);
       }
     }

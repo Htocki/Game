@@ -1,16 +1,14 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-  "include/Spaceship.h"
-  "include/Render.h"
+  "include/Engine.h"
 )
 
 set (SOURCES
-  "src/Spaceship.cpp"
-  "src/Render.cpp"
+  "src/Engine.cpp"
 )
 
-project ("view")
+project ("engine")
 
 add_library (${PROJECT_NAME}
   STATIC
@@ -35,6 +33,9 @@ target_include_directories (${PROJECT_NAME}
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
     sfml-graphics
-    engine
+    sfml-system
+    sfml-window
+    assets
+    player
     utility
 )

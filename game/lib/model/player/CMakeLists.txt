@@ -1,16 +1,21 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-  "include/Spaceship.h"
-  "include/Render.h"
+  "include/MovingLeftPlayerState.h"
+  "include/MovingRightPlayerState.h"
+  "include/Player.h"
+  "include/PlayerState.h"
+  "include/StandingPlayerState.h"
 )
 
 set (SOURCES
-  "src/Spaceship.cpp"
-  "src/Render.cpp"
+  "src/MovingLeftPlayerState.cpp"
+  "src/MovingRightPlayerState.cpp"
+  "src/Player.cpp"
+  "src/StandingPlayerState.cpp"
 )
 
-project ("view")
+project ("player")
 
 add_library (${PROJECT_NAME}
   STATIC
@@ -35,6 +40,8 @@ target_include_directories (${PROJECT_NAME}
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
     sfml-graphics
-    engine
+    sfml-system
+    sfml-window
+    assets
     utility
 )

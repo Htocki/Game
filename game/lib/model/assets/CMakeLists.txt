@@ -1,16 +1,14 @@
 cmake_minimum_required (VERSION 3.15)
 
 set (HEADERS
-  "include/Spaceship.h"
-  "include/Render.h"
+  "include/Assets.h"
 )
 
 set (SOURCES
-  "src/Spaceship.cpp"
-  "src/Render.cpp"
+  "src/Assets.cpp"
 )
 
-project ("view")
+project ("assets")
 
 add_library (${PROJECT_NAME}
   STATIC
@@ -35,6 +33,4 @@ target_include_directories (${PROJECT_NAME}
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
     sfml-graphics
-    engine
-    utility
 )

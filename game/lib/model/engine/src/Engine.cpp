@@ -1,5 +1,7 @@
 #include "Engine.h"
 
+#include "Assets.h"
+
 namespace Game {
 Engine::Engine() {
   Assets::Instance().Load();

@@ -4,7 +4,6 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include "Assets.h"
 #include "Subject.h"
 #include "Player.h"
 

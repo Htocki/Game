@@ -7,8 +7,8 @@ Spaceship::Spaceship() {
   m_sprite.setTexture(Assets::Instance().spaceship);
 }
 
-void Spaceship::Draw(const Player& player, sf::RenderWindow& window) {
+void Spaceship::Draw(const Player& player, Window& window) {
   m_sprite.setPosition(player.GetPosition());
-  window.draw(m_sprite);
+  window.Draw(m_sprite);
 }
 }  // namespace Game

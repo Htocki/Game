@@ -1,8 +1,20 @@
 cmake_minimum_required (VERSION 3.15)
 
-project ("game")
+set (HEADERS
+  "include/Spaceship.h"
+)
 
-add_executable (${PROJECT_NAME} "src/Main.cpp")
+set (SOURCES
+  "src/Spaceship.cpp"
+)
+
+project ("spaceship")
+
+add_library (${PROJECT_NAME}
+  STATIC
+    ${INCLUDE}
+    ${SOURCES}
+)
 
 set_target_properties (${PROJECT_NAME}
   PROPERTIES
@@ -20,16 +32,8 @@ target_include_directories (${PROJECT_NAME}
 
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
-    sfml-window
+    sfml-graphics
     assets
     player
-    spaceship
     window
 )
-
-file (
-  COPY "${CMAKE_SOURCE_DIR}/media" 
-  DESTINATION "${PROJECT_BINARY_DIR}"
-)
-
-add_subdirectory ("lib")

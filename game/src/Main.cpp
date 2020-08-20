@@ -3,21 +3,35 @@
 
 #include <SFML/Window/Event.hpp>
 
-#include "Engine.h"
-#include "Render.h"
+#include "Assets.h"
+#include "Player.h"
+#include "Spaceship.h"
+#include "Window.h"
 
 const sf::Time delay { sf::seconds(1.f / 60.f) };
 
 int main() {
   try {
-    Game::Engine engine;
-    Game::Render view { &engine };
+    Game::Assets::Instance().Load();
 
-    while (engine.IsRuning()) {
+    Game::Window window;
+    Game::Player player;
+    Game::Spaceship spaceship;
+
+    while (window.IsOpen()) {
       sf::Event event;
-      while (engine.PollEvent(event)) {
-        engine.HandleInput(event);
-        engine.Update(delay);
+      while (window.PollEvent(event)) {
+        // Input
+        window.HandleInput(event);
+        player.HandleInput(event);
+        
+        // Updating
+        player.Update(delay);
+        
+        // Output
+        window.Clear();
+        spaceship.Draw(player, window);
+        window.Display();
       }
     }
   } catch (const std::exception& e) {

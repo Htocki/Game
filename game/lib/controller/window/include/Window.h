@@ -4,14 +4,15 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 
+#include "Subject.h"
+
 namespace Game {
-class Window {
+class Window : public Subject {
 public:
   Window();
   void HandleInput(const sf::Event& event);
   bool PollEvent(sf::Event& event);
   bool IsOpen() const;
-  void Clear();
   void Display();
   void Draw(const sf::Drawable& drawable);
 

@@ -1,8 +1,20 @@
 cmake_minimum_required (VERSION 3.18)
 
-project ("game")
+set (HEADERS
+  "include/Position.h"
+)
 
-add_executable (${PROJECT_NAME} "src/Main.cpp")
+project ("position")
+
+add_library (${PROJECT_NAME}
+  STATIC
+    ${HEADERS}
+)
+
+set_target_properties(${PROJECT_NAME}
+  PROPERTIES 
+    LINKER_LANGUAGE CXX
+)
 
 set_target_properties (${PROJECT_NAME}
   PROPERTIES
@@ -17,19 +29,3 @@ target_include_directories (${PROJECT_NAME}
   PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
-
-target_link_libraries (${PROJECT_NAME} 
-  PUBLIC
-    sfml-window
-    assets
-    player
-    spaceship
-    window
-)
-
-file (
-  COPY "${CMAKE_SOURCE_DIR}/media" 
-  DESTINATION "${PROJECT_BINARY_DIR}"
-)
-
-add_subdirectory ("lib")

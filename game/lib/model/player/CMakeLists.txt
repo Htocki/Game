@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.15)
+cmake_minimum_required (VERSION 3.18)
 
 set (HEADERS
   "include/MovingLeftPlayerState.h"
@@ -19,7 +19,7 @@ project ("player")
 
 add_library (${PROJECT_NAME}
   STATIC
-    ${INCLUDE}
+    ${HEADERS}
     ${SOURCES}
 )
 
@@ -42,5 +42,6 @@ target_link_libraries (${PROJECT_NAME}
     sfml-graphics
     sfml-system
     sfml-window
-    utility
+    positioned
+    position
 )

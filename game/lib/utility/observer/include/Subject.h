@@ -8,8 +8,8 @@ namespace Game {
 class Window;
 class Subject {
  public:
-  virtual void Attach(Observer*);
-  virtual void Detach(Observer*);
+  virtual void Attach(Observer* observer);
+  virtual void Detach(Observer* observer);
   virtual void Notify(Window& window);
 
  protected:

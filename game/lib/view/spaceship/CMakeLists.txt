@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.15)
+cmake_minimum_required (VERSION 3.18)
 
 set (HEADERS
   "include/Spaceship.h"
@@ -12,7 +12,7 @@ project ("spaceship")
 
 add_library (${PROJECT_NAME}
   STATIC
-    ${INCLUDE}
+    ${HEADERS}
     ${SOURCES}
 )
 

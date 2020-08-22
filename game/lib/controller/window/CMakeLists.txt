@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.15)
+cmake_minimum_required (VERSION 3.18)
 
 set (HEADERS
   "include/Window.h"
@@ -12,7 +12,7 @@ project ("window")
 
 add_library (${PROJECT_NAME}
   STATIC
-    ${INCLUDE}
+    ${HEADERS}
     ${SOURCES}
 )
 
@@ -34,4 +34,5 @@ target_link_libraries (${PROJECT_NAME}
   PUBLIC
     sfml-graphics
     sfml-window
+    observer
 )

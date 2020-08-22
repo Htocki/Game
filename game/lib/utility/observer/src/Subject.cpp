@@ -2,6 +2,8 @@
 
 #include <algorithm>
 
+#include "Window.h"
+
 namespace Game {
 void Subject::Attach(Observer* observer) {
   m_observers.push_back(observer);
@@ -15,9 +17,9 @@ void Subject::Detach(Observer* observer) {
   m_observers.erase(new_end, m_observers.end());
 }
 
-void Subject::Notify() {
+void Subject::Notify(Window& window) {
   for (auto& observer : m_observers) {
-    observer->Draw();
+    observer->Draw(window);
   }
 }
 }  // namespace Game

@@ -20,11 +20,9 @@ bool Window::IsOpen() const {
   return m_window.isOpen(); 
 }
 
-void Window::Clear() {
-  m_window.clear();
-}
-
 void Window::Display() {
+  m_window.clear();
+  Notify(*this);
   m_window.display();
 }
 

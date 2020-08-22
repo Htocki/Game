@@ -18,6 +18,8 @@ int main() {
     Game::Player player;
     Game::Spaceship spaceship;
 
+    window.Attach(&spaceship);
+
     while (window.IsOpen()) {
       sf::Event event;
       while (window.PollEvent(event)) {
@@ -27,10 +29,9 @@ int main() {
         
         // Updating
         player.Update(delay);
+        spaceship.Update(player);
         
         // Output
-        window.Clear();
-        spaceship.Draw(player, window);
         window.Display();
       }
     }

@@ -1,8 +1,21 @@
 cmake_minimum_required (VERSION 3.18)
 
-project ("game")
+set (HEADERS
+  "include/Subject.h"
+  "include/Observer.h"
+)
 
-add_executable (${PROJECT_NAME} "src/Main.cpp")
+set (SOURCES
+  "src/Subject.cpp"
+)
+
+project ("observer")
+
+add_library (${PROJECT_NAME}
+  STATIC
+    ${HEADERS}
+    ${SOURCES}
+)
 
 set_target_properties (${PROJECT_NAME}
   PROPERTIES
@@ -20,16 +33,5 @@ target_include_directories (${PROJECT_NAME}
 
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
-    sfml-window
-    assets
-    player
-    spaceship
     window
 )
-
-file (
-  COPY "${CMAKE_SOURCE_DIR}/media" 
-  DESTINATION "${PROJECT_BINARY_DIR}"
-)
-
-add_subdirectory ("lib")

@@ -1,14 +1,14 @@
 cmake_minimum_required (VERSION 3.18)
 
 set (HEADERS
-  "include/VSpaceship.h"
+  "include/MSpaceship.h"
 )
 
 set (SOURCES
-  "src/VSpaceship.cpp"
+  "src/MSpaceship.cpp"
 )
 
-project ("spaceship-view")
+project ("spaceship-model")
 
 add_library (${PROJECT_NAME}
   STATIC
@@ -32,9 +32,6 @@ target_include_directories (${PROJECT_NAME}
 
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
-    sfml-graphics
-    assets
-    drawable
-    player
-    window
+    sfml-system
+    positionable
 )

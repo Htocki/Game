@@ -23,7 +23,7 @@ target_link_libraries (${PROJECT_NAME}
     sfml-window
     assets
     player
-    spaceship
+    spaceship-view
     window
 )
 

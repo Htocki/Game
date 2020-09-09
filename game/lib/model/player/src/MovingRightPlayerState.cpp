@@ -31,6 +31,6 @@ std::unique_ptr<PlayerState> MovingRightPlayerState::HandleInput(Player& player,
 }
 
 void MovingRightPlayerState::Update(Player& player, const sf::Time delta_time) {
-  player.MoveRight(player.GetSpeed() * delta_time.asSeconds());
+  player.spaceship.MoveRight(delta_time);
 }
 }  // namespace Game

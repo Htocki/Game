@@ -42,5 +42,5 @@ target_link_libraries (${PROJECT_NAME}
     sfml-graphics
     sfml-system
     sfml-window
-    positionable
+    spaceship-model
 )

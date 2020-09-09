@@ -5,7 +5,7 @@
 
 #include "Assets.h"
 #include "Player.h"
-#include "Spaceship.h"
+#include "VSpaceship.h"
 #include "Window.h"
 
 const sf::Time delay { sf::seconds(1.f / 60.f) };
@@ -13,12 +13,17 @@ const sf::Time delay { sf::seconds(1.f / 60.f) };
 int main() {
   try {
     Game::Assets::Instance().Load();
-
+    
+    // Initialize.
     Game::Window window;
     Game::Player player;
-    Game::Spaceship spaceship;
+    Game::View::Spaceship spaceship_view;
 
-    window.Attach(&spaceship);
+    // Linking the entities of the view and model.
+    spaceship_view.Link(&player.spaceship);
+    
+    // Linking view and window entities.
+    window.Attach(&spaceship_view);
 
     while (window.IsOpen()) {
       sf::Event event;
@@ -27,7 +32,6 @@ int main() {
         player.HandleInput(event);
         
         player.Update(delay);
-        spaceship.Update(player);
         
         window.Display();
       }

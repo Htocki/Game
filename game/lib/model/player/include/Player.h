@@ -6,12 +6,12 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include "Positioned.h"
 #include "PlayerState.h"
 #include "Position.h"
+#include "Positionable.h"
 
 namespace Game {
-class Player : public Positioned {
+class Player : public Positionable {
  public:
   Player();
   Player(Position position, std::string name, float speed);

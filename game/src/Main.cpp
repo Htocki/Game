@@ -23,15 +23,12 @@ int main() {
     while (window.IsOpen()) {
       sf::Event event;
       while (window.PollEvent(event)) {
-        // Input
         window.HandleInput(event);
         player.HandleInput(event);
         
-        // Updating
         player.Update(delay);
         spaceship.Update(player);
         
-        // Output
         window.Display();
       }
     }

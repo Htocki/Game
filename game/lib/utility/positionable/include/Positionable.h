@@ -1,13 +1,14 @@
 #pragma once
 
 #include "Position.h"
+#include "Positionable.h"
 
 namespace Game {
-class Positioned {
+class Positionable {
  public:
-  Positioned();
-  explicit Positioned(Position position);
-  Positioned(float x, float y);
+  Positionable();
+  explicit Positionable(Position position);
+  Positionable(float x, float y);
   
   void SetPosition(Position position);
   void SetPosition(float x, float y);

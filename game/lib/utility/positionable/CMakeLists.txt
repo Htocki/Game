@@ -2,18 +2,19 @@ cmake_minimum_required (VERSION 3.18)
 
 set (HEADERS
   "include/Position.h"
+  "include/Positionable.h"
 )
 
-project ("position")
+set (SOURCES
+  "src/Positionable.cpp"
+)
+
+project ("positionable")
 
 add_library (${PROJECT_NAME}
   STATIC
     ${HEADERS}
-)
-
-set_target_properties(${PROJECT_NAME}
-  PROPERTIES 
-    LINKER_LANGUAGE CXX
+    ${SOURCES}
 )
 
 set_target_properties (${PROJECT_NAME}

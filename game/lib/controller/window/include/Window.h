@@ -4,10 +4,10 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include "Subject.h"
+#include "Drawning.h"
 
 namespace Game {
-class Window : public Subject {
+class Window : public Drawning {
 public:
   Window();
   void HandleInput(const sf::Event& event);

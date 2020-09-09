@@ -3,11 +3,11 @@
 namespace Game {
 class Window;
 
-class Observer {
+class Drawable {
  public:
   virtual void Draw(Window& window) = 0;
 
  protected:
-  Observer() {}
+  Drawable() {}
 };
 }  // namespace Game

@@ -1,15 +1,15 @@
 cmake_minimum_required (VERSION 3.18)
 
 set (HEADERS
-  "include/Subject.h"
-  "include/Observer.h"
+  "include/Drawning.h"
+  "include/Drawable.h"
 )
 
 set (SOURCES
-  "src/Subject.cpp"
+  "src/Drawning.cpp"
 )
 
-project ("observer")
+project ("drawable")
 
 add_library (${PROJECT_NAME}
   STATIC

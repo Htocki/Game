@@ -34,6 +34,7 @@ target_link_libraries (${PROJECT_NAME}
   PUBLIC
     sfml-graphics
     assets
+    drawable
     player
     window
 )

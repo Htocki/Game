@@ -1,2 +1,2 @@
-add_subdirectory ("observer")
+add_subdirectory ("drawable")
 add_subdirectory ("position")

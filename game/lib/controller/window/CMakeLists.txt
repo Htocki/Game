@@ -34,5 +34,5 @@ target_link_libraries (${PROJECT_NAME}
   PUBLIC
     sfml-graphics
     sfml-window
-    observer
+    drawable
 )

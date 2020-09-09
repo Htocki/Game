@@ -2,12 +2,12 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 
-#include "Observer.h"
+#include "Drawable.h"
 #include "Player.h"
 #include "Window.h"
 
 namespace Game {
-class Spaceship : public Observer {
+class Spaceship : public Drawable {
  public:
   Spaceship();
   void Update(const Player& player);

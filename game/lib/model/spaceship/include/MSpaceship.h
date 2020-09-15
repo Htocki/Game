@@ -4,8 +4,7 @@
 
 #include "Positionable.h"
 
-namespace Game {
-namespace Model {
+namespace Game::Model {
 class Spaceship : public Positionable {
  public:
   Spaceship();
@@ -21,5 +20,4 @@ class Spaceship : public Positionable {
  private:
   float m_speed;
 };
-}  // namespace Model
-}  // namespace Game
+}  // namespace Game::Model

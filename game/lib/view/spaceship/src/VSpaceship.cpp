@@ -2,8 +2,7 @@
 
 #include "Assets.h"
 
-namespace Game {
-namespace View {
+namespace Game::View {
 Spaceship::Spaceship() {
   m_sprite.setTexture(Assets::Instance().spaceship);
 }
@@ -22,5 +21,4 @@ void Spaceship::Draw(Window& window) {
   Update();
   window.Draw(m_sprite);
 }
-}  // namespace View
-}  // namespace Game
+}  // namespace Game::View

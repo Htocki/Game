@@ -6,8 +6,7 @@
 #include "Positionable.h"
 #include "Window.h"
 
-namespace Game {
-namespace View {
+namespace Game::View {
 class Spaceship : public Drawable {
  public:
   Spaceship();
@@ -20,5 +19,4 @@ class Spaceship : public Drawable {
   const Positionable* m_positionable;
   sf::Sprite m_sprite;
 };
-}  // namespace View
-}  // namespace Game
+}  // namespace Game::View

@@ -1,7 +1,6 @@
 #include "MSpaceship.h"
 
-namespace Game {
-namespace Model {
+namespace Game::Model {
 Spaceship::Spaceship()
     : m_speed { 0.f }
 {}
@@ -33,5 +32,4 @@ void Spaceship::MoveDown(const sf::Time delta_time) {
   auto distance = m_speed * delta_time.asSeconds();
   m_position.y += distance;
 }
-}  // namespace Model
-}  // namespace Game
+}  // namespace Game::Model

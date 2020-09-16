@@ -4,8 +4,8 @@ namespace Game {
 Player::Player()
     : m_name { "Unnamed" }
 {
-  spaceship.SetPosition(100.f, 100.f);
-  spaceship.SetSpeed(300.f);
+  m_spaceship.SetPosition(100.f, 100.f);
+  m_spaceship.SetSpeed(300.f);
 }
 
 void Player::SetName(std::string name) {
@@ -16,20 +16,24 @@ std::string Player::GetName() const {
   return m_name;
 }
 
+const Model::Spaceship& Player::GetSpaceship() const {
+  return m_spaceship;
+}
+
 void Player::HandleEvent(const sf::Event& event, const sf::Time delta_time) {
   if (event.type == sf::Event::KeyPressed) {
     switch (event.key.code) {
       case sf::Keyboard::Right:
-        spaceship.MoveRight(delta_time);
+        m_spaceship.MoveRight(delta_time);
         break;
       case sf::Keyboard::Left:
-        spaceship.MoveLeft(delta_time);
+        m_spaceship.MoveLeft(delta_time);
         break;
       case sf::Keyboard::Up:
-        spaceship.MoveUp(delta_time);
+        m_spaceship.MoveUp(delta_time);
         break;
       case sf::Keyboard::Down:
-        spaceship.MoveDown(delta_time);
+        m_spaceship.MoveDown(delta_time);
         break;
       default:
         break;

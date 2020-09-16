@@ -6,18 +6,19 @@
 namespace Game {
 class Assets {
  public:
-  static Assets &Instance() {
+  static Assets& Instance() {
     static Assets assets;
     return assets;
   }
-  void Load();
 
-  sf::Font font;
-  sf::Texture spaceship;
+  const sf::Font& GetFont() const;
+  const sf::Texture& GetSpaceshipTexture() const;
 
  private:
-  Assets() {}
-  ~Assets() {}
+  sf::Font m_font;
+  sf::Texture m_spaceship;
+
+  Assets();
   Assets(const Assets &) = delete;
   Assets &operator=(const Assets &) = delete;
 };

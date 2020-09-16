@@ -12,12 +12,10 @@ static const sf::Time delta_time { sf::seconds(1.f / 60.f) };
 
 int main() {
   try {
-    Game::Assets::Instance().Load();
-    
     // Initialize.
     Game::Window window;
     Game::Player player;
-    Game::View::Spaceship spaceship_view { player.spaceship };
+    Game::View::Spaceship spaceship_view { player.GetSpaceship() };
 
     // Linking view and window entities.
     window.Attach(&spaceship_view);

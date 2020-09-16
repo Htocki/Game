@@ -6,7 +6,7 @@ namespace Game::View {
 Spaceship::Spaceship(const Positionable& positionable) 
     : m_positionable { positionable }
 {
-  m_sprite.setTexture(Assets::Instance().spaceship);
+  m_sprite.setTexture(Assets::Instance().GetSpaceshipTexture());
 }
 
 void Spaceship::Update() {

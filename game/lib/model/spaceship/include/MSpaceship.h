@@ -14,7 +14,7 @@ class Spaceship : public Positionable {
 
   void MoveLeft(const sf::Time delta_time);
   void MoveRight(const sf::Time delta_time);
-  void MoveTop(const sf::Time delta_time);
+  void MoveUp(const sf::Time delta_time);
   void MoveDown(const sf::Time delta_time);
 
  private:

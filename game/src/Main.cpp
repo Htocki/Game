@@ -8,7 +8,7 @@
 #include "VSpaceship.h"
 #include "Window.h"
 
-const sf::Time delay { sf::seconds(1.f / 60.f) };
+static const sf::Time delta_time { sf::seconds(1.f / 60.f) };
 
 int main() {
   try {
@@ -26,10 +26,7 @@ int main() {
       sf::Event event;
       while (window.PollEvent(event)) {
         window.HandleInput(event);
-        player.HandleInput(event);
-        
-        player.Update(delay);
-        
+        player.HandleInput(event, delta_time);        
         window.Display();
       }
     }

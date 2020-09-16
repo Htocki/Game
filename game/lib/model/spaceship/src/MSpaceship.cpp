@@ -27,7 +27,7 @@ void Spaceship::MoveRight(const sf::Time delta_time) {
   m_position.x += Distance(m_speed, delta_time);
 }
 
-void Spaceship::MoveTop(const sf::Time delta_time) {
+void Spaceship::MoveUp(const sf::Time delta_time) {
   m_position.y -= Distance(m_speed, delta_time);
 }
 

@@ -1,18 +1,11 @@
 cmake_minimum_required (VERSION 3.18)
 
 set (HEADERS
-  "include/MovingLeftPlayerState.h"
-  "include/MovingRightPlayerState.h"
   "include/Player.h"
-  "include/PlayerState.h"
-  "include/StandingPlayerState.h"
 )
 
 set (SOURCES
-  "src/MovingLeftPlayerState.cpp"
-  "src/MovingRightPlayerState.cpp"
   "src/Player.cpp"
-  "src/StandingPlayerState.cpp"
 )
 
 project ("player")

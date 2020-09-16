@@ -1,7 +1,7 @@
 #include "MSpaceship.h"
 
 namespace {
-  auto Distance(auto speed, auto delta_time) {
+  auto Distance(const auto speed, const auto delta_time) {
     return speed * delta_time.asSeconds();
   }
 } // namespace

@@ -10,7 +10,7 @@ namespace Game {
 class Window : public Drawning {
 public:
   Window();
-  void HandleInput(const sf::Event& event);
+  void HandleEvent(const sf::Event& event);
   bool PollEvent(sf::Event& event);
   bool IsOpen() const;
   void Display();

@@ -25,8 +25,8 @@ int main() {
     while (window.IsOpen()) {
       sf::Event event;
       while (window.PollEvent(event)) {
-        window.HandleInput(event);
-        player.HandleInput(event, delta_time);        
+        window.HandleEvent(event);
+        player.HandleEvent(event, delta_time);        
         window.Display();
       }
     }

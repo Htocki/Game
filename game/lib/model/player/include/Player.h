@@ -16,7 +16,7 @@ class Player {
   void SetName(std::string name);
   std::string GetName() const;
 
-  void HandleInput(const sf::Event& event, const sf::Time delta_time);
+  void HandleEvent(const sf::Event& event, const sf::Time delta_time);
   
   Model::Spaceship spaceship;
 

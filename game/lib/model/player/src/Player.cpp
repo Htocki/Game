@@ -16,7 +16,7 @@ std::string Player::GetName() const {
   return m_name;
 }
 
-void Player::HandleInput(const sf::Event& event, const sf::Time delta_time) {
+void Player::HandleEvent(const sf::Event& event, const sf::Time delta_time) {
   if (event.type == sf::Event::KeyPressed) {
     switch (event.key.code) {
       case sf::Keyboard::Right:

@@ -6,7 +6,7 @@ Window::Window() {
   m_window.setFramerateLimit(60);
 }
 
-void Window::HandleInput(const sf::Event& event) {
+void Window::HandleEvent(const sf::Event& event) {
   if (event.type == sf::Event::Closed) {
     m_window.close();
   }

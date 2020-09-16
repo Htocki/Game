@@ -20,13 +20,13 @@ bool Window::IsOpen() const {
   return m_window.isOpen(); 
 }
 
-void Window::Display() {
+void Window::DrawAllEntities() {
   m_window.clear();
   Notify(this);
   m_window.display();
 }
 
-void Window::Draw(const sf::Drawable& drawable) {
+void Window::DrawEntity(const sf::Drawable& drawable) {
   m_window.draw(drawable);
 }
 }  // namespace Game

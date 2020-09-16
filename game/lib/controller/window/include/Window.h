@@ -13,8 +13,8 @@ public:
   void HandleEvent(const sf::Event& event);
   bool PollEvent(sf::Event* event);
   bool IsOpen() const;
-  void Display();
-  void Draw(const sf::Drawable& drawable);
+  void DrawAllEntities();
+  void DrawEntity(const sf::Drawable& drawable);
 
 private:
   sf::RenderWindow m_window;

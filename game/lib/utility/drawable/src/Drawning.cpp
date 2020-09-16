@@ -19,7 +19,7 @@ void Drawning::Detach(Drawable* drawable) {
 
 void Drawning::Notify(Window* window) {
   for (auto* drawable : m_drawables) {
-    drawable->Draw(window);
+    drawable->DrawOnWindow(window);
   }
 }
 }  // namespace Game

@@ -18,7 +18,7 @@ void Application::Run() {
     while (m_window.PollEvent(&event)) {
       m_window.HandleEvent(event);
       m_player.HandleEvent(event, delta_time);
-      m_window.Display();
+      m_window.DrawAllEntities();
     }
   }
 }

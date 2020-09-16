@@ -1,5 +1,11 @@
 #include "MSpaceship.h"
 
+namespace {
+  auto Distance(auto speed, auto delta_time) {
+    return speed * delta_time.asSeconds();
+  }
+} // namespace
+
 namespace Game::Model {
 Spaceship::Spaceship()
     : m_speed { 0.f }
@@ -14,22 +20,18 @@ float Spaceship::GetSpeed() const {
 }
 
 void Spaceship::MoveLeft(const sf::Time delta_time) {
-  auto distance = m_speed * delta_time.asSeconds();
-  m_position.x -= distance;
+  m_position.x -= Distance(m_speed, delta_time);
 }
 
 void Spaceship::MoveRight(const sf::Time delta_time) {
-  auto distance = m_speed * delta_time.asSeconds();
-  m_position.x += distance;
+  m_position.x += Distance(m_speed, delta_time);
 }
 
 void Spaceship::MoveTop(const sf::Time delta_time) {
-  auto distance = m_speed * delta_time.asSeconds();
-  m_position.y -= distance;
+  m_position.y -= Distance(m_speed, delta_time);
 }
 
 void Spaceship::MoveDown(const sf::Time delta_time) {
-  auto distance = m_speed * delta_time.asSeconds();
-  m_position.y += distance;
+  m_position.y += Distance(m_speed, delta_time);
 }
 }  // namespace Game::Model

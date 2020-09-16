@@ -1,33 +1,12 @@
 #include <exception>
 #include <iostream>
 
-#include <SFML/Window/Event.hpp>
-
-#include "Assets.h"
-#include "Player.h"
-#include "VSpaceship.h"
-#include "Window.h"
-
-static const sf::Time delta_time { sf::seconds(1.f / 60.f) };
+#include "Application.h"
 
 int main() {
   try {
-    // Initialize.
-    Game::Window window;
-    Game::Player player;
-    Game::View::Spaceship spaceship_view { player.GetSpaceship() };
-
-    // Linking view and window entities.
-    window.Attach(&spaceship_view);
-
-    while (window.IsOpen()) {
-      sf::Event event;
-      while (window.PollEvent(event)) {
-        window.HandleEvent(event);
-        player.HandleEvent(event, delta_time);        
-        window.Display();
-      }
-    }
+    Game::Application application;
+    application.Run();
   } catch (const std::exception& e) {
     std::cerr << e.what() << std::endl;
   } catch (...) {

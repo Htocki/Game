@@ -10,7 +10,7 @@ namespace Game::View {
 class Spaceship : public Drawable {
  public:
   Spaceship(const Positionable& positionable);
-  void Draw(Window& window) final;
+  void Draw(Window* window) final;
 
  private:
   void Update();

@@ -15,8 +15,8 @@ void Spaceship::Update() {
     m_positionable.GetPositionY());
 }
 
-void Spaceship::Draw(Window& window) {
+void Spaceship::Draw(Window* window) {
   Update();
-  window.Draw(m_sprite);
+  window->Draw(m_sprite);
 }
 }  // namespace Game::View

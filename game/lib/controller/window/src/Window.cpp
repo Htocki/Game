@@ -12,8 +12,8 @@ void Window::HandleEvent(const sf::Event& event) {
   }
 }
 
-bool Window::PollEvent(sf::Event& event) {
-  return m_window.pollEvent(event);
+bool Window::PollEvent(sf::Event* event) {
+  return m_window.pollEvent(*event);
 }
 
 bool Window::IsOpen() const { 
@@ -22,7 +22,7 @@ bool Window::IsOpen() const {
 
 void Window::Display() {
   m_window.clear();
-  Notify(*this);
+  Notify(this);
   m_window.display();
 }
 

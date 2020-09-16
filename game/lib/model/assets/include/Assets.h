@@ -19,7 +19,7 @@ class Assets {
   sf::Texture m_spaceship;
 
   Assets();
-  Assets(const Assets &) = delete;
-  Assets &operator=(const Assets &) = delete;
+  Assets(const Assets&) = delete;
+  Assets &operator=(const Assets&) = delete;
 };
 }  // namespace Game

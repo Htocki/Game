@@ -11,7 +11,7 @@ class Window : public Drawning {
 public:
   Window();
   void HandleEvent(const sf::Event& event);
-  bool PollEvent(sf::Event& event);
+  bool PollEvent(sf::Event* event);
   bool IsOpen() const;
   void Display();
   void Draw(const sf::Drawable& drawable);

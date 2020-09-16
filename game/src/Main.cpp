@@ -17,11 +17,8 @@ int main() {
     // Initialize.
     Game::Window window;
     Game::Player player;
-    Game::View::Spaceship spaceship_view;
+    Game::View::Spaceship spaceship_view { player.spaceship };
 
-    // Linking the entities of the view and model.
-    spaceship_view.Link(&player.spaceship);
-    
     // Linking view and window entities.
     window.Attach(&spaceship_view);
 

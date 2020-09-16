@@ -9,14 +9,13 @@
 namespace Game::View {
 class Spaceship : public Drawable {
  public:
-  Spaceship();
-  void Link(const Positionable* positionable);
+  Spaceship(const Positionable& positionable);
   void Draw(Window& window) final;
 
  private:
   void Update();
 
-  const Positionable* m_positionable;
+  const Positionable& m_positionable;
   sf::Sprite m_sprite;
 };
 }  // namespace Game::View

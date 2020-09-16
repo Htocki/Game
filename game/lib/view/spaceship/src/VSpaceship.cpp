@@ -3,18 +3,16 @@
 #include "Assets.h"
 
 namespace Game::View {
-Spaceship::Spaceship() {
+Spaceship::Spaceship(const Positionable& positionable) 
+    : m_positionable { positionable }
+{
   m_sprite.setTexture(Assets::Instance().spaceship);
-}
-
-void Spaceship::Link(const Positionable* positionable) {
-  m_positionable = positionable;
 }
 
 void Spaceship::Update() {
   m_sprite.setPosition(
-    m_positionable->GetPositionX(), 
-    m_positionable->GetPositionY());
+    m_positionable.GetPositionX(), 
+    m_positionable.GetPositionY());
 }
 
 void Spaceship::Draw(Window& window) {

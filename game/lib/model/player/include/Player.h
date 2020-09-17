@@ -3,7 +3,6 @@
 #include <string>
 #include <utility>
 
-#include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 
 #include "MSpaceship.h"
@@ -17,7 +16,7 @@ class Player {
   std::string GetName() const;
   const Model::Spaceship& GetSpaceship() const;
 
-  void HandleEvent(const sf::Event& event, const sf::Time delta_time);
+  void HandleEvent(const sf::Event& event);
   
  private:
   Model::Spaceship m_spaceship;

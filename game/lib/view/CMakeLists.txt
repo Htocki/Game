@@ -1,2 +1,2 @@
-add_subdirectory ("spaceship")
 add_subdirectory ("assets")
+add_subdirectory ("spaceship")

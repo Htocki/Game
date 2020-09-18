@@ -1,11 +1,12 @@
 #pragma once
 
+#include "EventHandlerKeeper.h"
 #include "Player.h"
 #include "VSpaceship.h"
 #include "Window.h"
 
 namespace Game {
-class Application {
+class Application : public EventHandlerKeeper {
  public:
   Application();
   void Run();

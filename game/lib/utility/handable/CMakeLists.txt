@@ -1,14 +1,15 @@
 cmake_minimum_required (VERSION 3.18)
 
 set (HEADERS
-  "include/Player.h"
+  "include/EventHandler.h"
+  "include/EventHandlerKeeper.h"
 )
 
 set (SOURCES
-  "src/Player.cpp"
+  "src/EventHandlerKeeper.cpp"
 )
 
-project ("player")
+project ("handable")
 
 add_library (${PROJECT_NAME}
   STATIC
@@ -33,6 +34,4 @@ target_include_directories (${PROJECT_NAME}
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
     sfml-window
-    handable
-    spaceship-model
 )

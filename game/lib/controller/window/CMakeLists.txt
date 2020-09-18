@@ -35,4 +35,5 @@ target_link_libraries (${PROJECT_NAME}
     sfml-graphics
     sfml-window
     drawable
+    handable
 )

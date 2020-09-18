@@ -5,12 +5,13 @@
 #include <SFML/Window/Event.hpp>
 
 #include "Drawning.h"
+#include "EventHandler.h"
 
 namespace Game {
-class Window : public Drawning {
+class Window : public Drawning, public EventHandler {
 public:
   Window();
-  void HandleEvent(const sf::Event& event);
+  void HandleEvent(const sf::Event& event) final;
   bool PollEvent(sf::Event* event);
   bool IsOpen() const;
   void DrawAllEntities();

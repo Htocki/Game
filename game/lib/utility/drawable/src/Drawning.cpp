@@ -17,7 +17,7 @@ void Drawning::Detach(Drawable* drawable) {
   m_drawables.erase(new_end, m_drawables.end());
 }
 
-void Drawning::Notify(Window* window) {
+void Drawning::NotifyDrawables(Window* window) {
   for (auto* drawable : m_drawables) {
     drawable->DrawOnWindow(window);
   }

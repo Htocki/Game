@@ -1,14 +1,14 @@
 #pragma once
 
 #include <string>
-#include <utility>
 
 #include <SFML/Window/Event.hpp>
 
+#include "EventHandler.h"
 #include "MSpaceship.h"
 
 namespace Game {
-class Player {
+class Player : public EventHandler {
  public:
   Player();
 
@@ -16,7 +16,7 @@ class Player {
   std::string GetName() const;
   const Model::Spaceship& GetSpaceship() const;
 
-  void HandleEvent(const sf::Event& event);
+  void HandleEvent(const sf::Event& event) final;
   
  private:
   Model::Spaceship m_spaceship;

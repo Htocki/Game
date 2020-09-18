@@ -9,14 +9,15 @@ Application::Application()
     : m_spaceship_view { m_player.GetSpaceship() }
 {
   m_window.Attach(&m_spaceship_view);
+  Attach(&m_window);
+  Attach(&m_player);
 }
 
 void Application::Run() {
   while (m_window.IsOpen()) {
     sf::Event event;
     while (m_window.PollEvent(&event)) {
-      m_window.HandleEvent(event);
-      m_player.HandleEvent(event);
+      NotifyEventHandlers(event);
       m_window.DrawAllEntities();
     }
   }

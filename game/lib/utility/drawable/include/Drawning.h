@@ -10,7 +10,7 @@ class Drawning {
  public:
   virtual void Attach(Drawable* drawable);
   virtual void Detach(Drawable* drawable);
-  virtual void Notify(Window* window);
+  virtual void NotifyDrawables(Window* window);
 
  protected:
   Drawning() {}

@@ -22,7 +22,7 @@ bool Window::IsOpen() const {
 
 void Window::DrawAllEntities() {
   m_window.clear();
-  Notify(this);
+  NotifyDrawables(this);
   m_window.display();
 }
 

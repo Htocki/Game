@@ -6,8 +6,9 @@
 
 #include "EventHandler.h"
 
-namespace Game {
 class sf::Event;
+
+namespace Game {
 class EventHandlerKeeper {
  public:
   virtual void Attach(EventHandler* event_handler);

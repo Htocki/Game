@@ -19,7 +19,7 @@ class Positionable {
   float GetPositionX() const;
   float GetPositionY() const;
 
- protected:
+ private:
   Position m_position;
 };
 }  // namespace Game

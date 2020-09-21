@@ -6,7 +6,7 @@
 namespace Game {
 class Assets {
  public:
-  static Assets& Instance() {
+  static const Assets& Instance() {
     static Assets assets;
     return assets;
   }

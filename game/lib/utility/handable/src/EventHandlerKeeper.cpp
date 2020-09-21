@@ -18,7 +18,7 @@ void EventHandlerKeeper::Detach(EventHandler* event_handler) {
 }
 
 void EventHandlerKeeper::NotifyEventHandlers(const sf::Event& event) {
-  for (const auto& event_handler : m_event_handlers) {
+  for (auto* event_handler : m_event_handlers) {
     event_handler->HandleEvent(event);
   }
 }

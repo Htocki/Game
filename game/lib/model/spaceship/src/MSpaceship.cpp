@@ -16,18 +16,18 @@ float Spaceship::GetSpeed() const {
 }
 
 void Spaceship::MoveLeft() {
-  m_position.x -= m_speed;
+  SetPositionX(GetPositionX() - m_speed);
 }
 
 void Spaceship::MoveRight() {
-  m_position.x += m_speed;
+  SetPositionX(GetPositionX() + m_speed);
 }
 
 void Spaceship::MoveUp() {
-  m_position.y -= m_speed;
+  SetPositionY(GetPositionY() - m_speed);
 }
 
 void Spaceship::MoveDown() {
-  m_position.y += m_speed;
+  SetPositionY(GetPositionY() + m_speed);
 }
 }  // namespace Game::Model

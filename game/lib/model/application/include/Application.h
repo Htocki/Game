@@ -6,7 +6,7 @@
 #include "Window.h"
 
 namespace Game {
-class Application : public EventHandlerKeeper {
+class Application : private EventHandlerKeeper {
  public:
   Application();
   void Run();

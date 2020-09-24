@@ -1,3 +1,5 @@
-﻿## Windows
-.vs
+﻿build
 out
+CMakeLists.txt.user
+.vs
+.vscode

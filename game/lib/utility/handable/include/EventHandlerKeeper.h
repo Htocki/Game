@@ -6,8 +6,6 @@
 
 #include "EventHandler.h"
 
-class sf::Event;
-
 namespace Game {
 class EventHandlerKeeper {
  public:

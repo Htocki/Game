@@ -63,4 +63,3 @@ if (NOT sfml_POPULATED)
 endif ()
 
 add_subdirectory ("game")
-

@@ -37,3 +37,5 @@ target_link_libraries (${PROJECT_NAME}
     drawable
     handable
 )
+
+add_subdirectory ("test")

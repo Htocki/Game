@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Position.h"
-#include "Positionable.h"
 
 namespace Game {
 class Positionable {

@@ -35,3 +35,5 @@ target_link_libraries (${PROJECT_NAME}
   PUBLIC
     sfml-window
 )
+
+add_subdirectory ("test")

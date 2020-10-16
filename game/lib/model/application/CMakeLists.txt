@@ -38,3 +38,5 @@ target_link_libraries (${PROJECT_NAME}
     spaceship-view
     window
 )
+
+add_subdirectory ("test")

@@ -38,3 +38,5 @@ target_link_libraries (${PROJECT_NAME}
     player
     window
 )
+
+add_subdirectory ("test")

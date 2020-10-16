@@ -1,6 +1,6 @@
 #pragma once
 
-class sf::Event;
+#include <SFML/Window/Event.hpp>
 
 namespace Game {
 class EventHandler {

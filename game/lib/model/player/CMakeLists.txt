@@ -36,3 +36,5 @@ target_link_libraries (${PROJECT_NAME}
     handable
     spaceship-model
 )
+
+add_subdirectory ("test")

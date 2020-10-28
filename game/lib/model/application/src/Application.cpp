@@ -14,12 +14,11 @@ Application::Application()
 }
 
 void Application::Run() {
+  sf::Event event;
   while (m_window.IsOpen()) {
-    sf::Event event;
-    while (m_window.PollEvent(&event)) {
-      NotifyEventHandlers(event);
-      m_window.DrawAllEntities();
-    }
+    m_window.PollEvent(&event);
+    NotifyEventHandlers(event);
+    m_window.DrawAllEntities();
   }
 }
 }  // namespace Game

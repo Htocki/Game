@@ -1,8 +1,11 @@
 #include "Window.h"
 
 namespace Game {
-Window::Window() {
-  m_window.create(sf::VideoMode(600, 600), "Name");
+Window::Window(sf::Vector2u size, sf::String title) 
+    : m_width { size.x }
+    , m_height { size.y }
+{
+  m_window.create(sf::VideoMode(m_width, m_height), title);
   m_window.setFramerateLimit(60);
 }
 
@@ -20,13 +23,27 @@ bool Window::IsOpen() const {
   return m_window.isOpen(); 
 }
 
-void Window::DrawAllEntities() {
+void Window::Clear() {
   m_window.clear();
-  NotifyDrawables(this);
+}
+
+void Window::Draw(const sf::Drawable& drawable) {
+  m_window.draw(drawable);
+}
+
+void Window::Display() {
   m_window.display();
 }
 
-void Window::DrawEntity(const sf::Drawable& drawable) {
-  m_window.draw(drawable);
+sf::Vector2f Window::MapPixelToCoords(sf::Vector2i window_pos) {
+  return m_window.mapPixelToCoords(window_pos);
+}
+
+const sf::RenderWindow& Window::Get() const {
+  return m_window;
+}
+
+sf::Vector2u Window::GetSize() const {
+  return m_window.getSize();
 }
 }  // namespace Game

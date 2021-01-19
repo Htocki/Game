@@ -1,12 +1,11 @@
 #include "Positionable.h"
 
 namespace Game {
-Positionable::Positionable() {
-  m_position.x = 0.f;
-  m_position.y = 0.f;
-}
+Positionable::Positionable() 
+    : m_position { 0, 0 }
+{}
 
-Positionable::Positionable(Position position)
+Positionable::Positionable(sf::Vector2f position)
     : m_position { position }
 {}
 
@@ -15,7 +14,7 @@ Positionable::Positionable(float x, float y) {
   m_position.y = y;
 }
 
-void Positionable::SetPosition(Position position) {
+void Positionable::SetPosition(sf::Vector2f position) {
   m_position = position;
 }
 
@@ -32,7 +31,7 @@ void Positionable::SetPositionY(float y) {
   m_position.y = y;
 }
 
-Position Positionable::GetPosition() const {
+sf::Vector2f Positionable::GetPosition() const {
   return m_position;
 }
 

@@ -2,19 +2,17 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 
-#include "Drawable.h"
 #include "Positionable.h"
 #include "Window.h"
 
 namespace Game::View {
-class Spaceship : public Drawable {
+class Spaceship {
  public:
-  Spaceship(const Positionable& positionable);
-  void DrawOnWindow(Window* window) final;
+  Spaceship(Window* window, const Positionable& positionable);
+  void Draw();
 
  private:
-  void Update();
-
+  Window* m_window;
   const Positionable& m_positionable;
   sf::Sprite m_sprite;
 };

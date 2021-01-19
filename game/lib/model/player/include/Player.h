@@ -4,11 +4,10 @@
 
 #include <SFML/Window/Event.hpp>
 
-#include "EventHandler.h"
 #include "MSpaceship.h"
 
 namespace Game {
-class Player : public EventHandler {
+class Player {
  public:
   Player();
 
@@ -16,7 +15,7 @@ class Player : public EventHandler {
   std::string GetName() const;
   const Model::Spaceship& GetSpaceship() const;
 
-  void HandleEvent(const sf::Event& event) final;
+  void HandleEvent(const sf::Event& event);
   
  private:
   Model::Spaceship m_spaceship;

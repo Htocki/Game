@@ -1,15 +1,14 @@
 cmake_minimum_required (VERSION 3.18)
 
 set (HEADERS
-  "include/Drawning.h"
-  "include/Drawable.h"
+  "include/Button.h"
 )
 
 set (SOURCES
-  "src/Drawning.cpp"
+  "src/Button.cpp"
 )
 
-project ("drawable")
+project ("button")
 
 add_library (${PROJECT_NAME}
   STATIC
@@ -33,5 +32,9 @@ target_include_directories (${PROJECT_NAME}
 
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
+    text
+    sfml-graphics
+    sfml-system
+    sfml-window
     window
 )

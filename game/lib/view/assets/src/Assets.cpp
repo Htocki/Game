@@ -24,5 +24,4 @@ const sf::Font& Assets::GetFont() const {
 const sf::Texture& Assets::GetSpaceshipTexture() const {
   return m_spaceship;
 }
-
 }  // namespace Game

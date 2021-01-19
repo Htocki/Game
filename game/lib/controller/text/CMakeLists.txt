@@ -1,15 +1,14 @@
 cmake_minimum_required (VERSION 3.18)
 
 set (HEADERS
-  "include/EventHandler.h"
-  "include/EventHandlerKeeper.h"
+  "include/Text.h"
 )
 
 set (SOURCES
-  "src/EventHandlerKeeper.cpp"
+  "src/Text.cpp"
 )
 
-project ("handable")
+project ("text")
 
 add_library (${PROJECT_NAME}
   STATIC
@@ -33,5 +32,7 @@ target_include_directories (${PROJECT_NAME}
 
 target_link_libraries (${PROJECT_NAME} 
   PUBLIC
-    sfml-window
+    sfml-graphics
+    sfml-system
+    window
 )

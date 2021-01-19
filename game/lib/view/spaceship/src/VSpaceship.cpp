@@ -3,20 +3,17 @@
 #include "Assets.h"
 
 namespace Game::View {
-Spaceship::Spaceship(const Positionable& positionable) 
-    : m_positionable { positionable }
+Spaceship::Spaceship(Window* window, const Positionable& positionable) 
+    : m_window { window }
+    , m_positionable { positionable }
 {
   m_sprite.setTexture(Assets::Instance().GetSpaceshipTexture());
 }
 
-void Spaceship::Update() {
+void Spaceship::Draw() {
   m_sprite.setPosition(
     m_positionable.GetPositionX(), 
     m_positionable.GetPositionY());
-}
-
-void Spaceship::DrawOnWindow(Window* window) {
-  Update();
-  window->DrawEntity(m_sprite);
+  m_window->Draw(m_sprite);
 }
 }  // namespace Game::View
